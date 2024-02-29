@@ -8,8 +8,20 @@ git diff --exit-code --quiet ||
     git diff --cached --exit-code --quiet ||
     exit 1
 
-git push --quiet &
+# Push changes to server while we rebuild the system, reporting success
+git push --quiet &> /dev/null && (
+    echo &&
+    echo "=================" &&
+    echo " PUSH SUCCEEDED! " &&
+    echo "=================" ) || (
+    echo &&
+    echo "==============" &&
+    echo " PUSH FAILED! " &&
+    echo "==============" ) & 
 
-sudo su
-rsync -ah --delete /home/jadelynnmasker/nixos/ /etc/nixos/ &&
-nixos-rebuild switch
+# Rebuild system
+sudo rsync -ah --delete /home/jadelynnmasker/nixos/ /etc/nixos/ &&
+sudo nixos-rebuild switch
+
+# Make sure push finishes
+fg &> /dev/null
