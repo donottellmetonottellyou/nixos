@@ -267,7 +267,7 @@ in
         ];
       })
       # C/C++
-      clang-tools # needed for rust linker as well
+      clang-tools_17 # needed for rust linker as well
       cppcheck
       # CSharp
       dotnet-sdk_8
