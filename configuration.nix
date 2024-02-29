@@ -144,6 +144,16 @@ in
     config.init.defaultBranch = "main";
   };
 
+  # Improve bash command history search
+  programs.bash = {
+    enable = true;
+    interactiveShellInit = ''
+      # Bind up and down arrow keys for history search
+      bind '"\e[A": history-search-backward'
+      bind '"\e[B": history-search-forward'
+    '';
+  };
+
   # Main user
   users.users.jadelynnmasker = {
     isNormalUser = true;
