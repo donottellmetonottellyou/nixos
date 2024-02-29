@@ -164,6 +164,23 @@ in
       userName = "Jade Lynn Masker";
       userEmail = "donottellmetonottellyou@gmail.com";
       extraConfig = {
+        # Editor/pager
+        core = {
+          editor = "code --wait";
+          pager = "less -F -X";
+        };
+
+        # Diff/merge tools
+        diff.tool = "vscode";
+        difftool.vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
+        merge.tool = "vscode";
+        mergetool = {
+          prompt = false;
+          vscode.cmd = "code --wait $MERGED";
+        };
+
+
+        # Signing
         user.signingKey = "BDA496D2B8AFE0B087AC49B60EFCE08AB6147F98";
         commit.gpgSign = true;
         push.gpgSign = "if-asked";
@@ -253,6 +270,7 @@ in
       # Chat
       discord
       slack
+      zoom-us
     ];
 
     home.stateVersion = "23.11";
