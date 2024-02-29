@@ -251,6 +251,13 @@ in
             sha256 = "lS9LhYZRvdatNVis9kjstBn3iY5AQy0KUscoPvBIdXs=";
             sourceRoot = "./extension";
           }
+          # Markdown
+          {
+            name = "markdown-preview-github-styles";
+            publisher = "bierner";
+            version = "2.0.3";
+            sha256 = "yuF6TJSv0V2OvkBwqwAQKRcHCAXNL+NW8Q3s+dMFnLY=";
+          }
           # Rust
           {
             name = "rust-analyzer";
