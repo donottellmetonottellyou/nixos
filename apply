@@ -1,5 +1,5 @@
 #!/bin/sh
 
 git add . && git commit
-sudo sh -c "rsync -avh --progress /home/jadelynnmasker/nixos/ /etc/nixos/ &&
+sudo sh -c "rsync -ah --progress /home/jadelynnmasker/nixos/ /etc/nixos/ &&
     nixos-rebuild switch"
