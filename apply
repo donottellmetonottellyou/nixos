@@ -1,5 +1,15 @@
 #!/bin/sh
 
-git add . && git commit
-sudo sh -c "rsync -ah --delete /home/jadelynnmasker/nixos/ /etc/nixos/ &&
-    nixos-rebuild switch"
+# Stage and commit changes
+git add -A && git commit
+
+# Make sure all changes are applied
+git diff --exit-code --quiet ||
+    git diff --cached --exit-code --quiet ||
+    exit 1
+
+git push --quiet &
+
+sudo su
+rsync -ah --delete /home/jadelynnmasker/nixos/ /etc/nixos/ &&
+nixos-rebuild switch
