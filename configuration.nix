@@ -146,7 +146,6 @@ in
 
   # Improve bash command history search
   programs.bash = {
-    enable = true;
     interactiveShellInit = ''
       # Bind up and down arrow keys for history search
       bind '"\e[A": history-search-backward'
