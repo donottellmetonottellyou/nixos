@@ -122,26 +122,55 @@ in
     #media-session.enable = true;
   };
 
-  # =======
-  #  USERS
-  # =======
+  # ====================
+  #  SYSTEM MAINTENANCE
+  # ====================
 
-  # Install in /etc/profiles instead of $HOME/.nix-profile
-  home-manager.useUserPackages = true;
+  # Garbage collection and optimization
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "15:00";
+      options = "--delete-older-than 30d";
+      randomizedDelaySec = "1h";
+    };
+    settings = {
+      auto-optimise-store = true;
+      max-jobs = 2;
+    };
+  };
 
-  # Use global pkgs
-  home-manager.useGlobalPkgs = true;
+  # Auto update
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+    channel = "https://nixos.org/channels/nixos-${channel}";
+    dates = "3:00";
+    randomizedDelaySec = "1h";
+  };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # =================
+  #  GLOBAL PACKAGES
+  # =================
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Steam configuration
   programs.steam = {
     enable = true;
     # localNetworkGameTransfers.openFirewall = true; # future config
-  };
-
-  # Default git configuration
-  programs.git = {
-    enable = true;
-    config.init.defaultBranch = "main";
   };
 
   # Improve bash command history search
@@ -152,6 +181,49 @@ in
       bind '"\e[B": history-search-forward'
     '';
   };
+
+  # Default git configuration
+  programs.git = {
+    enable = true;
+    config.init.defaultBranch = "main";
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    # GNOME extensions
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.tray-icons-reloaded
+    # Default Browser
+    firefox
+    # Office suite
+    libreoffice
+    # General programming tools
+    fastfetch
+    micro
+    neovim
+    fira-code
+    git
+  ];
+
+
+  # =======
+  #  USERS
+  # =======
+
+  # Install in /etc/profiles instead of $HOME/.nix-profile
+  home-manager.useUserPackages = true;
+
+  # Use global pkgs
+  home-manager.useGlobalPkgs = true;
 
   # Main user
   users.users.jadelynnmasker = {
@@ -301,77 +373,6 @@ in
 
     home.stateVersion = "23.11";
   };
-
-  # =================
-  #  GLOBAL PACKAGES
-  # =================
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # GNOME extensions
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.tray-icons-reloaded
-    # Default Browser
-    firefox
-    # Office suite
-    libreoffice
-    # General programming tools
-    fastfetch
-    micro
-    neovim
-    fira-code
-    git
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # ====================
-  #  SYSTEM MAINTENANCE
-  # ====================
-
-  # Garbage collection and optimization
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "15:00";
-      options = "--delete-older-than 30d";
-      randomizedDelaySec = "1h";
-    };
-    settings = {
-      auto-optimise-store = true;
-      max-jobs = 2;
-    };
-  };
-
-  # Auto update
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = true;
-    channel = "https://nixos.org/channels/nixos-${channel}";
-    dates = "3:00";
-    randomizedDelaySec = "1h";
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
