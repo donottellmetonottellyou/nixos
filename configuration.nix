@@ -294,6 +294,9 @@ in
       discord
       slack
       zoom-us
+      # Games
+      itch
+      prismlauncher
     ];
 
     home.stateVersion = "23.11";
