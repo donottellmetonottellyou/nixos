@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -euo pipefail
+PATH="$PATH:./bin"
+
+_update-shas &&
+    apply ||
+    exit 1

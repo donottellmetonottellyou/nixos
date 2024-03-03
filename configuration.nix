@@ -6,9 +6,14 @@
 let
   # Central source of truth for system version
   channel = "23.11";
-  # Declaratively set home-manager
+  # Declaratively set home-manager and nixpkgs versions
+  nixpkgs-source = builtins.fetchTarball {
+    url = "https://nixos.org/channels/nixos-${channel}/nixexprs.tar.xz";
+    sha256 = "0g9iwm08w46s99yskvyy97v5cm971b5qv43xfr4b7yq92pp0m0zg";
+  };
   home-manager = builtins.fetchTarball {
     url = "https://github.com/nix-community/home-manager/archive/release-${channel}.tar.gz";
+    sha256 = "0562y8awclss9k4wk3l4akw0bymns14sfy2q9n23j27m68ywpdkh";
   };
 in
 {
@@ -19,7 +24,7 @@ in
 
   # Declaratively set nixpkgs
   nix.nixPath = [
-    "nixpkgs=https://nixos.org/channels/nixos-${channel}/nixexprs.tar.xz"
+    "nixpkgs=${nixpkgs-source}"
     "nixos-config=/etc/nixos/configuration.nix"
   ];
 
@@ -130,7 +135,7 @@ in
   nix = {
     gc = {
       automatic = true;
-      dates = "15:00";
+      dates = "3:00";
       options = "--delete-older-than 30d";
       randomizedDelaySec = "1h";
     };
@@ -140,16 +145,21 @@ in
     };
   };
 
-  # Auto update
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = true;
-    channel = "https://nixos.org/channels/nixos-${channel}";
-    dates = "3:00";
-    randomizedDelaySec = "1h";
-  };
+  # Auto update (disabled)
+  # systemd.services.autoupdate = {
+  #   description = "Autoupdate service";
+  #   script = "cd /etc/nixos && ./bin/autoupdate";
+  #   serviceConfig.Type = "oneshot";
+  # };
+  # systemd.services.autoupdateTimer = {
+  #   description = "Autoupdate timer";
+  #   wantedBy = [ "timers.target" ];
+  #   timerConfig.OnCalendar = "03:30";
+  # };
 
-  # List services that you want to enable:
+  # =================
+  #  GLOBAL PACKAGES
+  # =================
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -160,12 +170,14 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # =================
-  #  GLOBAL PACKAGES
-  # =================
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Mumble chat server
+  services.murmur = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # Steam configuration
   programs.steam = {
@@ -225,7 +237,7 @@ in
   # Use global pkgs
   home-manager.useGlobalPkgs = true;
 
-  # Main user
+  # MAIN USER
   users.users.jadelynnmasker = {
     isNormalUser = true;
     description = "Jade Lynn Masker";
@@ -270,8 +282,6 @@ in
     };
 
     home.packages = with pkgs; [
-      # Personal web browser
-      google-chrome
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
@@ -298,30 +308,10 @@ in
           }
           # CSharp
           {
-            name = "csdevkit";
-            publisher = "ms-dotnettools";
-            version = "1.4.6";
-            sha256 = "dCUXShS2LTr3OMIkXQX636S1W8DWw5j8ztzyKo7QBZM=";
-            sourceRoot = "./extension";
-          }
-          {
             name = "csharp";
             publisher = "ms-dotnettools";
             version = "2.19.13";
             sha256 = "0SkAo93ahCMbWSo6CrnRN6fzKrqMkFURmuBjIqnxh9s=";
-          }
-          {
-            name = "vscode-dotnet-runtime";
-            publisher = "ms-dotnettools";
-            version = "2.0.2";
-            sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
-          }
-          {
-            name = "vscodeintellicode-csharp";
-            publisher = "ms-dotnettools";
-            version = "0.1.26";
-            sha256 = "lS9LhYZRvdatNVis9kjstBn3iY5AQy0KUscoPvBIdXs=";
-            sourceRoot = "./extension";
           }
           # Markdown
           {
@@ -330,12 +320,18 @@ in
             version = "2.0.3";
             sha256 = "yuF6TJSv0V2OvkBwqwAQKRcHCAXNL+NW8Q3s+dMFnLY=";
           }
+          {
+            name = "rewrap";
+            publisher = "stkb";
+            version = "17.8.0";
+            sha256 = "9t1lpVbpcmhLamN/0ZWNEWD812S6tXG6aK3/ALJCJvg=";
+          }
           # Rust
           {
             name = "rust-analyzer";
             publisher = "rust-lang";
             version = "0.4.1861";
-            sha256 = "BYlhfl2mMC8hqwTe3dMcRfYLJEZAW7fGwT3tzgbDJBU=";
+            sha256 = "VC63pqsOhvXktJEXt0Pnbpw/OROSzRLVNn0SL76VXIg=";
           }
           {
             name = "crates";
@@ -351,6 +347,8 @@ in
           }
         ];
       })
+      # Personal web browser
+      google-chrome
       # C/C++
       clang_17
       clang-tools_17
@@ -364,6 +362,7 @@ in
       rustup
       # Chat
       discord
+      mumble
       slack
       zoom-us
       # Games

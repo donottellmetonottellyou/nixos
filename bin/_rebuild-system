@@ -1,0 +1,12 @@
+#!/bin/sh
+set -euo pipefail
+
+echo "Rebuilding the NixOS system configuration"
+current_dir="$(pwd)"
+echo "$current_dir"
+if sudo rsync -ah --delete "$current_dir/" /etc/nixos/; then
+    sudo nixos-rebuild switch
+else
+    echo "NixOS rebuild failed."
+    exit 1
+fi

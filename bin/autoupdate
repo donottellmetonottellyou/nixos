@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -euo pipefail
+PATH="$PATH:./bin"
+
+mainuser="$(
+    grep -A 1 "# MAIN USER" configuration.nix |
+    grep "users.users" |
+    awk -F'[. ]' '{print $5}'
+)"
+
+if [ -z "$mainuser" ]; then
+    echo "Main user not found"
+    exit 1
+done
+
+_update-shas  &&
+    sudo rsync -ah --delete /etc/nixos "/home/$mainuser/nixos" &&
+    _rebuild-system ||
+    exit 1
