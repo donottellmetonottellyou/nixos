@@ -34,10 +34,7 @@ echo "Fetching new sha256 sums..."
 fetch_new_sha() {
     local url=$1
     local sha
-    sha=$(
-        curl -s "$url" |
-        awk '/"sha":/ { gsub(/"/, "", $2); gsub(/,/, "", $2); print $2; exit; }'
-    )
+    sha=$(nix-prefetch-url "$url" 2>/dev/null)
     if [ -z "$sha" ]; then
         echo "Error: Failed to fetch new sha256 sum for $url."
         exit 1
@@ -45,8 +42,8 @@ fetch_new_sha() {
     echo "$sha"
 }
 
-new_nixpkgs_sha=$(fetch_new_sha "https://api.github.com/repos/NixOS/nixpkgs/commits?sha=nixos-$channel")
-new_homemanager_sha=$(fetch_new_sha "https://api.github.com/repos/nix-community/home-manager/commits?sha=release-$channel")
+new_nixpkgs_sha=$(fetch_new_sha "https://nixos.org/channels/nixos-$channel/nixexprs.tar.xz")
+new_homemanager_sha=$(fetch_new_sha "https://github.com/nix-community/home-manager/archive/release-$channel.tar.gz")
 
 echo "New sha256 sums:"
 echo "nixpkgs sha256: $new_nixpkgs_sha"
@@ -75,3 +72,12 @@ if [ "$new_file_nixpkgs_sha" != "$new_nixpkgs_sha" ] || [ "$new_file_homemanager
 fi
 
 echo "Successfully replaced old sha256 sums with new ones."
+
+echo
+echo "Running apply..."
+if apply; then
+    echo "Apply script executed successfully."
+else
+    echo "Error: Apply script execution failed."
+    exit 1
+fi
