@@ -4,9 +4,9 @@ PATH="$PATH:./bin"
 
 # Check for uncommitted changes
 if ! git diff --quiet; then
-    git add -A
-    git commit -m "Automatic commit"
-    git push --quiet
+    git add -A &&
+        git commit &&
+        git push --quiet
 else
     echo "No changes to commit."
 fi

@@ -211,7 +211,8 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # GNOME extensions
+    # GNOME
+    gnome.gnome-tweaks
     gnomeExtensions.tiling-assistant
     gnomeExtensions.tray-icons-reloaded
     # Default Browser
