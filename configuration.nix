@@ -9,11 +9,11 @@ let
   # Declaratively set home-manager and nixpkgs versions
   nixpkgs-source = builtins.fetchTarball {
     url = "https://nixos.org/channels/nixos-${channel}/nixexprs.tar.xz";
-    sha256 = "0635n2i2cda3ra0pv5ww5mc6dpq0rlh77k5azrzss4ryjkvfhfgh";
+    sha256 = "0g9iwm08w46s99yskvyy97v5cm971b5qv43xfr4b7yq92pp0m0zg";
   };
   home-manager = builtins.fetchTarball {
     url = "https://github.com/nix-community/home-manager/archive/release-${channel}.tar.gz";
-    sha256 = "0x9n7gz469s9j42c50j3phd9mx8c9ka6p1x0icggkvi97akj8hbz";
+    sha256 = "0562y8awclss9k4wk3l4akw0bymns14sfy2q9n23j27m68ywpdkh";
   };
 in
 {
