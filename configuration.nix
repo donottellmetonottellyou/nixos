@@ -8,24 +8,19 @@ let
   channel = "23.11";
   # Declaratively set home-manager and nixpkgs versions
   nixpkgs-source = builtins.fetchTarball {
-    url = "https://nixos.org/channels/nixos-${channel}/nixexprs.tar.xz";
-    sha256 = "0g9iwm08w46s99yskvyy97v5cm971b5qv43xfr4b7yq92pp0m0zg";
+    url = "https://github.com/NixOS/nixpkgs/archive/0rcvwyk3431j6f1iq4r43dwpladjfd7js2cr04iw1zvg20v9jwwq.tar.gz";
+    sha256 = "0rcvwyk3431j6f1iq4r43dwpladjfd7js2cr04iw1zvg20v9jwwq";
   };
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-${channel}.tar.gz";
-    sha256 = "0562y8awclss9k4wk3l4akw0bymns14sfy2q9n23j27m68ywpdkh";
+    url = "https://github.com/nix-community/home-manager/archive/0f0qnsg7dpwapjq97y5gbvx7q690vss9ik6nx32bi3fzanz0xhvb.tar.gz";
+    sha256 = "0f0qnsg7dpwapjq97y5gbvx7q690vss9ik6nx32bi3fzanz0xhvb";
   };
 in
 {
   imports = [
     ./hardware-configuration.nix
+    (import nixpkgs-source { })
     (import "${home-manager}/nixos")
-  ];
-
-  # Declaratively set nixpkgs
-  nix.nixPath = [
-    "nixpkgs=${nixpkgs-source}"
-    "nixos-config=/etc/nixos/configuration.nix"
   ];
 
   # Bootloader.
