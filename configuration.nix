@@ -363,7 +363,7 @@ in
       nixd
       nixpkgs-fmt
       # NodeJS
-      nodenv
+      nodejs_20
       # Rust
       rustup
       # Tauri
