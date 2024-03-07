@@ -364,6 +364,8 @@ in
       nixpkgs-fmt
       # Rust
       rustup
+      # Environment Setup
+      direnv
       # Chat
       discord
       mumble
