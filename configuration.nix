@@ -88,11 +88,12 @@ in
     # seahorse    # password manager
 
     # these should be self explanatory
-    # gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    # gnome-font-viewer  gnome-music gnome-photos gnome-screenshot pkgs.gnome-connections
-    # gnome-system-monitor gnome-weather gnome-disk-utility 
+    # gnome-calculator gnome-calendar gnome-characters gnome-clocks
+    # gnome-contacts gnome-font-viewer  gnome-music gnome-photos
+    # gnome-screenshot gnome-system-monitor gnome-weather gnome-disk-utility 
     gnome-logs
     gnome-maps
+    pkgs.gnome-connections
     pkgs.gnome-text-editor
     pkgs.gnome-tour
   ];
