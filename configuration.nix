@@ -362,10 +362,12 @@ in
       # Nix
       nixd
       nixpkgs-fmt
+      # NodeJS
+      nodenv
       # Rust
       rustup
-      # Environment Setup
-      direnv
+      # Tauri
+      cargo-tauri
       # Chat
       discord
       mumble
