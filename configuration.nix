@@ -368,6 +368,7 @@ in
       rustup
       # Tauri
       cargo-tauri
+      glib
       # Chat
       discord
       mumble
