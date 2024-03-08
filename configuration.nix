@@ -367,16 +367,6 @@ in
       nodejs_20
       # Rust
       rustup
-      # Tauri
-      cargo-tauri
-      pkg-config
-      dbus
-      openssl
-      glib
-      gtk3
-      libsoup
-      webkitgtk
-      appimagekit
       # Chat
       discord
       mumble
@@ -386,32 +376,6 @@ in
       itch
       prismlauncher
     ];
-
-    # Enable libraries (for Tauri only atm)
-    home.sessionVariables = with pkgs; {
-      LD_LIBRARY_PATH = lib.concatStringsSep ":" [
-        (lib.makeLibraryPath [
-          webkitgtk
-          gtk3
-          cairo
-          gdk-pixbuf
-          glib
-          dbus
-          openssl
-        ])
-        "$LD_LIBRARY_PATH"
-      ];
-      PKG_CONFIG_PATH = lib.concatStringsSep ":" [
-        "${glib.dev}/lib/pkgconfig"
-        "${gtk3.dev}/lib/pkgconfig"
-        "$PKG_CONFIG_PATH"
-      ];
-      XDG_DATA_DIRS = lib.concatStringsSep ":" [
-        "${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}"
-        "${gtk3}/share/gsettings-schemas/${gtk3.name}"
-        "$XDG_DATA_DIRS" # Include the default directories
-      ];
-    };
 
     home.stateVersion = "23.11";
   };
