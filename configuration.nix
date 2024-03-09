@@ -257,9 +257,7 @@ in
       settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
-    programs.bash.shellInit = ''
-      export PATH="~/nixos/bin:$PATH"
-    '';
+    home.sessionVariables.PATH = "~/nixos/bin:$PATH";
 
     programs.git = {
       enable = true;
