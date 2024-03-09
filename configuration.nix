@@ -310,6 +310,22 @@ in
       # Games
       itch
       prismlauncher
+      # Scripts
+      (writeScriptBin "apply-nixos-configuration" ''
+        #!${bash}
+        git add -A && git commit ||
+          echo "No changes to commit. Continue?" &&
+          read input &&
+          if [[ "''${input,,}" == "y" ]]; then
+            echo "Alright then."
+          else
+            echo "Exiting"
+            exit 1
+          fi
+        git push &&
+          nixos-rebuild switch ||
+          exit 1
+      '')
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
