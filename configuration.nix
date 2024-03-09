@@ -312,7 +312,7 @@ in
       prismlauncher
       # Scripts
       (writeScriptBin "apply-nixos-configuration" ''
-        #!${bash}
+        #!/bin/sh
         git add -A && git commit ||
           echo "No changes to commit. Continue?" &&
           read input &&
@@ -323,7 +323,7 @@ in
             exit 1
           fi
         git push &&
-          nixos-rebuild switch ||
+          sudo nixos-rebuild switch ||
           exit 1
       '')
       # Personal text editor (with extensions)
