@@ -319,8 +319,7 @@ in
           if [[ "''${input,,}" == "y" ]]; then
             echo "Alright then."
           else
-            echo "Exiting"
-            exit 1
+            echo "Exiting"; exit 1
           fi
         )
         git push &&
