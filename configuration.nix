@@ -257,10 +257,6 @@ in
       settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
-    home.sessionPath = [
-      "~/nixos/bin"
-    ];
-
     programs.git = {
       enable = true;
       userName = "Jade Lynn Masker";
