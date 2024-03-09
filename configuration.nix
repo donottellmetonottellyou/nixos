@@ -257,6 +257,8 @@ in
       settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
+    home.sessionVariables.PATH = "~/nixos/bin:$PATH";
+
     programs.git = {
       enable = true;
       userName = "Jade Lynn Masker";
@@ -287,6 +289,29 @@ in
     };
 
     home.packages = with pkgs; [
+      # Personal web browser
+      google-chrome
+      # C/C++
+      clang_17
+      clang-tools_17
+      cppcheck
+      # CSharp
+      dotnet-sdk_8
+      # Nix
+      nixd
+      nixpkgs-fmt
+      # NodeJS
+      nodejs_20
+      # Rust
+      rustup
+      # Chat
+      discord
+      mumble
+      slack
+      zoom-us
+      # Games
+      itch
+      prismlauncher
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
@@ -352,29 +377,6 @@ in
           }
         ];
       })
-      # Personal web browser
-      google-chrome
-      # C/C++
-      clang_17
-      clang-tools_17
-      cppcheck
-      # CSharp
-      dotnet-sdk_8
-      # Nix
-      nixd
-      nixpkgs-fmt
-      # NodeJS
-      nodejs_20
-      # Rust
-      rustup
-      # Chat
-      discord
-      mumble
-      slack
-      zoom-us
-      # Games
-      itch
-      prismlauncher
     ];
 
     home.stateVersion = "23.11";
