@@ -313,7 +313,7 @@ in
       # Scripts
       (writeScriptBin "apply-nixos-configuration" ''
         #!/bin/sh
-        git add -A && git commit || (
+        git add -A && git commit || {
           echo "No changes to commit. Continue (Y/N)?"
           read input
           if [[ "''${input,,}" == "y" ]]; then
@@ -321,7 +321,7 @@ in
           else
             echo "Exiting"; exit 1
           fi
-        )
+        }
         git push &&
           sudo nixos-rebuild switch ||
           exit 1
