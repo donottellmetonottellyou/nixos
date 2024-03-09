@@ -314,7 +314,7 @@ in
       (writeScriptBin "apply-nixos-configuration" ''
         #!/bin/sh
         git add -A && git commit ||
-          echo "No changes to commit. Continue?" &&
+          echo "No changes to commit. Continue (Y/N)?" &&
           read input &&
           if [[ "''${input,,}" == "y" ]]; then
             echo "Alright then."
