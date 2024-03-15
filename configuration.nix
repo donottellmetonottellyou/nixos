@@ -385,6 +385,13 @@ in
             version = "2.0.2";
             sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
           }
+          # Godot
+          {
+            name = "godot-tools";
+            publisher = "geequlim";
+            version = "2.0.0";
+            sha256 = "6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
+          }
           # Markdown
           {
             name = "markdown-preview-github-styles";
