@@ -367,10 +367,23 @@ in
           }
           # CSharp
           {
+            name = "csdevkit";
+            publisher = "ms-dotnettools";
+            version = "1.5.4";
+            sha256 = "vAr5HzLnBYNvXdRkwscpZARvgJOpBeZA4nRNyyIVhDM=";
+            sourceRoot = "./extension";
+          }
+          {
             name = "csharp";
             publisher = "ms-dotnettools";
-            version = "2.19.13";
-            sha256 = "0SkAo93ahCMbWSo6CrnRN6fzKrqMkFURmuBjIqnxh9s=";
+            version = "2.23.2";
+            sha256 = "b4n4HYD4HQ6+LzKjWqN9UXKkQg2A6FWTjUKjD8rlWHs=";
+          }
+          {
+            name = "vscode-dotnet-runtime";
+            publisher = "ms-dotnettools";
+            version = "2.0.2";
+            sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
           }
           # Markdown
           {
