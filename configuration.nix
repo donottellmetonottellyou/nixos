@@ -345,6 +345,7 @@ in
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
           jnoortheen.nix-ide
+          ms-dotnettools.csharp
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # C/C++
           {
@@ -365,26 +366,26 @@ in
             version = "1.9.0";
             sha256 = "q9DvkXbv+GTyeMVIyUQDK49Njsl9msbnOD1gyS4ljC8=";
           }
-          # CSharp
-          {
-            name = "csdevkit";
-            publisher = "ms-dotnettools";
-            version = "1.5.4";
-            sha256 = "vAr5HzLnBYNvXdRkwscpZARvgJOpBeZA4nRNyyIVhDM=";
-            sourceRoot = "./extension";
-          }
-          {
-            name = "csharp";
-            publisher = "ms-dotnettools";
-            version = "2.23.2";
-            sha256 = "b4n4HYD4HQ6+LzKjWqN9UXKkQg2A6FWTjUKjD8rlWHs=";
-          }
-          {
-            name = "vscode-dotnet-runtime";
-            publisher = "ms-dotnettools";
-            version = "2.0.2";
-            sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
-          }
+          # CSharp (Disabled for now...)
+          # {
+          #   name = "csdevkit";
+          #   publisher = "ms-dotnettools";
+          #   version = "1.5.4";
+          #   sha256 = "vAr5HzLnBYNvXdRkwscpZARvgJOpBeZA4nRNyyIVhDM=";
+          #   sourceRoot = "./extension";
+          # }
+          # {
+          #   name = "csharp";
+          #   publisher = "ms-dotnettools";
+          #   version = "2.23.2";
+          #   sha256 = "b4n4HYD4HQ6+LzKjWqN9UXKkQg2A6FWTjUKjD8rlWHs=";
+          # }
+          # {
+          #   name = "vscode-dotnet-runtime";
+          #   publisher = "ms-dotnettools";
+          #   version = "2.0.2";
+          #   sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
+          # }
           # Godot
           {
             name = "godot-tools";
