@@ -8,38 +8,28 @@ let
   channel = "23.11";
 
   # Declaratively set home-manager and nixpkgs versions
-  nixpkgs-source = builtins.fetchTarball {
-    url = "https://nixos.org/channels/nixos-${channel}/nixexprs.tar.xz";
-    sha256 = "0g9iwm08w46s99yskvyy97v5cm971b5qv43xfr4b7yq92pp0m0zg";
+  nixos-stable = builtins.fetchGit {
+    name = "nixos-stable-20240318"; # Add date later with script
+    url = "https://github.com/nixos/nixpkgs/";
+    ref = "refs/heads/nixos-${channel}";
+    rev = "614b4613980a522ba49f0d194531beddbb7220d3";
   };
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-${channel}.tar.gz";
-    sha256 = "0562y8awclss9k4wk3l4akw0bymns14sfy2q9n23j27m68ywpdkh";
+  home-manager = builtins.fetchGit {
+    name = "home-manager-20240318"; # Add date later with script
+    url = "https://github.com/nix-community/home-manager/";
+    ref = "refs/heads/release-${channel}";
+    rev = "652fda4ca6dafeb090943422c34ae9145787af37";
   };
-  # ABOVE TO BE REPLACED WITH BELOW
-  # nixos-stable = builtins.fetchGit {
-  #   name = "nixos-stable-"; # Add date later with script
-  #   url = "https://github.com/nixos/nixpkgs/";
-  #   ref = "refs/heads/nixos-${channel}";
-  # };
-  # home-manager = builtins.fetchGit {
-  #   name = "home-manager-"; # Add date later with script
-  #   url = "https://github.com/nix-community/home-manager/";
-  #   ref = "refs/heads/release-${channel}";
-  # };
 in
 {
   imports = [
     ./hardware-configuration.nix
-    # ADD THIS WHEN UPDATING CONFIG
-    # (import "${nixos-stable}/nixos")
     (import "${home-manager}/nixos")
   ];
 
-  # REMOVE THIS WHEN UPDATING CONFIG
   # Declaratively set nixpkgs
   nix.nixPath = [
-    "nixpkgs=${nixpkgs-source}"
+    "nixpkgs=${nixos-stable}"
     "nixos-config=/etc/nixos/configuration.nix"
   ];
 
