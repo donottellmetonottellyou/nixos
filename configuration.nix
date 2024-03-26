@@ -9,16 +9,18 @@ let
 
   # Declaratively set home-manager and nixpkgs versions
   nixos-stable = builtins.fetchGit {
-    name = "nixos-stable-20240318"; # Add date later with script
+    name = "nixos-stable-20240326"; # Add date later with script
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
-    rev = "614b4613980a522ba49f0d194531beddbb7220d3";
+    # `git ls-remote https://github.com/nixos/nixpkgs channel`
+    rev = "7c6e3666e2040fb64d43b209b84f65898ea3095d";
   };
   home-manager = builtins.fetchGit {
-    name = "home-manager-20240318"; # Add date later with script
+    name = "home-manager-20240326"; # Add date later with script
     url = "https://github.com/nix-community/home-manager/";
     ref = "refs/heads/release-${channel}";
-    rev = "652fda4ca6dafeb090943422c34ae9145787af37";
+    # `git ls-remote https://github.com/nix-community/home-manager release-channel`
+    rev = "f33900124c23c4eca5831b9b5eb32ea5894375ce";
   };
 in
 {
@@ -31,6 +33,10 @@ in
   nix.nixPath = [
     "nixpkgs=${nixos-stable}"
     "nixos-config=/etc/nixos/configuration.nix"
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
   ];
 
   # Bootloader.
@@ -70,38 +76,15 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Disable unneeded GNOME packages
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    # baobab      # disk usage analyzer
-    cheese # photo booth
-    # eog         # image viewer
-    epiphany # web browser
-    gedit # text editor
-    simple-scan # document scanner
-    # totem       # video player
-    yelp # help viewer
-    evince # document viewer (use libreoffice)
-    # file-roller # archive manager
-    geary # email client (use chrome)
-    # seahorse    # password manager
-
-    # these should be self explanatory
-    # gnome-calculator gnome-calendar gnome-characters gnome-clocks
-    # gnome-contacts gnome-font-viewer  gnome-music gnome-photos
-    # gnome-screenshot gnome-system-monitor gnome-weather gnome-disk-utility 
-    gnome-logs
-    gnome-maps
-    pkgs.gnome-connections
-    pkgs.gnome-text-editor
-    pkgs.gnome-tour
-  ];
+  # Enable the X11 windowing system with XFCE
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xfce.enable = true;
+      xterm.enable = false;
+    };
+    displayManager.defaultSession = "xfce";
+  };
 
   # Disable suspend on laptop lid close
   services.logind.lidSwitchExternalPower = "ignore";
@@ -153,18 +136,6 @@ in
       max-jobs = 2;
     };
   };
-
-  # Auto update (disabled)
-  # systemd.services.autoupdate = {
-  #   description = "Autoupdate service";
-  #   script = "cd /etc/nixos && ./bin/autoupdate";
-  #   serviceConfig.Type = "oneshot";
-  # };
-  # systemd.services.autoupdateTimer = {
-  #   description = "Autoupdate timer";
-  #   wantedBy = [ "timers.target" ];
-  #   timerConfig.OnCalendar = "03:30";
-  # };
 
   # =================
   #  GLOBAL PACKAGES
@@ -220,20 +191,19 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # GNOME
-    gnome.gnome-tweaks
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.tray-icons-reloaded
+    # Terminal emulator
+    alacritty
+    # Neofetch alternative
+    fastfetch
     # Default Browser
     firefox
     # Office suite
     libreoffice
     # General programming tools
-    fastfetch
-    micro
-    neovim
     fira-code
     git
+    micro
+    neovim
   ];
 
 
