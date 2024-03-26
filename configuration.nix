@@ -79,18 +79,9 @@ in
   # Enable the X11 windowing system with XFCE
   services.xserver = {
     enable = true;
-    desktopManager = {
-      xfce.enable = true;
-      xterm.enable = false;
-    };
-    displayManager.defaultSession = "xfce";
-  };
-
-  # Disable suspend on laptop lid close
-  services.logind.lidSwitchExternalPower = "ignore";
-
-  # Configure keymap in X11
-  services.xserver = {
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    # Configure keymap in X11
     layout = "us";
     xkbVariant = "";
     # Remove xterm
@@ -98,6 +89,9 @@ in
       xterm
     ];
   };
+
+  # Disable suspend on laptop lid close
+  services.logind.lidSwitchExternalPower = "ignore";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -191,8 +185,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Terminal emulator
-    alacritty
     # Neofetch alternative
     fastfetch
     # Default Browser
@@ -226,12 +218,6 @@ in
 
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
 
-    # Dark mode for GTK4 applications
-    dconf = {
-      enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    };
-
     programs.git = {
       enable = true;
       userName = "Jade Lynn Masker";
@@ -264,9 +250,17 @@ in
     home.packages = with pkgs; [
       # Personal web browser
       google-chrome
+      # Chat
+      discord
+      mumble
+      slack
+      zoom-us
+      # Games
+      itch
+      prismlauncher
       # C/C++
-      clang_17
-      clang-tools_17
+      # clang_17
+      # clang-tools_17
       cppcheck
       # CSharp
       dotnet-sdk_8
@@ -277,113 +271,37 @@ in
       nodejs_20
       # Rust
       rustup
-      # Chat
-      discord
-      mumble
-      slack
-      zoom-us
-      # Games
-      itch
-      prismlauncher
-      # Scripts
-      (writeScriptBin "apply-nixos-configuration" ''
-        #!/bin/sh
-        git add -A && git commit || {
-          echo "No changes to commit. Continue (Y/N)?"
-          read input
-          if [[ "''${input,,}" == "y" ]]; then
-            echo "Alright then."
-          else
-            echo "Exiting"; exit 1
-          fi
-        }
-        git push &&
-          sudo nixos-rebuild switch ||
-          exit 1
-      '')
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
-          jnoortheen.nix-ide
+          # C++
+          ms-vscode.cpptools
+          xaver.clang-format
+          # CSharp
           ms-dotnettools.csharp
+          # Markdown
+          yzhang.markdown-all-in-one
+          stkb.rewrap
+          # Nix
+          jnoortheen.nix-ide
+          # Rust
+          rust-lang.rust-analyzer
+          tamasfe.even-better-toml
+          serayuzgur.crates
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # C/C++
-          {
-            name = "cpptools";
-            publisher = "ms-vscode";
-            version = "1.19.4";
-            sha256 = "ormgfJZzYuU7qYbgylr/2C/ocqxHDyDgT7Fx/CySLTA=";
-          }
           {
             name = "c-cpp-flylint";
             publisher = "jbenden";
             version = "1.14.0";
             sha256 = "HOcFx8jjLPGW7LHq8t0mNmnuhFS+JtkD3+gCtV6eBCo=";
           }
-          {
-            name = "clang-format";
-            publisher = "xaver";
-            version = "1.9.0";
-            sha256 = "q9DvkXbv+GTyeMVIyUQDK49Njsl9msbnOD1gyS4ljC8=";
-          }
-          # CSharp (Disabled for now...)
-          # {
-          #   name = "csdevkit";
-          #   publisher = "ms-dotnettools";
-          #   version = "1.5.4";
-          #   sha256 = "vAr5HzLnBYNvXdRkwscpZARvgJOpBeZA4nRNyyIVhDM=";
-          #   sourceRoot = "./extension";
-          # }
-          # {
-          #   name = "csharp";
-          #   publisher = "ms-dotnettools";
-          #   version = "2.23.2";
-          #   sha256 = "b4n4HYD4HQ6+LzKjWqN9UXKkQg2A6FWTjUKjD8rlWHs=";
-          # }
-          # {
-          #   name = "vscode-dotnet-runtime";
-          #   publisher = "ms-dotnettools";
-          #   version = "2.0.2";
-          #   sha256 = "7Nx8OiXA5nWRcpFSAqBWmwSwwNLSYvw5DEC5Q3qdDgU=";
-          # }
           # Godot
           {
             name = "godot-tools";
             publisher = "geequlim";
             version = "2.0.0";
             sha256 = "6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
-          }
-          # Markdown
-          {
-            name = "markdown-preview-github-styles";
-            publisher = "bierner";
-            version = "2.0.3";
-            sha256 = "yuF6TJSv0V2OvkBwqwAQKRcHCAXNL+NW8Q3s+dMFnLY=";
-          }
-          {
-            name = "rewrap";
-            publisher = "stkb";
-            version = "17.8.0";
-            sha256 = "9t1lpVbpcmhLamN/0ZWNEWD812S6tXG6aK3/ALJCJvg=";
-          }
-          # Rust
-          {
-            name = "rust-analyzer";
-            publisher = "rust-lang";
-            version = "0.4.1861";
-            sha256 = "VC63pqsOhvXktJEXt0Pnbpw/OROSzRLVNn0SL76VXIg=";
-          }
-          {
-            name = "crates";
-            publisher = "serayuzgur";
-            version = "0.6.6";
-            sha256 = "HXoH1IgMLniq0kxHs2snym4rerScu9qCqUaqwEC+O/E=";
-          }
-          {
-            name = "even-better-toml";
-            publisher = "tamasfe";
-            version = "0.19.2";
-            sha256 = "JKj6noi2dTe02PxX/kS117ZhW8u7Bhj4QowZQiJKP2E=";
           }
         ];
       })
