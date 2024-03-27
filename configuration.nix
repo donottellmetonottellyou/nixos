@@ -306,6 +306,13 @@ in
             version = "1.14.0";
             sha256 = "HOcFx8jjLPGW7LHq8t0mNmnuhFS+JtkD3+gCtV6eBCo=";
           }
+          # CSharp
+          {
+            name = "vscode-dotnet-runtime";
+            publisher = "ms-dotnettools";
+            version = "2.0.3";
+            sha256 = "rSqAPCNJz29uaxQ+t+o79SrLtIwuTdGgUWijzB8fLBE=";
+          }
           # Godot
           {
             name = "godot-tools";
