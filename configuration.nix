@@ -287,7 +287,8 @@ in
           ms-vscode.cpptools
           xaver.clang-format
           # CSharp
-          ms-dotnettools.csharp
+          unstable.vscode-extensions.ms-dotnettools.csharp
+          unstable.vscode-extensions.ms-dotnettools.csdevkit
           # Markdown
           yzhang.markdown-all-in-one
           stkb.rewrap
