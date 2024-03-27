@@ -22,6 +22,11 @@ let
     # `git ls-remote https://github.com/nix-community/home-manager release-channel`
     rev = "f33900124c23c4eca5831b9b5eb32ea5894375ce";
   };
+
+  # Unstable for Chrome and other update-sensitive applications
+  unstableTarball = builtins.fetchTarball
+    https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
+  ;
 in
 {
   imports = [
@@ -33,10 +38,6 @@ in
   nix.nixPath = [
     "nixpkgs=${nixos-stable}"
     "nixos-config=/etc/nixos/configuration.nix"
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2"
   ];
 
   # Bootloader.
@@ -144,8 +145,16 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    # Allow unfree packages
+    allowUnfree = true;
+    # Add unstable packages
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   # Mumble chat server
   services.murmur = {
@@ -187,8 +196,8 @@ in
   environment.systemPackages = with pkgs; [
     # Neofetch alternative
     fastfetch
-    # Default Browser
-    firefox
+    # Default browser, updated with unstable
+    unstable.firefox
     # Office suite
     libreoffice
     # General programming tools
@@ -249,7 +258,7 @@ in
 
     home.packages = with pkgs; [
       # Personal web browser
-      google-chrome
+      unstable.google-chrome
       # Chat
       discord
       mumble
