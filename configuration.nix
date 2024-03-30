@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   # Central source of truth for system version
   channel = "23.11";
@@ -162,33 +162,29 @@ in
     openFirewall = true;
   };
 
-  # Steam configuration
-  programs.steam = {
-    enable = true;
-    # localNetworkGameTransfers.openFirewall = true; # future config
-  };
+  programs = {
+    steam = {
+      enable = true;
+      # localNetworkGameTransfers.openFirewall = true; # future config
+    };
 
-  # Improve bash command history search
-  programs.bash = {
-    interactiveShellInit = ''
+    # Improve bash command history search
+    bash.interactiveShellInit = ''
       # Bind up and down arrow keys for history search
       bind '"\e[A": history-search-backward'
       bind '"\e[B": history-search-forward'
     '';
-  };
 
-  # Default git configuration
-  programs.git = {
-    enable = true;
-    config.init.defaultBranch = "main";
-  };
+    # Systemwide git configuration
+    git = {
+      enable = true;
+      config.init.defaultBranch = "main";
+    };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   # List packages installed in system profile. To search, run:
@@ -227,34 +223,37 @@ in
 
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
 
-    programs.git = {
-      enable = true;
-      userName = "Jade Lynn Masker";
-      userEmail = "donottellmetonottellyou@gmail.com";
-      extraConfig = {
-        # Editor/pager
-        core = {
-          editor = "code --wait";
-          pager = "less -F -X";
+    programs = {
+      git = {
+        enable = true;
+        userName = "Jade Lynn Masker";
+        userEmail = "donottellmetonottellyou@gmail.com";
+        extraConfig = {
+          # Editor/pager
+          core = {
+            editor = "code --wait";
+            pager = "less -F -X";
+          };
+
+          # Diff/merge tools
+          diff.tool = "vscode";
+          difftool.vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
+          merge.tool = "vscode";
+          mergetool = {
+            prompt = false;
+            vscode.cmd = "code --wait $MERGED";
+          };
+
+
+          # Signing
+          user.signingKey = "BDA496D2B8AFE0B087AC49B60EFCE08AB6147F98";
+          commit.gpgSign = true;
+          push.gpgSign = "if-asked";
+          tag.gpgSign = true;
         };
-
-        # Diff/merge tools
-        diff.tool = "vscode";
-        difftool.vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
-        merge.tool = "vscode";
-        mergetool = {
-          prompt = false;
-          vscode.cmd = "code --wait $MERGED";
-        };
-
-
-        # Signing
-        user.signingKey = "BDA496D2B8AFE0B087AC49B60EFCE08AB6147F98";
-        commit.gpgSign = true;
-        push.gpgSign = "if-asked";
-        tag.gpgSign = true;
       };
     };
+
 
     home.packages = with pkgs; [
       # Personal web browser
