@@ -114,6 +114,9 @@ in
     #media-session.enable = true;
   };
 
+  # OpenGL
+  hardware.opengl.enable = true;
+
   # ====================
   #  SYSTEM MAINTENANCE
   # ====================
