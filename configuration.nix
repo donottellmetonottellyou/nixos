@@ -268,6 +268,7 @@ in
       itch
       prismlauncher
       # C/C++
+      gcc13 # Temporary until clang gets fixed
       # clang_17
       # clang-tools_17
       cppcheck
@@ -287,8 +288,7 @@ in
           ms-vscode.cpptools
           xaver.clang-format
           # CSharp
-          unstable.vscode-extensions.ms-dotnettools.csharp
-          unstable.vscode-extensions.ms-dotnettools.csdevkit
+          ms-dotnettools.csharp
           # Markdown
           yzhang.markdown-all-in-one
           stkb.rewrap
@@ -305,13 +305,6 @@ in
             publisher = "jbenden";
             version = "1.14.0";
             sha256 = "HOcFx8jjLPGW7LHq8t0mNmnuhFS+JtkD3+gCtV6eBCo=";
-          }
-          # CSharp
-          {
-            name = "vscode-dotnet-runtime";
-            publisher = "ms-dotnettools";
-            version = "2.0.3";
-            sha256 = "rSqAPCNJz29uaxQ+t+o79SrLtIwuTdGgUWijzB8fLBE=";
           }
           # Godot
           {
