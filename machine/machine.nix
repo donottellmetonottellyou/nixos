@@ -4,6 +4,5 @@
     ./network.nix
     ./peripherals.nix
     ./power.nix
-    ./sound.nix
   ];
 }
