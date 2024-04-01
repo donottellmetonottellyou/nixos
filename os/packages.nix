@@ -99,10 +99,17 @@ in
     micro
     neovim
     # Custom shell scripts
-    (writeShellScriptBin "list-system-packages" ''
+    (writeShellScriptBin "list-packages-exposed" ''
       nixos-option environment.systemPackages |
         grep "derivation" |
         sed -e 's/^.*\([a-z0-9]\{32\}\)-\([^/]*\)\.drv.*$/\2/' |
+        sort |
+        uniq |
+        column -c "$(tput cols)"
+    '')
+    (writeShellScriptBin "list-packages-all" ''
+      nix-store -q --requisites /run/current-system/sw |
+        sed 's|/nix/store/[a-z0-9]*-||' |
         sort |
         uniq |
         column -c "$(tput cols)"
