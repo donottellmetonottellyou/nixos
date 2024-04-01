@@ -98,6 +98,15 @@ in
     git
     micro
     neovim
+    # Custom shell scripts
+    (writeShellScriptBin "list-system-packages" ''
+      nixos-option environment.systemPackages |
+        grep "derivation" |
+        sed -e 's/^.*\([a-z0-9]\{32\}\)-\([^/]*\)\.drv.*$/\2/' |
+        sort |
+        uniq |
+        column -c "$(tput cols)"
+    '')
   ];
 
   # Install in /etc/profiles instead of $HOME/.nix-profile
