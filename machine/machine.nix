@@ -1,8 +1,8 @@
 { config, pkgs, ... }: {
   imports = [
+    ./hardware.nix
     ./host.nix
     ./network.nix
-    ./peripherals.nix
     ./power.nix
   ];
 }
