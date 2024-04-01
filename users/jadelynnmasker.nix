@@ -35,7 +35,7 @@
 
     home.packages = with pkgs; [
       # Personal web browser
-      unstable.google-chrome
+      google-chrome
       # Chat
       discord
       mumble

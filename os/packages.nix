@@ -5,11 +5,11 @@ let
 
   # Declaratively set home-manager and nixpkgs versions
   nixos-stable = builtins.fetchGit {
-    name = "nixos-stable-20240326"; # Add date later with script
+    name = "nixos-stable-20240401"; # Add date later with script
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
-    # `git ls-remote https://github.com/nixos/nixpkgs channel`
-    rev = "7c6e3666e2040fb64d43b209b84f65898ea3095d";
+    # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
+    rev = "219951b495fc2eac67b1456824cc1ec1fd2ee659";
   };
   home-manager = builtins.fetchGit {
     name = "home-manager-20240326"; # Add date later with script
@@ -89,8 +89,8 @@ in
   environment.systemPackages = with pkgs; [
     # Neofetch alternative
     fastfetch
-    # Default browser, updated with unstable
-    unstable.firefox
+    # Default browser
+    firefox
     # Office suite
     libreoffice
     # General programming tools
