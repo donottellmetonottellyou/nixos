@@ -19,7 +19,7 @@ let
     rev = "f33900124c23c4eca5831b9b5eb32ea5894375ce";
   };
 
-  # Unstable for Chrome and other update-sensitive applications
+  # Unstable for update-sensitive applications
   unstableTarball = builtins.fetchTarball
     https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   ;
@@ -85,7 +85,7 @@ in
   };
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # list-packages-exposed or list-packages-all
   environment.systemPackages = with pkgs; [
     # Neofetch alternative
     fastfetch

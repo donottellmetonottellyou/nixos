@@ -45,9 +45,8 @@
       itch
       prismlauncher
       # C/C++
-      gcc13 # Temporary until clang gets fixed
-      # clang_17
-      # clang-tools_17
+      clang_17
+      clang-tools_17
       cppcheck
       # CSharp
       dotnet-sdk_8
