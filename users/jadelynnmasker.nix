@@ -55,6 +55,8 @@
       # Nix
       nixd
       nixpkgs-fmt
+      # Nix opengl drivers
+      nixgl.auto.nixGLDefault
       # NodeJS
       nodejs_20
       # Rust

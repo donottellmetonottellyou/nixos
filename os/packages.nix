@@ -4,14 +4,14 @@ let
   channel = "23.11";
 
   # Declaratively set home-manager and nixpkgs versions
-  nixos-stable = builtins.fetchGit {
+  nixos-stable = fetchGit {
     name = "nixos-stable-20240401"; # Add date later with script
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
     # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
     rev = "219951b495fc2eac67b1456824cc1ec1fd2ee659";
   };
-  home-manager = builtins.fetchGit {
+  home-manager = fetchGit {
     name = "home-manager-20240326"; # Add date later with script
     url = "https://github.com/nix-community/home-manager/";
     ref = "refs/heads/release-${channel}";
@@ -20,9 +20,18 @@ let
   };
 
   # Unstable for update-sensitive applications
-  unstableTarball = builtins.fetchTarball
+  unstable-tarball = fetchTarball
     https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   ;
+
+  # NixGL allows for running opengl binaries easier on nixos
+  nixgl-git = fetchGit {
+    name = "nixgl-20240402";
+    url = "https://github.com/nix-community/nixGL/";
+    ref = "refs/heads/main";
+    # `git ls-remote https://github.com/nix-community/nixGL/ main`
+    rev = "d709a8abcde5b01db76ca794280745a43c8662be";
+  };
 in
 {
   imports = [
@@ -41,9 +50,12 @@ in
     allowUnfree = true;
     # Add unstable packages
     packageOverrides = pkgs: {
-      unstable = import unstableTarball {
+      # Add unstable packages
+      unstable = import unstable-tarball {
         config = config.nixpkgs.config;
       };
+      # Make nixgl available
+      nixgl = import nixgl-git { };
     };
   };
 
