@@ -1,7 +1,12 @@
 { config, pkgs, ... }: {
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 16;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   boot.initrd.luks.devices."luks-63396ee7-4502-48b9-a523-66cce561e35f"
   .device = "/dev/disk/by-uuid/63396ee7-4502-48b9-a523-66cce561e35f";
