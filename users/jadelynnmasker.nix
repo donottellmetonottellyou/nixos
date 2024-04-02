@@ -50,6 +50,8 @@
       cppcheck
       # CSharp
       dotnet-sdk_8
+      # Git
+      github-desktop
       # Nix
       nixd
       nixpkgs-fmt
