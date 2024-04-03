@@ -77,7 +77,6 @@
           # Rust
           rust-lang.rust-analyzer
           tamasfe.even-better-toml
-          serayuzgur.crates
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # C/C++
           {
@@ -92,6 +91,13 @@
             publisher = "geequlim";
             version = "2.0.0";
             sha256 = "6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
+          }
+          # Rust
+          {
+            name = "crates";
+            publisher = "serayuzgur";
+            version = "0.6.6";
+            sha256 = "HXoH1IgMLniq0kxHs2snym4rerScu9qCqUaqwEC+O/E=";
           }
         ];
       })
