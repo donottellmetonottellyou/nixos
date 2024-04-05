@@ -43,7 +43,7 @@
       zoom-us
       # Games
       itch
-      unstable.prismlauncher
+      prismlauncher
       # C/C++
       clang_17
       clang-tools_17
