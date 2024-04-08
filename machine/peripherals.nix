@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-  # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -15,6 +14,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  hardware.bluetooth.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

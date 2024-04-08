@@ -1,22 +1,20 @@
 { config, pkgs, ... }:
 let
-  # Central source of truth for system version
   channel = "23.11";
 
-  # Declaratively set home-manager and nixpkgs versions
   nixos-stable = fetchGit {
-    name = "nixos-stable-20240401"; # Add date later with script
+    name = "nixos-stable-20240407"; # Add date later with script
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
     # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
-    rev = "219951b495fc2eac67b1456824cc1ec1fd2ee659";
+    rev = "e38d7cb66ea4f7a0eb6681920615dfcc30fc2920";
   };
   home-manager = fetchGit {
-    name = "home-manager-20240326"; # Add date later with script
+    name = "home-manager-20240407"; # Add date later with script
     url = "https://github.com/nix-community/home-manager/";
     ref = "refs/heads/release-${channel}";
     # `git ls-remote https://github.com/nix-community/home-manager release-channel`
-    rev = "f33900124c23c4eca5831b9b5eb32ea5894375ce";
+    rev = "d6bb9f934f2870e5cbc5b94c79e9db22246141ff";
   };
 
   # Unstable for update-sensitive applications
