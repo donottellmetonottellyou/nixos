@@ -17,11 +17,6 @@ let
     rev = "d6bb9f934f2870e5cbc5b94c79e9db22246141ff";
   };
 
-  # Unstable for update-sensitive applications
-  unstable-tarball = fetchTarball
-    https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
-  ;
-
   # NixGL allows for running opengl binaries easier on nixos
   nixgl-git = fetchGit {
     name = "nixgl-20240402";
@@ -48,10 +43,6 @@ in
     allowUnfree = true;
     # Add unstable packages
     packageOverrides = pkgs: {
-      # Add unstable packages
-      unstable = import unstable-tarball {
-        config = config.nixpkgs.config;
-      };
       # Make nixgl available
       nixgl = import nixgl-git { };
     };
