@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -15,8 +16,15 @@
     #media-session.enable = true;
   };
 
+  # Bluetooth
   hardware.bluetooth.enable = true;
 
-  # Enable CUPS to print documents.
+  # Printing
   services.printing.enable = true;
+  # autodiscovery
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 }
