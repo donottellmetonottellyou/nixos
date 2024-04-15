@@ -22,6 +22,7 @@
   # Printing
   services.printing = {
     enable = true;
+    webInterface = false;
     drivers = with pkgs; [
       epson-escpr2
     ];
