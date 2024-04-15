@@ -101,6 +101,13 @@
             version = "0.6.6";
             sha256 = "HXoH1IgMLniq0kxHs2snym4rerScu9qCqUaqwEC+O/E=";
           }
+          # VSCode helper
+          {
+            name = "run-on-save";
+            publisher = "pucelle";
+            version = "1.8.0";
+            sha256 = "C8JaBqqBcYQkODNusEFu/wlMwN52p/2IjfgaQSKI5SE=";
+          }
         ];
       })
     ];
