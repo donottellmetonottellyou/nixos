@@ -20,7 +20,12 @@
   hardware.bluetooth.enable = true;
 
   # Printing
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      epson-escpr2
+    ];
+  };
   # autodiscovery
   services.avahi = {
     enable = true;
