@@ -55,13 +55,6 @@
       # Nix
       nixd
       nixpkgs-fmt
-      (writeScriptBin "nixpkgs-fmt-tabs" ''
-        input=$(cat)
-        formatted_output=$(echo "$input" |
-          ${nixpkgs-fmt}/bin/nixpkgs-fmt)
-        echo "$formatted_output" |
-          ${gnused}/bin/sed ':a; s/^\(\t*\)  /\1\t/; ta'
-      '')
       # Nix opengl drivers
       nixgl.auto.nixGLDefault
       # NodeJS
