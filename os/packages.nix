@@ -97,6 +97,7 @@ in
     # General programming tools
     fira-code
     git
+    libsForQt5.kcharselect
     micro
     neovim
     # Custom shell scripts
