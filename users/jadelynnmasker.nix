@@ -64,7 +64,8 @@
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
-          # Aesthetic
+          # General
+          editorconfig.editorconfig
           pkief.material-icon-theme
           # C++
           ms-vscode.cpptools
