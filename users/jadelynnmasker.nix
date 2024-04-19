@@ -79,6 +79,8 @@
           # Rust
           rust-lang.rust-analyzer
           tamasfe.even-better-toml
+          # Web
+          esbenp.prettier-vscode
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # C/C++
           {
