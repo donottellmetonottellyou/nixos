@@ -3,11 +3,11 @@ let
   channel = "23.11";
 
   nixos-stable = fetchGit {
-    name = "nixos-stable-20240407"; # Add date later with script
+    name = "nixos-stable-20240418"; # Add date later with script
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
     # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
-    rev = "e38d7cb66ea4f7a0eb6681920615dfcc30fc2920";
+    rev = "e402c3eb6d88384ca6c52ef1c53e61bdc9b84ddd";
   };
   home-manager = fetchGit {
     name = "home-manager-20240407"; # Add date later with script
