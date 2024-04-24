@@ -61,6 +61,9 @@ in
     steam = {
       enable = true;
       # localNetworkGameTransfers.openFirewall = true; # future config
+      extraCompatPackages = with pkgs; [
+        steamtinkerlaunch
+      ];
     };
 
     # Improve bash command history search
