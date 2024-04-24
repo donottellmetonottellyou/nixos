@@ -88,6 +88,8 @@ in
   # List packages installed in system profile. To search, run:
   # list-packages-exposed or list-packages-all
   environment.systemPackages = with pkgs; [
+    # Steam addon
+    steamtinkerlaunch
     # Neofetch alternative
     fastfetch
     # Default browser
