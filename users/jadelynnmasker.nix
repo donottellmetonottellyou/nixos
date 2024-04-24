@@ -44,6 +44,7 @@
       # Games
       itch
       prismlauncher
+      steamtinkerlaunch
       # C/C++
       clang_17
       clang-tools_17
