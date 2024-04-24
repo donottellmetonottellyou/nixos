@@ -58,6 +58,7 @@
       # Nix opengl drivers
       nixgl.auto.nixGLDefault
       # NodeJS
+      corepack_20
       nodejs_20
       # Rust
       rustup
