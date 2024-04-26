@@ -98,19 +98,25 @@
             version = "2.0.0";
             sha256 = "6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
           }
-          # Javascript/Typescript
-          {
-            name = "vscode-standard";
-            publisher = "standard";
-            version = "2.1.3";
-            sha256 = "EyaMpDBC1ePqN9hDg6s8yyhuLGbZUGDDqmhiBsmenf8=";
-          }
           # Rust
           {
             name = "crates";
             publisher = "serayuzgur";
             version = "0.6.6";
             sha256 = "HXoH1IgMLniq0kxHs2snym4rerScu9qCqUaqwEC+O/E=";
+          }
+          # Web
+          {
+            name = "open-in-browser";
+            publisher = "techer";
+            version = "2.0.0";
+            sha256 = "3XYRMuWEJfhureHmx1KfT+N9aBuqDagj0FErJQF/teg=";
+          }
+          {
+            name = "vscode-standard";
+            publisher = "standard";
+            version = "2.1.3";
+            sha256 = "EyaMpDBC1ePqN9hDg6s8yyhuLGbZUGDDqmhiBsmenf8=";
           }
         ];
       })
