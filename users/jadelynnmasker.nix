@@ -107,10 +107,10 @@
           }
           # Web
           {
-            name = "open-in-browser";
-            publisher = "techer";
-            version = "2.0.0";
-            sha256 = "3XYRMuWEJfhureHmx1KfT+N9aBuqDagj0FErJQF/teg=";
+            name = "open-html-in-browser";
+            publisher = "peakchen90";
+            version = "2.1.10";
+            sha256 = "w88oSHrAIl34f+CI8GnxstESOr/NRBfP70sqk/JaCjA=";
           }
           {
             name = "vscode-standard";
