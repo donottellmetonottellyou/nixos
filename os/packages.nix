@@ -7,14 +7,14 @@ let
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
     # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
-    rev = "e402c3eb6d88384ca6c52ef1c53e61bdc9b84ddd";
+    rev = "dd37924974b9202f8226ed5d74a252a9785aedf8";
   };
   home-manager = fetchGit {
     name = "home-manager-20240407"; # Add date later with script
     url = "https://github.com/nix-community/home-manager/";
     ref = "refs/heads/release-${channel}";
     # `git ls-remote https://github.com/nix-community/home-manager release-channel`
-    rev = "d6bb9f934f2870e5cbc5b94c79e9db22246141ff";
+    rev = "86853e31dc1b62c6eeed11c667e8cdd0285d4411";
   };
 
   # NixGL allows for running opengl binaries easier on nixos
@@ -23,7 +23,7 @@ let
     url = "https://github.com/nix-community/nixGL/";
     ref = "refs/heads/main";
     # `git ls-remote https://github.com/nix-community/nixGL/ main`
-    rev = "d709a8abcde5b01db76ca794280745a43c8662be";
+    rev = "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a";
   };
 in
 {
