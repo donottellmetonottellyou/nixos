@@ -92,13 +92,6 @@
             version = "1.14.0";
             sha256 = "HOcFx8jjLPGW7LHq8t0mNmnuhFS+JtkD3+gCtV6eBCo=";
           }
-          # Git
-          {
-            name = "gti-vscode";
-            publisher = "Graphite";
-            version = "0.6.1";
-            sha256 = "gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
-          }
           # Godot
           {
             name = "godot-tools";
