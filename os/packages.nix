@@ -99,6 +99,7 @@ in
     # Default browser
     firefox
     # Office suite
+    krita
     libreoffice
     # General programming tools
     fira-code
