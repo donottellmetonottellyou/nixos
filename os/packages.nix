@@ -7,7 +7,7 @@ let
     url = "https://github.com/nixos/nixpkgs/";
     ref = "refs/heads/nixos-${channel}";
     # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
-    rev = "dd37924974b9202f8226ed5d74a252a9785aedf8";
+    rev = "12430e43bd9b81a6b4e79e64f87c624ade701eaf";
   };
   home-manager = fetchGit {
     name = "home-manager-20240407"; # Add date later with script
