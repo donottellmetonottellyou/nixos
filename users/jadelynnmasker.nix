@@ -67,6 +67,7 @@
         vscodeExtensions = with vscode-extensions; [
           # General
           editorconfig.editorconfig
+          oderwat.indent-rainbow
           pkief.material-icon-theme
           # C++
           ms-vscode.cpptools
@@ -83,7 +84,10 @@
           tamasfe.even-better-toml
           # Web
           esbenp.prettier-vscode
+          formulahendry.auto-close-tag
+          formulahendry.auto-rename-tag
           ritwickdey.liveserver
+          vincaslt.highlight-matching-tag
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # C/C++
           {
