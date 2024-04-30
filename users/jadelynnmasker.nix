@@ -67,6 +67,9 @@
         vscodeExtensions = with vscode-extensions; [
           # General
           editorconfig.editorconfig
+          equinusocio.vsc-material-theme
+          # add when out of unstable
+          # equinusocio.vsc-material-theme-icons
           oderwat.indent-rainbow
           pkief.material-icon-theme
           # C++
@@ -90,6 +93,12 @@
           vincaslt.highlight-matching-tag
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # General
+          {
+            name = "vsc-material-theme-icons";
+            publisher = "Equinusocio";
+            version = "3.6.0";
+            sha256 = "HOVwzR4OrNUxwKzEpQbmK04JI/9XHPSQfUL2pN9iRqc=";
+          }
           {
             name = "vscord";
             publisher = "LeonardSSH";
