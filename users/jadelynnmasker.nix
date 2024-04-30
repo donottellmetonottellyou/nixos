@@ -89,6 +89,13 @@
           ritwickdey.liveserver
           vincaslt.highlight-matching-tag
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          # General
+          {
+            name = "vscord";
+            publisher = "LeonardSSH";
+            version = "5.2.9";
+            sha256 = "HJvVpX2cativdyxsnVjJBRvITwmkyoWehafWL95S2B0=";
+          }
           # C/C++
           {
             name = "c-cpp-flylint";
