@@ -67,12 +67,15 @@ in
       ];
     };
 
-    # Improve bash command history search
-    bash.interactiveShellInit = ''
-      # Bind up and down arrow keys for history search
-      bind '"\e[A": history-search-backward'
-      bind '"\e[B": history-search-forward'
-    '';
+    bash = {
+      interactiveShellInit = ''
+        # Bind up and down arrow keys for history search
+        bind '"\e[A": history-search-backward'
+        bind '"\e[B": history-search-forward'
+        # Neofetch alternative
+        fastfetch
+      '';
+    };
 
     # Systemwide git configuration
     git = {
