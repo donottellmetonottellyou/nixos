@@ -26,6 +26,7 @@
     drivers = with pkgs; [
       epson-escpr2
     ];
+    openFirewall = true;
   };
   # autodiscovery
   services.avahi = {
