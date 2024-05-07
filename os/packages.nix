@@ -2,29 +2,38 @@
 let
   channel = "23.11";
 
+  pin-date = "20240506";
+
+  url-nixpkgs = "https://github.com/NixOS/nixpkgs/";
+  url-homemgr = "https://github.com/nix-community/home-manager/";
+  url-nixgl = "https://github.com/nix-community/nixGL/";
+
+  # Sources
   nixos-stable = fetchGit {
-    name = "nixos-stable-20240418"; # Add date later with script
-    url = "https://github.com/nixos/nixpkgs/";
+    name = "nixos-stable-${pin-date}";
+    url = url-nixpkgs;
     ref = "refs/heads/nixos-${channel}";
-    # `git ls-remote https://github.com/nixos/nixpkgs nixos-channel`
     rev = "12430e43bd9b81a6b4e79e64f87c624ade701eaf";
   };
   home-manager = fetchGit {
-    name = "home-manager-20240407"; # Add date later with script
-    url = "https://github.com/nix-community/home-manager/";
+    name = "home-manager-${pin-date}";
+    url = url-homemgr;
     ref = "refs/heads/release-${channel}";
-    # `git ls-remote https://github.com/nix-community/home-manager release-channel`
     rev = "86853e31dc1b62c6eeed11c667e8cdd0285d4411";
   };
-
-  # NixGL allows for running opengl binaries easier on nixos
   nixgl-git = fetchGit {
-    name = "nixgl-20240402";
-    url = "https://github.com/nix-community/nixGL/";
+    name = "nixgl-${pin-date}";
+    url = url-nixgl;
     ref = "refs/heads/main";
-    # `git ls-remote https://github.com/nix-community/nixGL/ main`
     rev = "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a";
   };
+
+  # Constructed commands to run in bash scripts
+  cmd-lsrev = "git ls-remote -h";
+  cmd-1starg = "| cut -f1";
+  cmd-getrev-nixpkgs = "${cmd-lsrev} ${url-nixpkgs} nixos-${channel} ${cmd-1starg}";
+  cmd-getrev-homemgr = "${cmd-lsrev} ${url-homemgr} release-${channel} ${cmd-1starg}";
+  cmd-getrev-nixgl = "${cmd-lsrev} ${url-nixgl} main ${cmd-1starg}";
 in
 {
   imports = [
@@ -111,15 +120,12 @@ in
     micro
     neovim
     # Custom shell scripts
-    (writeShellScriptBin "list-packages-exposed" ''
-      nixos-option environment.systemPackages |
-        grep "derivation" |
-        sed -e 's/^.*\([a-z0-9]\{32\}\)-\([^/]*\)\.drv.*$/\2/' |
-        sort |
-        uniq |
-        column -c "$(tput cols)"
+    (writeShellScriptBin "nixos-printrevs" ''
+      echo -e "nixpkgs:\t$(${cmd-getrev-nixpkgs})" &&
+        echo -e "homemgr:\t$(${cmd-getrev-homemgr})" &&
+        echo -e "nixgl:\t\t$(${cmd-getrev-nixgl})"
     '')
-    (writeShellScriptBin "list-packages-all" ''
+    (writeShellScriptBin "nixos-listpkgs" ''
       nix-store -q --requisites /run/current-system/sw |
         sed 's|/nix/store/[a-z0-9]*-||' |
         sort |
