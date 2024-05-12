@@ -3,7 +3,7 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "3:00";
+      dates = "monthly";
       options = "--delete-older-than 30d";
       randomizedDelaySec = "1h";
     };
