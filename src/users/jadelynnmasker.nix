@@ -1,4 +1,11 @@
 { config, pkgs, ... }: {
+  # MAIN USER
+  users.users.jadelynnmasker = {
+    isNormalUser = true;
+    description = "Jade Lynn Masker";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
 
     programs = {
@@ -137,6 +144,6 @@
       })
     ];
 
-    home.stateVersion = "23.11";
+    home.stateVersion = config.system.stateVersion;
   };
 }

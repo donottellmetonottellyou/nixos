@@ -57,81 +57,11 @@ in
     };
   };
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Mumble chat server
-  services.murmur = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  programs = {
-    steam = {
-      enable = true;
-      # localNetworkGameTransfers.openFirewall = true; # future config
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-        steamtinkerlaunch
-      ];
-    };
-
-    bash = {
-      interactiveShellInit = ''
-        # Bind up and down arrow keys for history search
-        bind '"\e[A": history-search-backward'
-        bind '"\e[B": history-search-forward'
-        # Neofetch alternative
-        fastfetch --load-config neofetch
-      '';
-    };
-
-    # Systemwide git configuration
-    git = {
-      enable = true;
-      config = {
-        core.fsmonitor = true;
-        init.defaultBranch = "main";
-        safe.directory = "/etc/nixos";
-      };
-    };
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-  };
-
-  # List packages installed in system profile. To search, run:
-  # list-packages-exposed or list-packages-all
   environment.systemPackages = with pkgs; [
-    # Steam addon
-    steamtinkerlaunch
-    # Neofetch alternative
-    fastfetch
-    # Default browser
-    firefox
-    # Office suite
-    krita
-    libreoffice
-    # General programming tools
-    fira-code
-    git
-    libsForQt5.kcharselect
-    micro
-    neovim
-    # Custom shell scripts
     (writeShellScriptBin "nixos-printrevs" ''
       echo -e "nixpkgs:\t$(${cmd-getrev-nixpkgs})" &&
         echo -e "homemgr:\t$(${cmd-getrev-homemgr})" &&
         echo -e "nixgl:\t\t$(${cmd-getrev-nixgl})"
-    '')
-    (writeShellScriptBin "nixos-listpkgs" ''
-      nix-store -q --requisites /run/current-system/sw |
-        sed 's|/nix/store/[a-z0-9]*-||' |
-        sort |
-        uniq |
-        column -c "$(tput cols)"
     '')
   ];
 

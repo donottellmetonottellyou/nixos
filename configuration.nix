@@ -5,9 +5,9 @@
 { config, pkgs, lib, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./machine/machine.nix
-    ./os/os.nix
-    ./users/users.nix
+    ./src/machine.nix
+    ./src/os.nix
+    ./src/users.nix
   ];
 
   # This value determines the NixOS release from which the default
@@ -17,5 +17,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-  # REMEMBER TO CHANGE HOME-MANAGER STATE VERSION WHEN DOING CLEAN INSTALL
 }
