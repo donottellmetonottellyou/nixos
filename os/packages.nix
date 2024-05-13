@@ -82,7 +82,7 @@ in
         bind '"\e[A": history-search-backward'
         bind '"\e[B": history-search-forward'
         # Neofetch alternative
-        fastfetch
+        fastfetch --load-config neofetch
       '';
     };
 
