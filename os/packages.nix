@@ -90,6 +90,7 @@ in
     git = {
       enable = true;
       config = {
+        core.fsmonitor = true;
         init.defaultBranch = "main";
         safe.directory = "/etc/nixos";
       };
