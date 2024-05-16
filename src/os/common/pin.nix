@@ -2,7 +2,7 @@
 let
   channel = "23.11";
 
-  pin-date = "20240506";
+  pin-date = "20240516";
 
   url-nixpkgs = "https://github.com/NixOS/nixpkgs/";
   url-homemgr = "https://github.com/nix-community/home-manager/";
@@ -13,13 +13,13 @@ let
     name = "nixos-stable-${pin-date}";
     url = url-nixpkgs;
     ref = "refs/heads/nixos-${channel}";
-    rev = "27c13997bf450a01219899f5a83bd6ffbfc70d3c";
+    rev = "9ddcaffecdf098822d944d4147dd8da30b4e6843";
   };
   home-manager = fetchGit {
     name = "home-manager-${pin-date}";
     url = url-homemgr;
     ref = "refs/heads/release-${channel}";
-    rev = "86853e31dc1b62c6eeed11c667e8cdd0285d4411";
+    rev = "ab5542e9dbd13d0100f8baae2bc2d68af901f4b4";
   };
   nixgl-git = fetchGit {
     name = "nixgl-${pin-date}";
