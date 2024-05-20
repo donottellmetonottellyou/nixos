@@ -11,8 +11,7 @@
     excludePackages = with pkgs; [
       xterm
     ];
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
   };
   # Remove broken browser integration (it doesn't work on Chrome)
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
