@@ -2,10 +2,7 @@
   # KDE
   services.xserver = {
     enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
     # Remove xterm from default xserver install
     excludePackages = with pkgs; [
