@@ -75,10 +75,9 @@
           # General
           editorconfig.editorconfig
           equinusocio.vsc-material-theme
-          # add when out of unstable
-          # equinusocio.vsc-material-theme-icons
+          # equinusocio.vsc-material-theme-icons # add when out of unstable
+          naumovs.color-highlight
           oderwat.indent-rainbow
-          pkief.material-icon-theme
           # C++
           ms-vscode.cpptools
           xaver.clang-format
