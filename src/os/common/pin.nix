@@ -29,11 +29,9 @@ let
   };
 
   # Constructed commands to run in bash scripts
-  cmd-lsrev = "git ls-remote -h";
-  cmd-1starg = "| cut -f1";
-  cmd-getrev-nixpkgs = "${cmd-lsrev} ${url-nixpkgs} nixos-${channel} ${cmd-1starg}";
-  cmd-getrev-homemgr = "${cmd-lsrev} ${url-homemgr} release-${channel} ${cmd-1starg}";
-  cmd-getrev-nixgl = "${cmd-lsrev} ${url-nixgl} main ${cmd-1starg}";
+  cmd-getrev-nixpkgs = "git ls-remote -h ${url-nixpkgs} nixos-${channel} | cut -f1";
+  cmd-getrev-homemgr = "git ls-remote -h ${url-homemgr} release-${channel} | cut -f1";
+  cmd-getrev-nixgl = "git ls-remote -h ${url-nixgl} main | cut -f1";
 in
 {
   imports = [
@@ -58,10 +56,27 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "nixos-printrevs" ''
-      echo -e "nixpkgs:\t$(${cmd-getrev-nixpkgs})" &&
-        echo -e "homemgr:\t$(${cmd-getrev-homemgr})" &&
-        echo -e "nixgl:\t\t$(${cmd-getrev-nixgl})"
+    (writeShellScriptBin "nixos-fetch-revs" ''
+      check_hash_status() {
+        local name=$1
+        local hash=$2
+        local pin_path="/etc/nixos/src/os/common/pin.nix"
+
+        if [ ! -e "$pin_path" ]; then
+          echo "Script expects sources to be pinned at $pin_path: aborting."
+          exit 1
+        fi
+
+        if grep -q "$hash" "$pin_path"; then
+          echo -e "$name:\t\t\t\t\t\t\tUp to date."
+        else
+          echo -e "$name:\t$hash\tNot found!"
+        fi
+      }
+
+      check_hash_status "nixpkgs" "$(${cmd-getrev-nixpkgs})"
+      check_hash_status "homemgr" "$(${cmd-getrev-homemgr})"
+      check_hash_status "  nixgl" "$(${cmd-getrev-nixgl})"
     '')
   ];
 
