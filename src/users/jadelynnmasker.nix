@@ -49,7 +49,7 @@
       slack
       zoom-us
       # Games
-      itch
+      lutris
       prismlauncher
       # C/C++
       clang_17
