@@ -13,7 +13,7 @@ let
     name = "nixos-stable-${pin-date}";
     url = url-nixpkgs;
     ref = "refs/heads/nixos-${channel}";
-    rev = "e7cc61784ddf51c81487637b3031a6dd2d6673a2";
+    rev = "a8695cbd09a7ecf3376bd62c798b9864d20f86ee";
   };
   home-manager = fetchGit {
     name = "home-manager-${pin-date}";
