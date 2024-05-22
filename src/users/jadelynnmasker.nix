@@ -50,7 +50,9 @@
       zoom-us
       # Games
       lutris
+      gnome3.adwaita-icon-theme
       prismlauncher
+      wine-wayland
       # C/C++
       clang_17
       clang-tools_17
