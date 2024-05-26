@@ -29,9 +29,21 @@ let
   };
 
   # Constructed commands to run in bash scripts
-  cmd-getrev-nixpkgs = "git ls-remote -h ${url-nixpkgs} nixos-${channel} | cut -f1";
-  cmd-getrev-homemgr = "git ls-remote -h ${url-homemgr} release-${channel} | cut -f1";
-  cmd-getrev-nixgl = "git ls-remote -h ${url-nixgl} main | cut -f1";
+  cmd-getrev-nixpkgs = ''
+    git ls-remote -h ${url-nixpkgs} nixos-${channel} |
+      grep refs/heads/nixos-${channel} |
+      cut -f1
+  '';
+  cmd-getrev-homemgr = ''
+    git ls-remote -h ${url-homemgr} release-${channel} |
+      grep refs/heads/release-${channel} |
+      cut -f1
+  '';
+  cmd-getrev-nixgl = ''
+    git ls-remote -h ${url-nixgl} main |
+      grep refs/heads/main |
+      cut -f1
+  '';
 in
 {
   imports = [
