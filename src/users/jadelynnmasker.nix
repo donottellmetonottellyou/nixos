@@ -74,7 +74,6 @@
         vscodeExtensions = with vscode-extensions; [
           # General
           editorconfig.editorconfig
-          equinusocio.vsc-material-theme
           equinusocio.vsc-material-theme-icons
           naumovs.color-highlight
           oderwat.indent-rainbow
