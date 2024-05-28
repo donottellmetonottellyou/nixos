@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;

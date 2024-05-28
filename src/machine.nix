@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   imports = [
     ./machine/host.nix
     ./machine/network.nix

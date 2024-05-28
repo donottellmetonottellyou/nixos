@@ -1,6 +1,6 @@
-{ config, pkgs, ... }: {
+{ lib, ... }: {
   services = {
-    openssh.enable = pkgs.lib.mkOverride 999 false;
+    openssh.enable = lib.mkOverride 999 false;
 
     # Mumble chat server
     murmur = {
