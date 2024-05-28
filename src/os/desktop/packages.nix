@@ -6,7 +6,6 @@
     steamtinkerlaunch
     # Office suite
     fira-code
-    firefox
     kdePackages.kcalc
     kdePackages.kcharselect
     krita
