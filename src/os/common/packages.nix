@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # List packages installed in system profile for servers and desktop. To
   # search, run `nixos-listpkgs`
   environment.systemPackages = with pkgs; [

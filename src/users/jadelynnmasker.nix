@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   # MAIN USER
   users.users.jadelynnmasker = {
     isNormalUser = true;
@@ -59,13 +59,11 @@
       cppcheck
       # CSharp
       dotnet-sdk_8
-      # Git
-      github-desktop
       # Nix
       nixd
       nixpkgs-fmt
       # Nix opengl drivers
-      nixgl.auto.nixGLDefault
+      # nixgl.auto.nixGLDefault
       # NodeJS
       corepack_20
       nodejs_20
@@ -77,7 +75,7 @@
           # General
           editorconfig.editorconfig
           equinusocio.vsc-material-theme
-          # equinusocio.vsc-material-theme-icons # add when out of unstable
+          equinusocio.vsc-material-theme-icons
           naumovs.color-highlight
           oderwat.indent-rainbow
           # C++
@@ -99,14 +97,8 @@
           formulahendry.auto-rename-tag
           ritwickdey.liveserver
           vincaslt.highlight-matching-tag
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
           # General
-          {
-            name = "vsc-material-theme-icons";
-            publisher = "Equinusocio";
-            version = "3.6.0";
-            sha256 = "HOVwzR4OrNUxwKzEpQbmK04JI/9XHPSQfUL2pN9iRqc=";
-          }
           {
             name = "vscord";
             publisher = "LeonardSSH";

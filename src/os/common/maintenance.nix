@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   # Garbage collection and optimization
   nix = {
     gc = {

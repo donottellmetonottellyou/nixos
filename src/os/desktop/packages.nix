@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # List packages installed in system profile for desktop. To search, run
   # `nixos-listpkgs`
   environment.systemPackages = with pkgs; [
@@ -7,9 +7,9 @@
     # Office suite
     fira-code
     firefox
+    kdePackages.kcalc
+    kdePackages.kcharselect
     krita
     libreoffice
-    libsForQt5.kcalc
-    libsForQt5.kcharselect
   ];
 }
