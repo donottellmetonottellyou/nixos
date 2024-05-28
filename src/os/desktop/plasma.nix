@@ -9,9 +9,9 @@
   };
 
   environment = {
-    # Remove broken browser integration (it doesn't work on Chrome)
     plasma6.excludePackages = with pkgs.kdePackages; [
-      plasma-browser-integration
+      kate
+      okular
     ];
     # Make gtk apps use plasma file picker
     variables = {
