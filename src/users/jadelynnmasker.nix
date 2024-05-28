@@ -59,11 +59,11 @@
       cppcheck
       # CSharp
       dotnet-sdk_8
+      # Godot
+      godot_4
       # Nix
       nixd
       nixpkgs-fmt
-      # Nix opengl drivers
-      # nixgl.auto.nixGLDefault
       # NodeJS
       corepack_20
       nodejs_20
