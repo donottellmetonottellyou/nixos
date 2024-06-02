@@ -5,10 +5,9 @@
       enable = true;
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
-      # localNetworkGameTransfers.openFirewall = true; # future config
+      localNetworkGameTransfers.openFirewall = true;
       extraCompatPackages = with pkgs; [
         proton-ge-bin
-        steamtinkerlaunch
       ];
     };
   };
