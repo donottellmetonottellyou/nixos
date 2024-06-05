@@ -81,6 +81,7 @@
           ms-vscode.cpptools
           xaver.clang-format
           # C#
+          ms-dotnettools.csdevkit
           ms-dotnettools.csharp
           # Markdown
           yzhang.markdown-all-in-one
@@ -89,6 +90,7 @@
           jnoortheen.nix-ide
           # Rust
           rust-lang.rust-analyzer
+          serayuzgur.crates
           tamasfe.even-better-toml
           # Web
           esbenp.prettier-vscode
@@ -111,19 +113,19 @@
             version = "1.14.0";
             sha256 = "HOcFx8jjLPGW7LHq8t0mNmnuhFS+JtkD3+gCtV6eBCo=";
           }
+          # C#
+          {
+            name = "vscode-dotnet-runtime";
+            publisher = "ms-dotnettools";
+            version = "2.0.5";
+            hash = "sha256-acP3NULTNNyPw5052ZX1L+ymqn9+t4ydoCns29Ta1MU=";
+          }
           # Godot
           {
             name = "godot-tools";
             publisher = "geequlim";
             version = "2.0.0";
             sha256 = "6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
-          }
-          # Rust
-          {
-            name = "crates";
-            publisher = "serayuzgur";
-            version = "0.6.6";
-            sha256 = "HXoH1IgMLniq0kxHs2snym4rerScu9qCqUaqwEC+O/E=";
           }
           # Web
           {
