@@ -53,11 +53,11 @@
       gnome3.adwaita-icon-theme
       prismlauncher
       wine-wayland
-      # C/C++
+      # C++
       clang_17
       clang-tools_17
       cppcheck
-      # CSharp
+      # C#
       dotnet-sdk_8
       # Godot
       godot_4
@@ -80,7 +80,7 @@
           # C++
           ms-vscode.cpptools
           xaver.clang-format
-          # CSharp
+          # C#
           ms-dotnettools.csharp
           # Markdown
           yzhang.markdown-all-in-one
@@ -104,7 +104,7 @@
             version = "5.2.9";
             sha256 = "HJvVpX2cativdyxsnVjJBRvITwmkyoWehafWL95S2B0=";
           }
-          # C/C++
+          # C++
           {
             name = "c-cpp-flylint";
             publisher = "jbenden";
