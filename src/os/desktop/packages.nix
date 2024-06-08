@@ -4,8 +4,12 @@
   environment.systemPackages = with pkgs; [
     # Office suite
     fira-code
+    kdePackages.filelight
+    kdePackages.isoimagewriter
     kdePackages.kcalc
     kdePackages.kcharselect
+    kdePackages.partitionmanager
+    kdePackages.plasma-disks
     krita
     libreoffice
   ];
