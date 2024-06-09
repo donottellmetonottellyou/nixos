@@ -53,6 +53,8 @@
       gnome3.adwaita-icon-theme
       prismlauncher
       wine-wayland
+      # Ventoy, bootable usb solution
+      ventoy
       # C++
       clang_17
       clang-tools_17
