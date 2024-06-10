@@ -2,6 +2,8 @@
   # List packages installed in system profile for desktop. To search, run
   # `nixos-listpkgs`
   environment.systemPackages = with pkgs; [
+    # VPN
+    protonvpn-gui
     # Office suite
     fira-code
     kdePackages.filelight
