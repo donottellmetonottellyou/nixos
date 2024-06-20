@@ -25,6 +25,9 @@
     };
 
     # Per-directory cached dev environments
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      silent = true;
+    };
   };
 }
