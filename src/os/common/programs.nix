@@ -10,7 +10,6 @@
       '';
     };
 
-    # Systemwide git configuration
     git = {
       enable = true;
       config = {
@@ -24,5 +23,8 @@
       enable = true;
       enableSSHSupport = true;
     };
+
+    # Per-directory cached dev environments
+    direnv = true;
   };
 }
