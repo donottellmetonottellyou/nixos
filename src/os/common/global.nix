@@ -8,9 +8,10 @@
     allowUnfree = true;
   };
 
-  # Install in /etc/profiles instead of $HOME/.nix-profile
-  home-manager.useUserPackages = true;
-
-  # Use global pkgs
-  home-manager.useGlobalPkgs = true;
+  home-manager = {
+    # Install in /etc/profiles instead of $HOME/.nix-profile
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    backupFileExtension = "old";
+  };
 }
