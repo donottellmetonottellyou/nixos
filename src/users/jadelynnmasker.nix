@@ -55,22 +55,6 @@
       wine-wayland
       # Ventoy, bootable usb solution
       ventoy
-      # C++
-      clang_17
-      clang-tools_17
-      cppcheck
-      # C#
-      dotnet-sdk_8
-      # Godot
-      godot_4
-      # Nix
-      nixd
-      nixpkgs-fmt
-      # NodeJS
-      corepack_20
-      nodejs_20
-      # Rust
-      rustup
       # Personal text editor (with extensions)
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
