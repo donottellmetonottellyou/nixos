@@ -7,6 +7,9 @@
     # General programming tools
     micro
     neovim
+    # Nix tools
+    nixd
+    nixpkgs-fmt
     # Custom shell scripts
     (writeShellScriptBin "nixos-listpkgs" ''
       nix-store -q --requisites /run/current-system/sw |
