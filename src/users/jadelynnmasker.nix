@@ -61,6 +61,7 @@
           # General
           editorconfig.editorconfig
           equinusocio.vsc-material-theme-icons
+          mkhl.direnv
           naumovs.color-highlight
           oderwat.indent-rainbow
           # C++
