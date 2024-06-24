@@ -47,6 +47,7 @@
       slack
       zoom-us
       # Games
+      digital
       lutris
       gnome3.adwaita-icon-theme
       prismlauncher
