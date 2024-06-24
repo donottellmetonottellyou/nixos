@@ -4,8 +4,10 @@
   environment.systemPackages = with pkgs; [
     # VPN
     protonvpn-gui
-    # Office suite
+    # Programming font
     fira-code
+    # Office suite
+    brave
     kdePackages.filelight
     kdePackages.isoimagewriter
     kdePackages.kcalc
