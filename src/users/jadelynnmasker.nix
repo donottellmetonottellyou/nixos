@@ -41,8 +41,6 @@
 
 
     home.packages = with pkgs; [
-      # Personal web browser
-      google-chrome
       # Chat
       discord
       mumble
