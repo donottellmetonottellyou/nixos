@@ -51,7 +51,8 @@
       lutris
       gnome3.adwaita-icon-theme
       prismlauncher
-      wine-wayland
+      wineWowPackages.waylandFull
+      # Godot
       godot_4
       # Ventoy, bootable usb solution
       ventoy
