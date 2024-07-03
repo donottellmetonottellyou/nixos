@@ -8,6 +8,13 @@
     enable = true;
   };
 
+  # Fixes issue with xdg-open, which opens default applications
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    wlr.enable = true;
+  };
+
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate
