@@ -16,6 +16,16 @@
   };
 
   environment = {
+    systemPackages = with pkgs.kdePackages; [
+      filelight
+      isoimagewriter
+      kcalc
+      kcharselect
+      kclock
+      partitionmanager
+      plasma-disks
+    ];
+
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate
       okular
