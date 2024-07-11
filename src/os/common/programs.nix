@@ -4,7 +4,7 @@
       enable = true;
       enableBashCompletion = true;
       autosuggestions.enable = true;
-      oh-my-zsh = {
+      ohMyZsh = {
         enable = true;
         theme = "steeef";
       };
