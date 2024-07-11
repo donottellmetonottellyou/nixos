@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     <home-manager/nixos>
   ];
@@ -7,6 +7,8 @@
     # Allow unfree packages
     allowUnfree = true;
   };
+
+  users.defaultUserShell = pkgs.zsh;
 
   home-manager = {
     # Install in /etc/profiles instead of $HOME/.nix-profile

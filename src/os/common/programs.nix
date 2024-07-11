@@ -1,11 +1,14 @@
 { ... }: {
   programs = {
-    bash = {
+    zsh = {
+      enable = true;
+      enableBashCompletion = true;
+      autosuggestions.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "steeef";
+      };
       interactiveShellInit = ''
-        # Bind up and down arrow keys for history search
-        bind '"\e[A": history-search-backward'
-        bind '"\e[B": history-search-forward'
-
         fastfetch --load-config neofetch
       '';
     };
