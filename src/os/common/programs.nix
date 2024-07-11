@@ -15,7 +15,10 @@
       config = {
         core.fsmonitor = true;
         init.defaultBranch = "main";
-        safe.directory = "/etc/nixos";
+        safe.directory = [
+          "/etc/nixos"
+          "/home/jadelynnmasker/Code/NixOS"
+        ];
       };
     };
 
