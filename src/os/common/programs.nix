@@ -6,7 +6,7 @@
       autosuggestions.enable = true;
       ohMyZsh = {
         enable = true;
-        theme = "jonathan";
+        theme = "steeef";
       };
       interactiveShellInit = ''
         fastfetch --load-config neofetch
