@@ -71,6 +71,8 @@
           # C#
           ms-dotnettools.csdevkit
           ms-dotnettools.csharp
+          # Java
+          vscjava.vscode-java-pack
           # Markdown
           yzhang.markdown-all-in-one
           stkb.rewrap
