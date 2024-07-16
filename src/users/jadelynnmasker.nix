@@ -114,6 +114,8 @@
           # =========================
           #  GENERAL EDITOR SETTINGS
           # =========================
+          # Appearance
+          "workbench.iconTheme" = "eq-material-theme-icons";
           "window.menuBarVisibility" = "hidden";
           "window.titleBarStyle" = "native";
           "editor.minimap.enabled" = false;
@@ -132,14 +134,14 @@
           "editor.experimentalWhitespaceRendering" = "font";
           "workbench.sideBar.location" = "right";
           "workbench.editor.highlightModifiedTabs" = true;
-          "explorer.compactFolders" = false;
-          "explorer.excludeGitIgnore" = true;
-          "editor.folding" = false;
           "editor.colorDecorators" = false;
           "editor.cursorStyle" = "line";
           "editor.cursorBlinking" = "phase";
           "editor.guides.highlightActiveIndentation" = "always";
           # Behavior
+          "explorer.compactFolders" = false;
+          "editor.folding" = false;
+          "explorer.excludeGitIgnore" = true;
           "editor.inlayHints.enabled" = "offUnlessPressed";
           "editor.stickyTabStops" = true;
           "editor.insertSpaces" = true;
@@ -147,6 +149,7 @@
           "files.insertFinalNewline" = true;
           "editor.linkedEditing" = true;
           "explorer.confirmDelete" = false;
+          "security.workspace.trust.emptyWindow" = true;
           "security.workspace.trust.untrustedFiles" = "newWindow";
           "security.workspace.trust.startupPrompt" = "never";
           "explorer.confirmDragAndDrop" = false;
@@ -274,28 +277,27 @@
             "editor.tabSize" = 4;
           };
         };
-      };};
-
-      home.packages = with pkgs; [
-        # Chat
-        discord
-        mumble
-        slack
-        zoom-us
-        # Games
-        digital
-        lutris
-        gnome3.adwaita-icon-theme
-        prismlauncher
-        wineWowPackages.waylandFull
-        # Godot
-        godot_4
-        # Ventoy, bootable usb solution
-        ventoy
-      ];
-
-      home.stateVersion = config.system.stateVersion;
+      };
     };
-  
 
+    home.packages = with pkgs; [
+      # Chat
+      discord
+      mumble
+      slack
+      zoom-us
+      # Games
+      digital
+      lutris
+      gnome3.adwaita-icon-theme
+      prismlauncher
+      wineWowPackages.waylandFull
+      # Godot
+      godot_4
+      # Ventoy, bootable usb solution
+      ventoy
+    ];
+
+    home.stateVersion = config.system.stateVersion;
+  };
 }
