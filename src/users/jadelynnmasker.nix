@@ -37,28 +37,12 @@
           tag.gpgSign = true;
         };
       };
-    };
 
-
-    home.packages = with pkgs; [
-      # Chat
-      discord
-      mumble
-      slack
-      zoom-us
-      # Games
-      digital
-      lutris
-      gnome3.adwaita-icon-theme
-      prismlauncher
-      wineWowPackages.waylandFull
-      # Godot
-      godot_4
-      # Ventoy, bootable usb solution
-      ventoy
-      # Personal text editor (with extensions)
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
+      vscode = {
+        enable = true;
+        enableUpdateCheck = false;
+        mutableExtensionsDir = false;
+        extensions = with pkgs.vscode-extensions; [
           # General
           editorconfig.editorconfig
           equinusocio.vsc-material-theme-icons
@@ -125,7 +109,25 @@
             hash = "sha256-EyaMpDBC1ePqN9hDg6s8yyhuLGbZUGDDqmhiBsmenf8=";
           }
         ];
-      })
+      };
+    };
+
+    home.packages = with pkgs; [
+      # Chat
+      discord
+      mumble
+      slack
+      zoom-us
+      # Games
+      digital
+      lutris
+      gnome3.adwaita-icon-theme
+      prismlauncher
+      wineWowPackages.waylandFull
+      # Godot
+      godot_4
+      # Ventoy, bootable usb solution
+      ventoy
     ];
 
     home.stateVersion = config.system.stateVersion;
