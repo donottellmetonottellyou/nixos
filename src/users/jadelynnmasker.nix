@@ -42,7 +42,7 @@
         enable = true;
         enableUpdateCheck = false;
         mutableExtensionsDir = false;
-        extensions = with pkgs.vscode-extensions; [
+        extensions = (with pkgs.vscode-extensions; [
           # General
           editorconfig.editorconfig
           equinusocio.vsc-material-theme-icons
@@ -72,7 +72,7 @@
           formulahendry.auto-rename-tag
           ritwickdey.liveserver
           vincaslt.highlight-matching-tag
-        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
+        ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # General
           {
             name = "vscord";
