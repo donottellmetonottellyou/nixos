@@ -92,10 +92,16 @@
         ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           # General
           {
+            name = "dependi";
+            publisher = "fill-labs";
+            version = "0.7.1";
+            hash = "sha256-RCEh3cy4JVwdEEY3LVAj+0yDQ/6KgvL3QvQEbU5EfYw=";
+          }
+          {
             name = "vscord";
             publisher = "LeonardSSH";
-            version = "5.2.11";
-            hash = "sha256-Dc8lzJYJEaKNXvGJxuQ9NulZxHFDVujYOGoeKmrltNA=";
+            version = "5.2.12";
+            hash = "sha256-WGDEizYG6UAqe1jnhvjfFouXDA9Yr5P+BjxPahAIsTE=";
           }
           # C++
           {
@@ -108,8 +114,8 @@
           {
             name = "vscode-dotnet-runtime";
             publisher = "ms-dotnettools";
-            version = "2.0.5";
-            hash = "sha256-acP3NULTNNyPw5052ZX1L+ymqn9+t4ydoCns29Ta1MU=";
+            version = "2.0.9";
+            hash = "sha256-hbg6HQWkmEa7F5Wk2JKXpLVXHrnGKfu02uRjwjhJ50k=";
           }
           # Godot
           {
@@ -117,13 +123,6 @@
             publisher = "geequlim";
             version = "2.0.0";
             hash = "sha256-6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
-          }
-          # Web
-          {
-            name = "vscode-standard";
-            publisher = "standard";
-            version = "2.1.3";
-            hash = "sha256-EyaMpDBC1ePqN9hDg6s8yyhuLGbZUGDDqmhiBsmenf8=";
           }
         ];
 
