@@ -119,184 +119,183 @@
           "editor.minimap.enabled" = false;
           "editor.rulers" = [
             {
-              "column" = 80
-                }
-                {
-                "column" = 100
-                }
-                {
-                "column" = 120
-                }
-                ];
-              "editor.renderWhitespace" = "boundary";
-              "editor.experimentalWhitespaceRendering" = "font";
-              "workbench.sideBar.location" = "right";
-              "workbench.editor.highlightModifiedTabs" = true;
-              "explorer.compactFolders" = false;
-              "explorer.excludeGitIgnore" = true;
-              "editor.folding" = false;
-              "editor.colorDecorators" = false;
-              "editor.cursorStyle" = "line";
-              "editor.cursorBlinking" = "phase";
-              "editor.guides.highlightActiveIndentation" = "always";
-              # Behavior
-              "editor.inlayHints.enabled" = "offUnlessPressed";
-              "editor.stickyTabStops" = true;
-              "editor.insertSpaces" = true;
-              "files.trimTrailingWhitespace" = true;
-              "files.insertFinalNewline" = true;
-              "editor.linkedEditing" = true;
-              "explorer.confirmDelete" = false;
-              "security.workspace.trust.untrustedFiles" = "newWindow";
-              "security.workspace.trust.startupPrompt" = "never";
-              "explorer.confirmDragAndDrop" = false;
-              # Set font & size
-              "editor.fontFamily" = "'Fira Code', monospace";
-              "editor.fontLigatures" = true;
-              "editor.fontSize" = 12;
-              "editor.codeLensFontSize" = 12;
-              "screencastMode.fontSize" = 48;
-              "debug.console.fontSize" = 12;
-              "scm.inputFontSize" = 12;
-              "terminal.integrated.fontSize" = 12;
-              "notebook.markup.fontSize" = 12;
-              "chat.editor.fontSize" = 12;
-              "markdown.preview.fontSize" = 12;
-              # Set line heights
-              "editor.lineHeight" = 18;
-              "debug.console.lineHeight" = 18;
-              "chat.editor.lineHeight" = 18;
-              "markdown.preview.lineHeight" = 1.25;
-              # Word wrap
-              "editor.wordWrap" = "bounded";
-              "editor.wrappingIndent" = "deepIndent";
-              "editor.wordWrapColumn" = 120;
-              # Disable terminal persistence
-              "terminal.integrated.enablePersistentSessions" = false;
-              "terminal.integrated.persistentSessionReviveProcess" = "never";
-              # Confirm on terminal close
-              "terminal.integrated.confirmOnExit" = "hasChildProcesses";
-              "terminal.integrated.confirmOnKill" = "always";
-              # Format on save/type/paste & autosave
-              "files.autoSave" = "onFocusChange";
-              "files.trimFinalNewlines" = true;
-              "editor.formatOnPaste" = true;
-              "editor.formatOnSave" = true;
-              "editor.formatOnType" = true;
-              # Set general code formatting rules
-              "editor.autoClosingBrackets" = "beforeWhitespace";
-              "editor.autoClosingComments" = "beforeWhitespace";
-              "editor.autoClosingQuotes" = "beforeWhitespace";
-              # ========================================
-              #  Language / Extension Specific Settings
-              # ========================================
-              # General
-              "color-highlight.markRuler" = false;
-              "indentRainbow.excludedLanguages" = [ "plaintext", "markdown" ];
-              "indentRainbow.colors" = [
-                "rgba(15, 0, 0, 0.25)"
-                "rgba(0, 15, 0, 0.25)"
-                "rgba(0, 0, 15, 0.25)"
-                "rgba(15, 15, 0, 0.25)"
-                "rgba(15, 0, 15, 0.25)"
-                "rgba(0, 15, 15, 0.25)"
-                "rgba(63, 0, 0, 0.25)"
-                "rgba(0, 63, 0, 0.25)"
-                "rgba(0, 0, 63, 0.25)"
-                "rgba(63, 63, 0, 0.25)"
-                "rgba(63, 0, 63, 0.25)"
-                "rgba(0, 63, 63, 0.25)"
-                "rgba(255, 0, 0, 0.25)"
-                "rgba(0, 255, 0, 0.25)"
-                "rgba(0, 0, 255, 0.25)"
-                "rgba(255, 255, 0, 0.25)"
-                "rgba(255, 0, 255, 0.25)"
-                "rgba(0, 255, 255)"
-                "rgb(255, 0, 0)"
-                "rgb(0, 255, 0)"
-                "rgb(0, 0, 255)"
-                "rgb(255, 255, 0)"
-                "rgb(255, 0, 255)"
-                "rgb(0, 255, 255)"
-                "rgb(255,255,255)"
-                "rgb(255,255,255)"
-                "rgb(255,255,255)"
-                "rgba(0, 0, 0, 0)"
-                "rgba(0, 0, 0, 0)"
-                "rgba(0, 0, 0, 0)"
-              ];
-              "indentRainbow.errorColor" = "rgba(255, 255, 255, 0.25)";
-              # C/C++
-              "c-cpp-flylint.language" = "c";
-              "c-cpp-flylint.flexelint.enable" = false;
-              "c-cpp-flylint.flawfinder.enable" = false;
-              "c-cpp-flylint.lizard.enable" = false;
-              # Discord Rich Presence
-              "vscord.app.name" = "Visual Studio Code";
-              # Godot
-              "godotTools.editorPath.godot4" = "godot4";
-              # Nix
-              "[nix]" = {
-                "editor.defaultFormatter" = "jnoortheen.nix-ide";
-                  };
-                "nix.enableLanguageServer" = true;
-                "nix.serverPath" = "nixd";
-                # Rewrap
-                "rewrap.wrappingColumn" = 80;
-                # Rust
-                "[rust]" = {
-                  "editor.defaultFormatter" = "rust-lang.rust-analyzer"
-                    };
-                  "rust-analyzer.check.command" = "clippy";
-                  # Toml
-                  "evenBetterToml.formatter.columnWidth" = 80;
-                  # Web
-                  "liveServer.settings.donotShowInfoMsg" = true;
-                  "prettier.tabWidth" = 2;
-                  "standard.engine" = "ts-standard";
-                  "standard.run" = "onSave";
-                  "[css]" = {
-                    "editor.defaultFormatter" = "esbenp.prettier-vscode"
-                      };
-                    "[json]" = {
-                      "editor.defaultFormatter" = "esbenp.prettier-vscode"
-                        };
-                      "[jsonc]" = {
-                        "editor.defaultFormatter" = "esbenp.prettier-vscode"
-                          };
-                        "[html]" = {
-                          "editor.defaultFormatter" = "esbenp.prettier-vscode"
-                            };
-                          "[markdown]" = {
-                            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-                            "editor.guides.indentation" = false;
-                            "editor.renderWhitespace" = "none";
-                            "editor.tabSize" = 4
-                              };
-                            "workbench.iconTheme" = "eq-material-theme-icons-ocean"
-                              }
+              "column" = 80;
+            }
+            {
+              "column" = 100;
+            }
+            {
+              "column" = 120;
+            }
+          ];
+          "editor.renderWhitespace" = "boundary";
+          "editor.experimentalWhitespaceRendering" = "font";
+          "workbench.sideBar.location" = "right";
+          "workbench.editor.highlightModifiedTabs" = true;
+          "explorer.compactFolders" = false;
+          "explorer.excludeGitIgnore" = true;
+          "editor.folding" = false;
+          "editor.colorDecorators" = false;
+          "editor.cursorStyle" = "line";
+          "editor.cursorBlinking" = "phase";
+          "editor.guides.highlightActiveIndentation" = "always";
+          # Behavior
+          "editor.inlayHints.enabled" = "offUnlessPressed";
+          "editor.stickyTabStops" = true;
+          "editor.insertSpaces" = true;
+          "files.trimTrailingWhitespace" = true;
+          "files.insertFinalNewline" = true;
+          "editor.linkedEditing" = true;
+          "explorer.confirmDelete" = false;
+          "security.workspace.trust.untrustedFiles" = "newWindow";
+          "security.workspace.trust.startupPrompt" = "never";
+          "explorer.confirmDragAndDrop" = false;
+          # Set font & size
+          "editor.fontFamily" = "'Fira Code', monospace";
+          "editor.fontLigatures" = true;
+          "editor.fontSize" = 12;
+          "editor.codeLensFontSize" = 12;
+          "screencastMode.fontSize" = 48;
+          "debug.console.fontSize" = 12;
+          "scm.inputFontSize" = 12;
+          "terminal.integrated.fontSize" = 12;
+          "notebook.markup.fontSize" = 12;
+          "chat.editor.fontSize" = 12;
+          "markdown.preview.fontSize" = 12;
+          # Set line heights
+          "editor.lineHeight" = 18;
+          "debug.console.lineHeight" = 18;
+          "chat.editor.lineHeight" = 18;
+          "markdown.preview.lineHeight" = 1.25;
+          # Word wrap
+          "editor.wordWrap" = "bounded";
+          "editor.wrappingIndent" = "deepIndent";
+          "editor.wordWrapColumn" = 120;
+          # Disable terminal persistence
+          "terminal.integrated.enablePersistentSessions" = false;
+          "terminal.integrated.persistentSessionReviveProcess" = "never";
+          # Confirm on terminal close
+          "terminal.integrated.confirmOnExit" = "hasChildProcesses";
+          "terminal.integrated.confirmOnKill" = "always";
+          # Format on save/type/paste & autosave
+          "files.autoSave" = "onFocusChange";
+          "files.trimFinalNewlines" = true;
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.formatOnType" = true;
+          # Set general code formatting rules
+          "editor.autoClosingBrackets" = "beforeWhitespace";
+          "editor.autoClosingComments" = "beforeWhitespace";
+          "editor.autoClosingQuotes" = "beforeWhitespace";
+          # ========================================
+          #  Language / Extension Specific Settings
+          # ========================================
+          # General
+          "color-highlight.markRuler" = false;
+          "indentRainbow.excludedLanguages" = [ "plaintext" "markdown" ];
+          "indentRainbow.colors" = [
+            "rgba(15, 0, 0, 0.25)"
+            "rgba(0, 15, 0, 0.25)"
+            "rgba(0, 0, 15, 0.25)"
+            "rgba(15, 15, 0, 0.25)"
+            "rgba(15, 0, 15, 0.25)"
+            "rgba(0, 15, 15, 0.25)"
+            "rgba(63, 0, 0, 0.25)"
+            "rgba(0, 63, 0, 0.25)"
+            "rgba(0, 0, 63, 0.25)"
+            "rgba(63, 63, 0, 0.25)"
+            "rgba(63, 0, 63, 0.25)"
+            "rgba(0, 63, 63, 0.25)"
+            "rgba(255, 0, 0, 0.25)"
+            "rgba(0, 255, 0, 0.25)"
+            "rgba(0, 0, 255, 0.25)"
+            "rgba(255, 255, 0, 0.25)"
+            "rgba(255, 0, 255, 0.25)"
+            "rgba(0, 255, 255)"
+            "rgb(255, 0, 0)"
+            "rgb(0, 255, 0)"
+            "rgb(0, 0, 255)"
+            "rgb(255, 255, 0)"
+            "rgb(255, 0, 255)"
+            "rgb(0, 255, 255)"
+            "rgb(255,255,255)"
+            "rgb(255,255,255)"
+            "rgb(255,255,255)"
+            "rgba(0, 0, 0, 0)"
+            "rgba(0, 0, 0, 0)"
+            "rgba(0, 0, 0, 0)"
+          ];
+          "indentRainbow.errorColor" = "rgba(255, 255, 255, 0.25)";
+          # C/C++
+          "c-cpp-flylint.language" = "c";
+          "c-cpp-flylint.flexelint.enable" = false;
+          "c-cpp-flylint.flawfinder.enable" = false;
+          "c-cpp-flylint.lizard.enable" = false;
+          # Discord Rich Presence
+          "vscord.app.name" = "Visual Studio Code";
+          # Godot
+          "godotTools.editorPath.godot4" = "godot4";
+          # Nix
+          "[nix]" = {
+            "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          };
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nixd";
+          # Rewrap
+          "rewrap.wrappingColumn" = 80;
+          # Rust
+          "[rust]" = {
+            "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+          };
+          "rust-analyzer.check.command" = "clippy";
+          # Toml
+          "evenBetterToml.formatter.columnWidth" = 80;
+          # Web
+          "liveServer.settings.donotShowInfoMsg" = true;
+          "prettier.tabWidth" = 2;
+          "standard.engine" = "ts-standard";
+          "standard.run" = "onSave";
+          "[css]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[jsonc]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[html]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[markdown]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            "editor.guides.indentation" = false;
+            "editor.renderWhitespace" = "none";
+            "editor.tabSize" = 4;
+          };
+        };
+      };};
 
-                              };
-                          };
+      home.packages = with pkgs; [
+        # Chat
+        discord
+        mumble
+        slack
+        zoom-us
+        # Games
+        digital
+        lutris
+        gnome3.adwaita-icon-theme
+        prismlauncher
+        wineWowPackages.waylandFull
+        # Godot
+        godot_4
+        # Ventoy, bootable usb solution
+        ventoy
+      ];
 
-                          home.packages = with pkgs; [
-                            # Chat
-                            discord
-                            mumble
-                            slack
-                            zoom-us
-                            # Games
-                            digital
-                            lutris
-                            gnome3.adwaita-icon-theme
-                            prismlauncher
-                            wineWowPackages.waylandFull
-                            # Godot
-                            godot_4
-                            # Ventoy, bootable usb solution
-                            ventoy
-                          ];
+      home.stateVersion = config.system.stateVersion;
+    };
+  
 
-                          home.stateVersion = config.system.stateVersion;
-                        };
-                      }
+}
