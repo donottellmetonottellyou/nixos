@@ -8,6 +8,24 @@
 
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
 
+    home.packages = with pkgs; [
+      # Chat
+      discord
+      mumble
+      slack
+      zoom-us
+      # Games
+      digital
+      lutris
+      gnome3.adwaita-icon-theme
+      prismlauncher
+      wineWowPackages.waylandFull
+      # Godot
+      godot_4
+      # Ventoy, bootable usb solution
+      ventoy
+    ];
+
     programs = {
       git = {
         enable = true;
@@ -28,7 +46,6 @@
             prompt = false;
             vscode.cmd = "code --wait $MERGED";
           };
-
 
           # Signing
           user.signingKey = "BDA496D2B8AFE0B087AC49B60EFCE08AB6147F98";
@@ -279,24 +296,6 @@
         };
       };
     };
-
-    home.packages = with pkgs; [
-      # Chat
-      discord
-      mumble
-      slack
-      zoom-us
-      # Games
-      digital
-      lutris
-      gnome3.adwaita-icon-theme
-      prismlauncher
-      wineWowPackages.waylandFull
-      # Godot
-      godot_4
-      # Ventoy, bootable usb solution
-      ventoy
-    ];
 
     home.stateVersion = config.system.stateVersion;
   };
