@@ -271,8 +271,6 @@
           # Web
           "liveServer.settings.donotShowInfoMsg" = true;
           "prettier.tabWidth" = 2;
-          "standard.engine" = "ts-standard";
-          "standard.run" = "onSave";
           "[css]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
