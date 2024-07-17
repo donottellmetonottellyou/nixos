@@ -81,7 +81,6 @@
           jnoortheen.nix-ide
           # Rust
           rust-lang.rust-analyzer
-          serayuzgur.crates
           tamasfe.even-better-toml
           # Web
           esbenp.prettier-vscode
