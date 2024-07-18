@@ -1,11 +1,15 @@
 { pkgs, ... }: {
-  services.displayManager.sddm = {
-    enable = true;
-    autoNumlock = true;
-    wayland.enable = true;
-  };
-  services.desktopManager.plasma6 = {
-    enable = true;
+  services = {
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6 = {
+      enable = true;
+    };
+
+    fwupd.enable = true; # <- needed for kinfocenter
   };
 
   # Fixes issue with xdg-open, which opens default applications
@@ -16,7 +20,17 @@
   };
 
   environment = {
-    systemPackages = with pkgs.kdePackages; [
+    systemPackages = (with pkgs; [
+      # \/ needed for kinfocenter \/
+      aha
+      clinfo
+      glxinfo
+      pciutils
+      vulkan-tools
+      wayland-utils
+      # /\ needed for kinfocenter /\
+    ]) ++ (with pkgs.kdePackages;[
+      # \/ extra kde utils \/
       filelight
       isoimagewriter
       kcalc
@@ -24,7 +38,8 @@
       kclock
       partitionmanager
       plasma-disks
-    ];
+      # /\ extra kde utils /\
+    ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate
