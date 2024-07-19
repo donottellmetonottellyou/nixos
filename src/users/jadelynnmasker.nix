@@ -22,8 +22,6 @@
       wineWowPackages.waylandFull
       # Godot
       godot_4
-      # Ventoy, bootable usb solution
-      ventoy
     ];
 
     programs = {
