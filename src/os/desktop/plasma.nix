@@ -12,6 +12,8 @@
     fwupd.enable = true; # <- needed for kinfocenter
   };
 
+  programs.dconf.enable = true; # fixes gtk themes in wayland
+
   # Fixes issue with xdg-open, which opens default applications
   xdg.portal = {
     enable = true;
