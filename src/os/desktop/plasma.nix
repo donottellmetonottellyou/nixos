@@ -14,7 +14,7 @@
 
   programs = {
     dconf.enable = true; # fixes gtk themes in wayland
-    kde-pim.enable = true; # Fixes account auth
+    # kde-pim.enable = true; # Fixes account auth
   };
 
   # Fixes issue with xdg-open, which opens default applications
