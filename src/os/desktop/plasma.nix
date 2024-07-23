@@ -46,6 +46,7 @@
       kmail
       kmailtransport
       kmail-account-wizard
+      ktexttemplate
       # /\ kmail & depends /\
       # \/ cloud integration \/
       kaccounts-integration
