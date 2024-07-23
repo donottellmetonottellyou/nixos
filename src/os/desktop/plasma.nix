@@ -12,7 +12,10 @@
     fwupd.enable = true; # <- needed for kinfocenter
   };
 
-  programs.dconf.enable = true; # fixes gtk themes in wayland
+  programs = {
+    dconf.enable = true; # fixes gtk themes in wayland
+    kde-pim.enable = true; # Fixes account auth
+  };
 
   # Fixes issue with xdg-open, which opens default applications
   xdg.portal = {
@@ -42,7 +45,6 @@
       plasma-disks
       # /\ extra kde utils /\
       # \/ kmail & depends \/
-      kdepim-addons
       kmail
       kmailtransport
       kmail-account-wizard
