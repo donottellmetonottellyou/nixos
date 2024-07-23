@@ -38,10 +38,14 @@
       kcalc
       kcharselect
       kclock
-      kio-gdrive # enables google drive integration with file manager
       partitionmanager
       plasma-disks
       # /\ extra kde utils /\
+      # \/ cloud integration \/
+      kaccounts-integration
+      kaccounts-providers
+      kio-gdrive
+      # /\ cloud integration /\
     ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
