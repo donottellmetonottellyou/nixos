@@ -38,6 +38,7 @@
       kcalc
       kcharselect
       kclock
+      kmail
       partitionmanager
       plasma-disks
       # /\ extra kde utils /\
