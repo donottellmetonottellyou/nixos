@@ -38,10 +38,15 @@
       kcalc
       kcharselect
       kclock
-      kmail
       partitionmanager
       plasma-disks
       # /\ extra kde utils /\
+      # \/ kmail & depends \/
+      kdepim-addons
+      kmail
+      kmailtransport
+      kmail-account-wizard
+      # /\ kmail & depends /\
       # \/ cloud integration \/
       kaccounts-integration
       kaccounts-providers
