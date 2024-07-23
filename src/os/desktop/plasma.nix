@@ -38,6 +38,7 @@
       kcalc
       kcharselect
       kclock
+      kio-gdrive # enables google drive integration with file manager
       partitionmanager
       plasma-disks
       # /\ extra kde utils /\
