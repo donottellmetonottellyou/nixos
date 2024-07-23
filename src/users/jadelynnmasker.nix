@@ -9,6 +9,7 @@
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
 
     home.packages = with pkgs; [
+      keepassxc
       # Chat
       discord
       mumble
