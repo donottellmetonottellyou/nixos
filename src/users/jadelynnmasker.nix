@@ -47,8 +47,7 @@
           };
 
           # Signing
-          gpg.formatssh = true;
-          user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAldZ0kNvn/RrKONorGE1/KSwtcFIJIJ3j+vo3uNRRX3 donottellmetonottellyou@gmail.com";
+          gpg.format = "ssh";
           commit.gpgSign = true;
           push.gpgSign = "if-asked";
           tag.gpgSign = true;
