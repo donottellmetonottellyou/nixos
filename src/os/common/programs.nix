@@ -25,11 +25,6 @@
       };
     };
 
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
     # Per-directory cached dev environments
     direnv = {
       enable = true;
