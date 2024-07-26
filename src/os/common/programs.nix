@@ -25,6 +25,8 @@
       };
     };
 
+    ssh.startAgent = true;
+
     # Per-directory cached dev environments
     direnv = {
       enable = true;
