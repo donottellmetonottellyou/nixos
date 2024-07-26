@@ -48,6 +48,7 @@
 
           # Signing
           gpg.format = "ssh";
+          user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINeyl/ImKcReudO9kQym0YD+ygcIa7bMDuEgWqZk/A0f jadelynnmasker@ananda";
           commit.gpgSign = true;
           push.gpgSign = "if-asked";
           tag.gpgSign = true;
