@@ -154,6 +154,7 @@
           "editor.cursorBlinking" = "phase";
           "editor.guides.highlightActiveIndentation" = "always";
           # Behavior
+          "git.openRepositoryInParentFolders" = "always";
           "explorer.compactFolders" = false;
           "editor.folding" = false;
           "explorer.excludeGitIgnore" = true;
