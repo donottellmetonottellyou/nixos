@@ -14,7 +14,13 @@
 
   programs = {
     dconf.enable = true; # fixes gtk themes in wayland
-    # kde-pim.enable = true; # Fixes account auth
+    # \/ Add when options available in stable \/
+    # kde-pim = {
+    #   kmail = true;
+    #   kontact = true;
+    #   merkuro = true;
+    # };
+    # /\ Add when options available in stable /\
   };
 
   # Fixes issue with xdg-open, which opens default applications
@@ -44,12 +50,6 @@
       partitionmanager
       plasma-disks
       # /\ extra kde utils /\
-      # \/ kmail & depends \/
-      kmail
-      kmailtransport
-      kmail-account-wizard
-      ktexttemplate
-      # /\ kmail & depends /\
       # \/ cloud integration \/
       kaccounts-integration
       kaccounts-providers
