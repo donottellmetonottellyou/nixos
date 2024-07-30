@@ -1,4 +1,8 @@
-{ ... }: {
+{ ... }:
+let
+  home = "/home/jadelynnmasker";
+in
+{
   services = {
     # Mumble chat server
     murmur = {
@@ -10,7 +14,6 @@
     syncthing = {
       enable = true;
       openDefaultPorts = true;
-      dataDir = "/home/jadelynnmasker";
       settings = {
         options = {
           limitBandwidthInLan = true;
@@ -23,12 +26,12 @@
         };
         folders = {
           Camera = {
-            path = "~/Pictures/Camera";
+            path = "${home}/Pictures/Camera";
             devices = [ "dendorian" ];
             copyOwnershipFromParent = true;
           };
           Documents = {
-            path = "~/Documents";
+            path = "${home}/Documents";
             devices = [ "dendorian" ];
             copyOwnershipFromParent = true;
           };
