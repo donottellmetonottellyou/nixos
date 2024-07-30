@@ -4,5 +4,6 @@
     ./desktop/plasma.nix
     ./desktop/programs.nix
     ./desktop/services.nix
+    ./desktop/syncthing.nix
   ];
 }
