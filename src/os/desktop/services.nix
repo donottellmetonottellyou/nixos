@@ -19,7 +19,7 @@ in
           limitBandwidthInLan = true;
           maxFolderConcurrency = 1;
           relaysEnabled = false;
-          urAccepted = 1;
+          urAccepted = 3;
         };
         devices = {
           dendorian.id = "WEH2EXP-CS72MGX-Z4OBGGI-63QCS3J-2VNNMKA-NZJVWP6-UZZ5ACW-N4SRDAZ";
