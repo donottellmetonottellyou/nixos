@@ -10,7 +10,6 @@
     syncthing = {
       enable = true;
       openDefaultPorts = true;
-      guiAddress = null;
       dataDir = "/home/jadelynnmasker";
       settings = {
         options = {
