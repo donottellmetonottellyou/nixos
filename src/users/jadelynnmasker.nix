@@ -264,27 +264,17 @@
           "rewrap.wrappingColumn" = 80;
           "[git-commit]"."rewrap.wrappingColumn" = 72;
           # Rust
-          "[rust]" = {
-            "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-          };
+          "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
           "rust-analyzer.check.command" = "clippy";
           # Toml
           "evenBetterToml.formatter.columnWidth" = 80;
           # Web
           "liveServer.settings.donotShowInfoMsg" = true;
           "prettier.tabWidth" = 2;
-          "[css]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
-          "[json]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
-          "[jsonc]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
-          "[html]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
+          "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[markdown]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
             "editor.guides.indentation" = false;
