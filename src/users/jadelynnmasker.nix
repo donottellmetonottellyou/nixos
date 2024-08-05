@@ -262,6 +262,7 @@
           "nix.serverPath" = "nixd";
           # Rewrap
           "rewrap.wrappingColumn" = 80;
+          "[git-commit]"."rewrap.wrappingColumn" = 72;
           # Rust
           "[rust]" = {
             "editor.defaultFormatter" = "rust-lang.rust-analyzer";
