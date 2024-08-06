@@ -10,7 +10,7 @@
       efi.canTouchEfiVariables = true;
     };
     # Temporary fix for kernel audio issues
-    kernel = pkgs.linuxKernel.packages.linux_6_1;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   };
 
   networking.hostName = "ananda"; # Define your hostname.
