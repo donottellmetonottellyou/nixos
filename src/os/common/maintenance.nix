@@ -3,9 +3,8 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-      randomizedDelaySec = "1h";
+      dates = "daily";
+      options = "--delete-older-than 30d";
     };
     settings = {
       auto-optimise-store = true;
