@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   # Bootloader.
   boot = {
     loader = {
@@ -9,8 +9,6 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    # Temporary fix for kernel audio issues
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   };
 
   networking.hostName = "ananda"; # Define your hostname.
