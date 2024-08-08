@@ -7,7 +7,6 @@
     # Programming font
     fira-code
     # Office suite
-    brave
     krita
     libreoffice
   ];
