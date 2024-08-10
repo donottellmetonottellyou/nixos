@@ -66,6 +66,8 @@
           mkhl.direnv
           naumovs.color-highlight
           oderwat.indent-rainbow
+          # Compiled Languages Debug
+          vadimcn.vscode-lldb
           # C++
           ms-vscode.cpptools
           xaver.clang-format
