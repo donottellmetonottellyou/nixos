@@ -21,8 +21,6 @@
       gnome3.adwaita-icon-theme
       prismlauncher
       wineWowPackages.waylandFull
-      # Godot
-      godot_4
     ];
 
     programs = {
