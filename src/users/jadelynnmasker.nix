@@ -256,7 +256,8 @@
           "vscord.app.name" = "Visual Studio Code";
           # Godot
           "godotTools.editorPath.godot4" = "godot4";
-          "godotTools.lsp.autoReconnect.cooldown" = 100;
+          "godotTools.lsp.autoReconnect.cooldown" = 1000;
+          "godotTools.lsp.autoReconnect.attempts" = 5;
           # Nix
           "[nix]" = {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
