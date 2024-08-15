@@ -1,3 +1,6 @@
 { ... }: {
-  imports = [ ./users/jadelynnmasker.nix ];
+  imports = [
+    ./users/jadelynnmasker.nix
+    ./users/kids.nix
+  ];
 }
