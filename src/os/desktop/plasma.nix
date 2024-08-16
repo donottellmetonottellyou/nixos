@@ -30,6 +30,11 @@
 
   environment = {
     systemPackages = (with pkgs; [
+      (runCommandLocal "breeze-cursors-fix" { } ''
+        dir=$out/share/icons
+        mkdir -p $dir
+        ln -s ${kdePackages.breeze}/share/icons/breeze_cursors $dir/default
+      '')
       # \/ needed for kinfocenter \/
       aha
       clinfo
