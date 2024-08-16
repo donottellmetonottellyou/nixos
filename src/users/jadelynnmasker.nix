@@ -22,14 +22,6 @@
       wineWowPackages.waylandFull
     ];
 
-    gtk = {
-      enable = true;
-      cursorTheme = {
-        name = "Breeze";
-        size = 24;
-      };
-    };
-
     programs = {
       git = {
         enable = true;
