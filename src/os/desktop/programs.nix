@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   programs = {
+    chromium.enable = true;
     firefox.enable = true;
     steam = {
       enable = true;
