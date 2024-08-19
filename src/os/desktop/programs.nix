@@ -8,6 +8,7 @@
         "PasswordManagerEnabled" = false;
         "BrowserGuestModeEnforced" = true;
         "DefaultBrowserSettingEnabled" = false;
+        "BrowserLabsEnabled" = false;
       };
     };
     firefox.enable = true;
