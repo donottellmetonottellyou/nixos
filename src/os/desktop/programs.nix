@@ -1,6 +1,14 @@
 { pkgs, ... }: {
   programs = {
-    chromium.enable = true;
+    chromium = {
+      enable = true;
+      extraOpts = {
+        "BrowserSignin" = 0;
+        "SyncDisabled" = true;
+        "PasswordManagerEnabled" = false;
+        "BrowserGuestModeEnforced" = true;
+      };
+    };
     firefox.enable = true;
     steam = {
       enable = true;
