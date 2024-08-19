@@ -7,6 +7,7 @@
         "SyncDisabled" = true;
         "PasswordManagerEnabled" = false;
         "BrowserGuestModeEnforced" = true;
+        "DefaultBrowserSettingEnabled" = false;
       };
     };
     firefox.enable = true;
