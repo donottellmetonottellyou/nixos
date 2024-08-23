@@ -92,8 +92,8 @@
           {
             name = "dependi";
             publisher = "fill-labs";
-            version = "0.7.1";
-            hash = "sha256-RCEh3cy4JVwdEEY3LVAj+0yDQ/6KgvL3QvQEbU5EfYw=";
+            version = "0.7.8";
+            hash = "sha256-UxLpn86U5EI+qRUpEXt+ByirtCwOUknRwTwpfCF+tqQ=";
           }
           {
             name = "vscord";
