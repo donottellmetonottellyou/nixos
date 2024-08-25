@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs = {
     zsh = {
       enable = true;
@@ -25,7 +25,11 @@
       };
     };
 
-    ssh.startAgent = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-gtk2;
+    };
 
     # Per-directory cached dev environments
     direnv = {
