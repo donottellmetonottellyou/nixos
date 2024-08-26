@@ -35,7 +35,10 @@
 
           # Diff/merge tools
           diff.tool = "vscode";
-          difftool.vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
+          difftool = {
+            prompt = false;
+            vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
+          };
           merge.tool = "vscode";
           mergetool = {
             prompt = false;
