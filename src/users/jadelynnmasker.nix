@@ -11,7 +11,6 @@
       keepassxc
       # Chat
       discord
-      mumble
       slack
       zoom-us
       # Games

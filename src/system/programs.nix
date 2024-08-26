@@ -36,5 +36,28 @@
       enable = true;
       silent = true;
     };
+
+    firefox.enable = true;
+
+    chromium = {
+      enable = true;
+      extraOpts = {
+        "BrowserSignin" = 0;
+        "SyncDisabled" = true;
+        "PasswordManagerEnabled" = false;
+        "BrowserGuestModeEnforced" = true;
+        "DefaultBrowserSettingEnabled" = false;
+        "BrowserLabsEnabled" = false;
+      };
+    };
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+      ];
+    };
   };
 }

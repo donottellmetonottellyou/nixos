@@ -1,15 +1,17 @@
 { pkgs, ... }: {
-  # List packages installed in system profile for servers and desktop. To
-  # search, run `nixos-listpkgs`
   environment.systemPackages = with pkgs; [
-    # Neofetch alternative
-    fastfetch
     # General programming tools
+    fastfetch
+    fira-code
     micro
     neovim
-    # Nix tools
     nixd
     nixpkgs-fmt
+    # Office suite
+    chromium
+    krita
+    libreoffice
+    protonvpn-gui
     # Custom shell scripts
     (writeShellScriptBin "nixos-listpkgs" ''
       nix-store -q --requisites /run/current-system/sw |

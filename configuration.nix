@@ -5,8 +5,7 @@
 { ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./src/machine.nix
-    ./src/os.nix
+    ./src/system.nix
     ./src/users.nix
   ];
 
