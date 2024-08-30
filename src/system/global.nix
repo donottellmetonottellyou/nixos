@@ -42,7 +42,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      max-jobs = 2;
+      max-jobs = 1;
     };
   };
   nixpkgs.config = {
