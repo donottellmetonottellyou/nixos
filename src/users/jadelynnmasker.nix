@@ -255,7 +255,7 @@
           # Godot
           "godotTools.editorPath.godot4" = "godot4";
           "godotTools.lsp.autoReconnect.cooldown" = 1000;
-          "godotTools.lsp.autoReconnect.attempts" = 5;
+          "godotTools.lsp.autoReconnect.attempts" = 10;
           # Nix
           "[nix]" = {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
