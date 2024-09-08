@@ -8,6 +8,8 @@
 
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
     home.packages = with pkgs; [
+      # Productivity
+      clockify
       keepassxc
       # Chat
       discord
@@ -15,10 +17,7 @@
       zoom-us
       # Games
       digital
-      lutris
-      gnome3.adwaita-icon-theme
       prismlauncher
-      wineWowPackages.waylandFull
     ];
 
     programs = {
