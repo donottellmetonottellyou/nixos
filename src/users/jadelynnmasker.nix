@@ -203,10 +203,11 @@
           "editor.formatOnSave" = true;
           "editor.formatOnType" = true;
           # Typing behavior
-          "editor.autoClosingBrackets" = "beforeWhitespace";
-          "editor.autoClosingComments" = "beforeWhitespace";
-          "editor.autoClosingQuotes" = "beforeWhitespace";
-
+          "editor.autoClosingBrackets" = "always";
+          "editor.autoClosingComments" = "always";
+          "editor.autoClosingDelete" = "always";
+          "editor.autoClosingOvertype" = "always";
+          "editor.autoClosingQuotes" = "always";
           # ========================================
           #  Language / Extension Specific Settings
           # ========================================
