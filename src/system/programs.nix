@@ -8,9 +8,6 @@
         enable = true;
         theme = "steeef";
       };
-      interactiveShellInit = ''
-        fastfetch --load-config neofetch
-      '';
     };
 
     git = {

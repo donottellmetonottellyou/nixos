@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     # General programming tools
-    fastfetch
     fira-code
     micro
     neovim
