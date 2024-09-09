@@ -153,6 +153,7 @@
           "editor.cursorBlinking" = "phase";
           "editor.guides.highlightActiveIndentation" = "always";
           # Behavior
+          "terminal.integrated.tabs.hideCondition" = "never";
           "git.openRepositoryInParentFolders" = "always";
           "explorer.compactFolders" = false;
           "editor.folding" = false;
@@ -201,10 +202,11 @@
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
           "editor.formatOnType" = true;
-          # Set general code formatting rules
+          # Typing behavior
           "editor.autoClosingBrackets" = "beforeWhitespace";
           "editor.autoClosingComments" = "beforeWhitespace";
           "editor.autoClosingQuotes" = "beforeWhitespace";
+
           # ========================================
           #  Language / Extension Specific Settings
           # ========================================
