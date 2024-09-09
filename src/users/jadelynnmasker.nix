@@ -176,7 +176,7 @@
           "editor.autoClosingComments" = "always";
           "editor.autoClosingDelete" = "always";
           "editor.autoClosingOvertype" = "always";
-          "editor.autoClosingQuotes" = "always";
+          "editor.autoClosingQuotes" = "languageDefined";
           "editor.folding" = false;
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
