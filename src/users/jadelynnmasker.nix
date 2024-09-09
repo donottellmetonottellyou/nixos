@@ -74,8 +74,8 @@
           # Java
           vscjava.vscode-java-pack
           # Markdown
-          yzhang.markdown-all-in-one
           stkb.rewrap
+          yzhang.markdown-all-in-one
           # Nix
           jnoortheen.nix-ide
           # Rust
@@ -129,10 +129,13 @@
           #  GENERAL EDITOR SETTINGS
           # =========================
           # Appearance
-          "workbench.iconTheme" = "eq-material-theme-icons";
-          "window.menuBarVisibility" = "hidden";
-          "window.titleBarStyle" = "native";
+          "editor.colorDecorators" = false;
+          "editor.cursorBlinking" = "phase";
+          "editor.cursorStyle" = "line";
+          "editor.experimentalWhitespaceRendering" = "font";
+          "editor.guides.highlightActiveIndentation" = "always";
           "editor.minimap.enabled" = false;
+          "window.menuBarVisibility" = "hidden";
           "editor.rulers" = [
             {
               "column" = 80;
@@ -145,75 +148,65 @@
             }
           ];
           "editor.renderWhitespace" = "boundary";
-          "editor.experimentalWhitespaceRendering" = "font";
-          "workbench.sideBar.location" = "right";
+          "editor.wordWrap" = "bounded";
+          "editor.wordWrapColumn" = 120;
+          "editor.wrappingIndent" = "deepIndent";
+          "window.titleBarStyle" = "native";
           "workbench.editor.highlightModifiedTabs" = true;
-          "editor.colorDecorators" = false;
-          "editor.cursorStyle" = "line";
-          "editor.cursorBlinking" = "phase";
-          "editor.guides.highlightActiveIndentation" = "always";
-          # Behavior
-          "terminal.integrated.tabs.hideCondition" = "never";
-          "git.openRepositoryInParentFolders" = "always";
-          "explorer.compactFolders" = false;
-          "editor.folding" = false;
-          "explorer.excludeGitIgnore" = true;
-          "editor.inlayHints.enabled" = "offUnlessPressed";
-          "editor.stickyTabStops" = true;
-          "editor.insertSpaces" = true;
-          "files.trimTrailingWhitespace" = true;
-          "files.insertFinalNewline" = true;
-          "editor.linkedEditing" = true;
-          "explorer.confirmDelete" = false;
-          "security.workspace.trust.emptyWindow" = true;
-          "security.workspace.trust.untrustedFiles" = "newWindow";
-          "security.workspace.trust.startupPrompt" = "never";
-          "explorer.confirmDragAndDrop" = false;
-          # Set font & size
+          "workbench.iconTheme" = "eq-material-theme-icons";
+          "workbench.sideBar.location" = "right";
+          # Font
+          "chat.editor.fontSize" = 12;
+          "chat.editor.lineHeight" = 18;
+          "debug.console.fontSize" = 12;
+          "debug.console.lineHeight" = 18;
+          "editor.codeLensFontSize" = 12;
           "editor.fontFamily" = "'Fira Code', monospace";
           "editor.fontLigatures" = true;
           "editor.fontSize" = 12;
-          "editor.codeLensFontSize" = 12;
-          "screencastMode.fontSize" = 48;
-          "debug.console.fontSize" = 12;
-          "scm.inputFontSize" = 12;
-          "terminal.integrated.fontSize" = 12;
-          "notebook.markup.fontSize" = 12;
-          "chat.editor.fontSize" = 12;
-          "markdown.preview.fontSize" = 12;
-          # Set line heights
           "editor.lineHeight" = 18;
-          "debug.console.lineHeight" = 18;
-          "chat.editor.lineHeight" = 18;
+          "markdown.preview.fontSize" = 12;
           "markdown.preview.lineHeight" = 1.25;
-          # Word wrap
-          "editor.wordWrap" = "bounded";
-          "editor.wrappingIndent" = "deepIndent";
-          "editor.wordWrapColumn" = 120;
-          # Disable terminal persistence
-          "terminal.integrated.enablePersistentSessions" = false;
-          "terminal.integrated.persistentSessionReviveProcess" = "never";
-          # Confirm on terminal close
-          "terminal.integrated.confirmOnExit" = "hasChildProcesses";
-          "terminal.integrated.confirmOnKill" = "always";
-          # Format on save/type/paste & autosave
-          "files.autoSave" = "onFocusChange";
-          "files.trimFinalNewlines" = true;
-          "editor.formatOnPaste" = true;
-          "editor.formatOnSave" = true;
-          "editor.formatOnType" = true;
-          # Typing behavior
+          "notebook.markup.fontSize" = 12;
+          "scm.inputFontSize" = 12;
+          "screencastMode.fontSize" = 48;
+          "terminal.integrated.fontSize" = 12;
+          # Behavior
           "editor.autoClosingBrackets" = "always";
           "editor.autoClosingComments" = "always";
           "editor.autoClosingDelete" = "always";
           "editor.autoClosingOvertype" = "always";
           "editor.autoClosingQuotes" = "always";
+          "editor.folding" = false;
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.formatOnType" = true;
+          "editor.inlayHints.enabled" = "offUnlessPressed";
+          "editor.insertSpaces" = true;
+          "editor.linkedEditing" = true;
+          "editor.stickyTabStops" = true;
+          "explorer.compactFolders" = false;
+          "explorer.confirmDelete" = false;
+          "explorer.confirmDragAndDrop" = false;
+          "explorer.excludeGitIgnore" = true;
+          "files.autoSave" = "onFocusChange";
+          "files.insertFinalNewline" = true;
+          "files.trimFinalNewlines" = true;
+          "files.trimTrailingWhitespace" = true;
+          "git.openRepositoryInParentFolders" = "always";
+          "security.workspace.trust.emptyWindow" = true;
+          "security.workspace.trust.startupPrompt" = "never";
+          "security.workspace.trust.untrustedFiles" = "newWindow";
+          "terminal.integrated.confirmOnExit" = "hasChildProcesses";
+          "terminal.integrated.confirmOnKill" = "always";
+          "terminal.integrated.enablePersistentSessions" = false;
+          "terminal.integrated.persistentSessionReviveProcess" = "never";
+          "terminal.integrated.tabs.hideCondition" = "never";
           # ========================================
           #  Language / Extension Specific Settings
           # ========================================
           # General
           "color-highlight.markRuler" = false;
-          "indentRainbow.excludedLanguages" = [ "plaintext" "markdown" ];
           "indentRainbow.colors" = [
             "rgba(15, 0, 0, 0.25)"
             "rgba(0, 15, 0, 0.25)"
@@ -247,17 +240,18 @@
             "rgba(0, 0, 0, 0)"
           ];
           "indentRainbow.errorColor" = "rgba(255, 255, 255, 0.25)";
+          "indentRainbow.excludedLanguages" = [ "plaintext" "markdown" ];
           # C/C++
-          "c-cpp-flylint.language" = "c";
-          "c-cpp-flylint.flexelint.enable" = false;
           "c-cpp-flylint.flawfinder.enable" = false;
+          "c-cpp-flylint.flexelint.enable" = false;
+          "c-cpp-flylint.language" = "c";
           "c-cpp-flylint.lizard.enable" = false;
           # Discord Rich Presence
           "vscord.app.name" = "Visual Studio Code";
           # Godot
           "godotTools.editorPath.godot4" = "godot4";
-          "godotTools.lsp.autoReconnect.cooldown" = 1000;
           "godotTools.lsp.autoReconnect.attempts" = 10;
+          "godotTools.lsp.autoReconnect.cooldown" = 1000;
           # Nix
           "[nix]" = {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
@@ -265,26 +259,26 @@
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nixd";
           # Rewrap
-          "rewrap.wrappingColumn" = 80;
           "[git-commit]"."rewrap.wrappingColumn" = 72;
+          "rewrap.wrappingColumn" = 80;
           # Rust
           "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
           "rust-analyzer.check.command" = "clippy";
           # Toml
           "evenBetterToml.formatter.columnWidth" = 80;
           # Web
-          "liveServer.settings.donotShowInfoMsg" = true;
-          "prettier.tabWidth" = 2;
           "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-          "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[markdown]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
             "editor.guides.indentation" = false;
             "editor.renderWhitespace" = "none";
             "editor.tabSize" = 4;
           };
+          "liveServer.settings.donotShowInfoMsg" = true;
+          "prettier.tabWidth" = 2;
         };
       };
     };
