@@ -172,8 +172,8 @@
           "screencastMode.fontSize" = 48;
           "terminal.integrated.fontSize" = 12;
           # Behavior
-          "editor.autoClosingBrackets" = "always";
-          "editor.autoClosingComments" = "always";
+          "editor.autoClosingBrackets" = "languageDefined";
+          "editor.autoClosingComments" = "languageDefined";
           "editor.autoClosingDelete" = "always";
           "editor.autoClosingOvertype" = "always";
           "editor.autoClosingQuotes" = "languageDefined";
