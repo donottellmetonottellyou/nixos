@@ -264,6 +264,7 @@
           # Rust
           "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
           "rust-analyzer.check.command" = "clippy";
+          "rust-analyzer.lens.implementations.enable" = false;
           # Toml
           "evenBetterToml.formatter.columnWidth" = 80;
           # Web
