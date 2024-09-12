@@ -92,14 +92,14 @@
           {
             name = "dependi";
             publisher = "fill-labs";
-            version = "0.7.8";
-            hash = "sha256-UxLpn86U5EI+qRUpEXt+ByirtCwOUknRwTwpfCF+tqQ=";
+            version = "0.7.9";
+            hash = "sha256-VsjISVDZGGh6/pf3Fd5g8pYDvWXA1+0oZKlQEGLBp4M=";
           }
           {
             name = "vscord";
             publisher = "LeonardSSH";
-            version = "5.2.12";
-            hash = "sha256-WGDEizYG6UAqe1jnhvjfFouXDA9Yr5P+BjxPahAIsTE=";
+            version = "5.2.13";
+            hash = "sha256-Jgm3ekXFLhylX7RM6tdfi+lRLrcl4UQGmRHbr27M59M=";
           }
           # C++
           {
@@ -112,15 +112,15 @@
           {
             name = "vscode-dotnet-runtime";
             publisher = "ms-dotnettools";
-            version = "2.0.9";
-            hash = "sha256-hbg6HQWkmEa7F5Wk2JKXpLVXHrnGKfu02uRjwjhJ50k=";
+            version = "2.1.5";
+            hash = "sha256-6KtcJ4n/XeteLK7KO4PkJgIZn6I5qjimyTPDGMU5DxI=";
           }
           # Godot
           {
             name = "godot-tools";
             publisher = "geequlim";
-            version = "2.0.0";
-            hash = "sha256-6lSpx6GooZm6SfUOjooP8mHchu8w38an8Bc2tjYaVfw=";
+            version = "2.1.0";
+            hash = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
           }
         ];
 
