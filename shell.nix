@@ -1,36 +1,29 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  cmd-user-nix = "cd /home/jadelynnmasker/Code/NixOS";
-
-  git-apply-worktree = pkgs.writeShellScriptBin "git-apply-worktree" ''
-    git add -A &&
-      git commit
+  nixos-commit-configuration = pkgs.writeShellScriptBin "nixos-commit-configuration" ''
+    git commit
 
     cd /etc/nixos &&
-      sudo git merge --ff-only worktree &&
-      ${cmd-user-nix} || {
+      sudo git merge --ff-only worktree || {
         echo "Failed to apply changes cleanly to /etc/nixos!"
         echo "Was /etc/nixos dirtied?"
         exit 1
       }
   '';
-  git-push-worktree = pkgs.writeShellScriptBin "git-push-worktree" ''
-    ${git-apply-worktree}/bin/git-apply-worktree &&
-      cd /etc/nixos &&
-      git push &&
-      ${cmd-user-nix} || {
+  nixos-push-configuration = pkgs.writeShellScriptBin "nixos-push-configuration" ''
+    cd /etc/nixos &&
+      git push || {
         echo "Failed to push changes to remote!"
         echo "Do changes in the remote need to be integrated?"
         exit 1
       }
   '';
-  git-reapply-worktree = pkgs.writeShellScriptBin "git-reapply-worktree" ''
-    git add -A &&
-      git commit --amend &&
-      cd /etc/nixos &&
+  nixos-amend-configuration = pkgs.writeShellScriptBin "nixos-amend-configuration" ''
+    git commit --amend
+
+    cd /etc/nixos &&
       sudo git reset --hard HEAD~1 &&
-      sudo git merge --ff-only worktree &&
-      ${cmd-user-nix} || {
+      sudo git merge --ff-only worktree || {
         echo "Failed to reapply commit to /etc/nixos!"
         echo "Be careful to investigate completely!"
         exit 1
@@ -39,8 +32,8 @@ let
 in
 pkgs.mkShell {
   packages = [
-    git-apply-worktree
-    git-push-worktree
-    git-reapply-worktree
+    nixos-commit-configuration
+    nixos-push-configuration
+    nixos-amend-configuration
   ];
 }
