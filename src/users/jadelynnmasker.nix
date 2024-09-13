@@ -30,20 +30,20 @@
         extraConfig = {
           # Editor/pager
           core = {
-            editor = "code --wait";
+            editor = "hx";
             pager = "less -F -X";
           };
 
           # Diff/merge tools
-          diff.tool = "vscode";
+          diff.tool = "hx";
           difftool = {
             prompt = false;
-            vscode.cmd = "code --wait --diff $LOCAL $REMOTE";
+            hx.cmd = "hx";
           };
-          merge.tool = "vscode";
+          merge.tool = "hx";
           mergetool = {
             prompt = false;
-            vscode.cmd = "code --wait $MERGED";
+            hx.cmd = "hx";
           };
 
           # Signing
