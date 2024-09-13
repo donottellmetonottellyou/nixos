@@ -102,10 +102,17 @@
             };
           };
         };
-        languages.language = [{
-          name = "nix";
-          formatter.command = "nixpkgs-fmt";
-        }];
+        languages = {
+          language-server.rust-analyzer.config = {
+            check.overrideCommand = "clippy";
+          };
+          language = [
+            {
+              name = "nix";
+              formatter.command = "nixpkgs-fmt";
+            }
+          ];
+        };
       };
 
       vscode = {
