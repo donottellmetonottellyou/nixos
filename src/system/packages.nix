@@ -4,7 +4,7 @@
     fira-code
     micro
     neovim
-    nixd
+    nil
     nixpkgs-fmt
     # Office suite
     chromium
