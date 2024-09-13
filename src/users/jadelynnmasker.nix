@@ -7,6 +7,8 @@
   };
 
   home-manager.users.jadelynnmasker = { pkgs, ... }: {
+    home.stateVersion = config.system.stateVersion;
+
     home.packages = with pkgs; [
       # Productivity
       clockify
@@ -291,6 +293,5 @@
       };
     };
 
-    home.stateVersion = config.system.stateVersion;
   };
 }
