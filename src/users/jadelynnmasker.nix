@@ -57,7 +57,46 @@
       helix = {
         enable = true;
         settings = {
-          theme = "dark_high_contrast";
+          theme = "dark_plus";
+          editor = {
+            statusline.mode = {
+              insert = "INSERT";
+              normal = "NORMAL";
+              select = "SELECT";
+            };
+            lsp = {
+              display-messages = true;
+              display-inlay-hints = true;
+            };
+            cursor-shape = {
+              insert = "bar";
+              normal = "underline";
+              select = "block";
+            };
+            auto-save = true;
+            whitespace = {
+              render = {
+                space = "none";
+                tab = "all";
+                nbsp = "all";
+                nnbsp = "all";
+                newline = "none";
+              };
+              characters = {
+                tab = "⎸";
+                tabpad = "―";
+              };
+            };
+            indent-guides = {
+              render = true;
+              character = "⎸";
+              skip-levels = 1;
+            };
+            soft-wrap = {
+              enable = true;
+              wrap-at-text-width = true;
+            };
+          };
         };
       };
 
