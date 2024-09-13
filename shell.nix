@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 pkgs.mkShell {
   packages = with pkgs; [
-    (writeShellScriptBin "nixos-commit-configuration" ''
+    (writeShellScriptBin "commit-config" ''
       git commit
 
       cd /etc/nixos &&
@@ -11,7 +11,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
-    (writeShellScriptBin "nixos-push-configuration" ''
+    (writeShellScriptBin "push-config" ''
       cd /etc/nixos &&
         git push || {
           echo "Failed to push changes to remote!"
@@ -19,7 +19,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
-    (writeShellScriptBin "nixos-amend-configuration" ''
+    (writeShellScriptBin "amend-config" ''
       git commit --amend
 
       cd /etc/nixos &&
@@ -30,7 +30,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
-    (writeShellScriptBin "nixos-list-packages" ''
+    (writeShellScriptBin "list-pkgs" ''
       nix-store -q --requisites /run/current-system/sw |
         sed 's|/nix/store/[a-z0-9]*-||' |
         sort |
