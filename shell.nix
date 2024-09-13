@@ -30,5 +30,12 @@ pkgs.mkShell {
           exit 1
         }
     '')
+    (writeShellScriptBin "nixos-list-packages" ''
+      nix-store -q --requisites /run/current-system/sw |
+        sed 's|/nix/store/[a-z0-9]*-||' |
+        sort |
+        uniq |
+        column -c "$(tput cols)"
+    '')
   ];
 }
