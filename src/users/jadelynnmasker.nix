@@ -52,6 +52,10 @@
         };
       };
 
+      helix = {
+        enable = true;
+      };
+
       vscode = {
         enable = true;
         enableUpdateCheck = false;
