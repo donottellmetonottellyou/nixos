@@ -4,8 +4,6 @@
     fira-code
     micro
     neovim
-    nil
-    nixpkgs-fmt
     # Office suite
     chromium
     krita

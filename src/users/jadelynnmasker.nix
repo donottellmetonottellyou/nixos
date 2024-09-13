@@ -10,6 +10,10 @@
     home.stateVersion = config.system.stateVersion;
 
     home.packages = with pkgs; [
+      # LSP/formatters
+      nil
+      nixpkgs-fmt
+      taplo
       # Productivity
       clockify
       keepassxc
