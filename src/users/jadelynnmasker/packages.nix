@@ -1,9 +1,11 @@
 { pkgs, ...}: {
   home.packages = with pkgs; [
     # Language support
-    nil          # nix
-    nixpkgs-fmt  # nix
-    taplo        # toml
+    markdown-oxide # markdown
+    marksman       # markdown
+    nil            # nix
+    nixpkgs-fmt    # nix
+    taplo          # toml
     # Passwords
     keepassxc
     # Chat & Video
