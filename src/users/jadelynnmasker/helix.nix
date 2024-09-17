@@ -37,10 +37,7 @@
           character = "⎸";
           skip-levels = 1;
         };
-        soft-wrap = {
-          enable = true;
-          wrap-at-text-width = true;
-        };
+        soft-wrap.enable = true;
       };
     };
     languages = {
