@@ -8,6 +8,12 @@
         enable = true;
         theme = "steeef";
       };
+      interactiveShellInit = ''
+        if [[ -z "$ZELLIJ" ]]; then
+          zellij attach -c
+          exit
+        fi
+      '';
     };
 
     git = {

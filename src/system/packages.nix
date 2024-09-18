@@ -4,6 +4,7 @@
     fira-code
     micro
     neovim
+    zellij
     # Office suite
     chromium
     krita
