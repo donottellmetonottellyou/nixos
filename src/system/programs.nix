@@ -10,7 +10,7 @@
       };
       interactiveShellInit = ''
         if [[ -z "$ZELLIJ" ]]; then
-          zellij attach -c
+          zellij --layout=compact attach -c
           exit
         fi
       '';
