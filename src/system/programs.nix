@@ -6,7 +6,7 @@
       autosuggestions.enable = true;
       ohMyZsh = {
         enable = true;
-        theme = "steeef";
+        theme = "robbyrussell";
       };
       interactiveShellInit = ''
         if [[ -z "$ZELLIJ" ]]; then
