@@ -2,7 +2,7 @@
   services = {
     displayManager.sddm = {
       enable = true;
-      autoNumlock = true;
+      autoNumlock = false;
       wayland.enable = true;
     };
     desktopManager.plasma6 = {
