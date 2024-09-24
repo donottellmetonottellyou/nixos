@@ -14,7 +14,6 @@
       # Programs
       ./jadelynnmasker/git.nix
       ./jadelynnmasker/helix.nix
-      ./jadelynnmasker/vscode.nix
     ];
   };
 }
