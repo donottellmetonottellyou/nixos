@@ -38,6 +38,7 @@
           skip-levels = 1;
         };
         soft-wrap.enable = true;
+        rulers = [80 100 120];
       };
     };
     languages = {
