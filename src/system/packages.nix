@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     # General programming tools
     fira-code
+    git-filter-repo
     micro
     neovim
     zellij
