@@ -7,6 +7,8 @@
     zellij
     # Office suite
     chromium
+    digikam
+    exiftool # digikam
     krita
     libreoffice
     protonvpn-gui
