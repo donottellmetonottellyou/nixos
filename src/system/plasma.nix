@@ -58,6 +58,7 @@
       kaccounts-providers
       kio-gdrive
       # /\ cloud integration /\
+      qtimageformats # webp compat
     ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
