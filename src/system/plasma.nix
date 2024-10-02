@@ -51,6 +51,7 @@
       kcharselect
       kclock
       partitionmanager
+      plasma-browser-integration
       plasma-disks
       # /\ extra kde utils /\
       # \/ cloud integration \/
