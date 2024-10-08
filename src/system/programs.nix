@@ -4,16 +4,11 @@
       enable = true;
       enableBashCompletion = true;
       autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
       ohMyZsh = {
         enable = true;
         theme = "robbyrussell";
       };
-      interactiveShellInit = ''
-        if [[ -z "$ZELLIJ" ]]; then
-          zellij --layout=compact attach -c
-          exit
-        fi
-      '';
     };
 
     git = {

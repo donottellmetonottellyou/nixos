@@ -5,7 +5,6 @@
     git-filter-repo
     micro
     neovim
-    zellij
     # Office suite
     chromium
     digikam
