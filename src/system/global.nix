@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   imports = [
     <home-manager/nixos>
   ];
@@ -30,6 +30,11 @@
   };
   nixpkgs.config = {
     allowUnfree = true;
+    packageOverrides = pkgs: {
+      unstable = import <nixos-unstable> {
+        config = config.nixpkgs.config;
+      };
+    };
   };
   # /\ NIX CONFIG /\
   # ============================================================================
