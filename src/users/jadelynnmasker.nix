@@ -1,8 +1,9 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   users.users.jadelynnmasker = {
     isNormalUser = true;
     description = "Jade Lynn Masker";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   services.syncthing = {
