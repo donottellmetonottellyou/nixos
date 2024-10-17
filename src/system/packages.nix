@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    # Use nom build
+    unstable.nix-output-monitor
     # General programming tools
     fira-code
     git-filter-repo
