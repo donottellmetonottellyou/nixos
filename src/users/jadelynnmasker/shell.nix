@@ -4,6 +4,21 @@
   ];
 
   programs = {
+    kitty = {
+      enable = true;
+      font = {
+        package = pkgs.fira-code;
+        name = "Fira Code";
+        size = 12;
+      };
+      shellIntegration.enableZshIntegration = true;
+      settings = {
+        scrollback_lines = 0;
+        background = "#1a1d1f";
+        foreground = "#ffffff";
+        confirm_os_window_close = 0;
+      };
+    };
     zellij = {
       enable = true;
       enableZshIntegration = true;

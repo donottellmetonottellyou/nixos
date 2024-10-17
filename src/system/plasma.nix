@@ -35,6 +35,7 @@
         mkdir -p $dir
         ln -s ${kdePackages.breeze}/share/icons/breeze_cursors $dir/default
       '')
+      kitty # replaces konsole
       # \/ needed for kinfocenter \/
       aha
       clinfo
@@ -64,6 +65,7 @@
 
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate
+      konsole # replaced by kitty
       okular
     ];
     # Make gtk apps use plasma file picker
