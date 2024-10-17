@@ -45,7 +45,7 @@
       # Programs
       ./jadelynnmasker/git.nix
       ./jadelynnmasker/helix.nix
-      ./jadelynnmasker/shell.nix
+      ./jadelynnmasker/terminal.nix
     ];
   };
 }
