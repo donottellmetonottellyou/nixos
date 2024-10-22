@@ -10,6 +10,7 @@
     keepassxc
     # Chat & Video
     discord
+    revolt-desktop
     slack
     zoom-us
     # Games & Learning
