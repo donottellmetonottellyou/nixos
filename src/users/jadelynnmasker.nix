@@ -43,6 +43,7 @@
       ./jadelynnmasker/packages.nix
 
       # Programs
+      ./jadelynnmasker/email.nix
       ./jadelynnmasker/git.nix
       ./jadelynnmasker/helix.nix
       ./jadelynnmasker/terminal.nix

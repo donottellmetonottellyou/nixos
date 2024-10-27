@@ -14,11 +14,6 @@
 
   programs = {
     dconf.enable = true; # fixes gtk themes in wayland
-    kde-pim = {
-      kmail = true;
-      kontact = true;
-      merkuro = true;
-    };
   };
 
   # Fixes issue with xdg-open, which opens default applications
