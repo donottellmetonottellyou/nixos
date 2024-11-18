@@ -14,7 +14,7 @@
 
     openDefaultPorts = true;
     settings = {
-      devices.dendorian.id = "WEH2EXP-CS72MGX-Z4OBGGI-63QCS3J-2VNNMKA-NZJVWP6-UZZ5ACW-N4SRDAZ";
+      devices.dendorian.id = "XCOYGHU-ZCI7VDM-MGE4XHN-XRQGZTM-X3XHD6P-VG2XM7K-633PSJS-P6K3KA5";
       folders = {
         "Camera" = {
           path = "${config.services.syncthing.dataDir}/Pictures/Camera";
