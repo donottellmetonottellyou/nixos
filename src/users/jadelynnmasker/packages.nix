@@ -14,6 +14,7 @@
     slack
     zoom-us
     # Games & Learning
+    ckan
     digital
     prismlauncher
   ];
