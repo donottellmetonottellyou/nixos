@@ -27,6 +27,13 @@
       auto-optimise-store = true;
       max-jobs = 1;
     };
+    extraOptions = ''
+      # add if disk space is an issue
+      # keep-derivations = false
+
+      # allows rebuilding offline
+      keep-outputs = true
+    '';
   };
   nixpkgs.config = {
     allowUnfree = true;
