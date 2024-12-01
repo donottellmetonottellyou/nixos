@@ -33,6 +33,9 @@
 
       # allows rebuilding offline
       keep-outputs = true
+
+      # only one download at a time
+      max-substitution-jobs = 1
     '';
   };
   nixpkgs.config = {
