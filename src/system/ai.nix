@@ -4,7 +4,6 @@
       enable = true;
       package = pkgs.unstable.ollama;
       acceleration = false;
-      sandbox = false;
     };
     open-webui = {
       enable = true;
