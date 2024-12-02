@@ -13,6 +13,8 @@
     revolt-desktop
     slack
     zoom-us
+    # Wikis
+    kiwix
     # Games & Learning
     ckan
     digital
