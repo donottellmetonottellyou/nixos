@@ -26,7 +26,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-gtk2;
+      pinentryPackage = pkgs.pinentry-qt;
     };
 
     # Per-directory cached dev environments
