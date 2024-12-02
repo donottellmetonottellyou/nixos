@@ -11,15 +11,12 @@
         name = "Fira Code";
         size = 12;
       };
-      keybindings = {
-        "shift+left" = "move_window left";
-        "shift+right" = "move_window right";
-      };
       shellIntegration.enableZshIntegration = true;
       settings = {
         scrollback_lines = 10000;
         background = "#1a1d1f";
         foreground = "#ffffff";
+        enabled_layouts = "grid";
       };
     };
     zsh = {
