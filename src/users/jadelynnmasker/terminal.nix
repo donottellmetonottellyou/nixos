@@ -13,19 +13,9 @@
       };
       shellIntegration.enableZshIntegration = true;
       settings = {
-        scrollback_lines = 0;
+        scrollback_lines = 10000;
         background = "#1a1d1f";
         foreground = "#ffffff";
-        confirm_os_window_close = 0;
-      };
-    };
-    zellij = {
-      enable = true;
-      enableZshIntegration = true;
-      settings = {
-        theme = "nord";
-        default_layout = "compact";
-        copy_command = "wl-copy";
       };
     };
     zsh = {
