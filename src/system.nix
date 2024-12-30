@@ -1,10 +1,11 @@
 { ... }: {
   imports = [
     ./system/global.nix
-    ./system/packages.nix
     ./system/plasma.nix
-    ./system/programs.nix
 
     ./system/ai.nix
+    ./system/browsers.nix
+    ./system/devtools.nix
+    ./system/steam.nix
   ];
 }

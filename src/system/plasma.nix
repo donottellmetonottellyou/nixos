@@ -30,7 +30,14 @@
         mkdir -p $dir
         ln -s ${kdePackages.breeze}/share/icons/breeze_cursors $dir/default
       '')
+
+      digikam # photo management
+      exiftool # digikam
       kitty # replaces konsole
+      krita # painter
+      libreoffice # documents
+      protonvpn-gui
+
       # \/ needed for kinfocenter \/
       aha
       clinfo

@@ -1,4 +1,12 @@
 { pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    fira-code
+    git-filter-repo
+    micro
+    neovim
+    nix-output-monitor
+  ];
+
   programs = {
     zsh = {
       enable = true;
@@ -33,30 +41,6 @@
     direnv = {
       enable = true;
       silent = true;
-    };
-
-    firefox.enable = true;
-
-    chromium = {
-      enable = true;
-      extraOpts = {
-        "BrowserSignin" = 0;
-        "SyncDisabled" = true;
-        "PasswordManagerEnabled" = false;
-        "BrowserGuestModeEnforced" = true;
-        "DefaultBrowserSettingEnabled" = false;
-        "BrowserLabsEnabled" = false;
-      };
-    };
-
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      remotePlay.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-      extraCompatPackages = [
-        pkgs.proton-ge-bin
-      ];
     };
   };
 }
