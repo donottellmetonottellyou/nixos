@@ -16,7 +16,6 @@
     # Wikis
     kiwix
     # Games & Learning
-    ckan
     digital
     prismlauncher
   ];
