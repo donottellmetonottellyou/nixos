@@ -13,6 +13,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    kernelParams = [ "boot.shell_on_fail" ];
   };
   # /\ BOOT & KERNEL /\
   # ============================================================================
