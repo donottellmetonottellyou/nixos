@@ -10,7 +10,7 @@
     settings = {
       folders = {
         "Camera" = {
-          path = "${config.services.syncthing.dataDir}/Pictures/Camera";
+          path = "${config.services.syncthing.dataDir}/Camera";
           versioning = {
             type = "trashcan";
             params.cleanoutDays = 30;
