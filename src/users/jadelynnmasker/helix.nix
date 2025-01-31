@@ -1,4 +1,13 @@
-{ ... }: {
+{ pkgs, ... }: {
+  home.packages = with pkgs; [
+    # Language support
+    markdown-oxide # markdown
+    marksman       # markdown
+    nil            # nix
+    nixpkgs-fmt    # nix
+    taplo
+  ];
+
   programs.helix = {
     enable = true;
     settings = {

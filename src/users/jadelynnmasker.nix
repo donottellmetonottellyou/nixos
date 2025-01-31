@@ -14,7 +14,7 @@
     home.stateVersion = config.system.stateVersion;
 
     imports = [
-      ./jadelynnmasker/packages.nix
+      ./jadelynnmasker/desktop.nix
 
       # Programs
       ./jadelynnmasker/email.nix
