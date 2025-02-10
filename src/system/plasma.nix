@@ -37,6 +37,7 @@
       kitty # replaces konsole
       krita # painter
       libreoffice # documents
+      vlc # video
 
       # \/ needed for kinfocenter \/
       aha
