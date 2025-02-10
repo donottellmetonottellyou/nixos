@@ -37,7 +37,6 @@
       kitty # replaces konsole
       krita # painter
       libreoffice # documents
-      protonvpn-gui
 
       # \/ needed for kinfocenter \/
       aha
