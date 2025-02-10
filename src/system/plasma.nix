@@ -21,7 +21,6 @@
     enable = true;
     xdgOpenUsePortal = true;
     wlr.enable = true;
-    config.common.default = [ "qt" ];
   };
 
   environment = {
