@@ -35,7 +35,7 @@
       exiftool # digikam
       kitty # replaces konsole
       krita # painter
-      libreoffice # documents
+      libreoffice-qt6-fresh # documents
       vlc # video
 
       # \/ needed for kinfocenter \/
