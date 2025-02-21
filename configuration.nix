@@ -9,6 +9,18 @@
     ./src/users.nix
   ];
 
+  fileSystems = {
+    "/".options = [ "noatime" "compress=zstd" ];
+    "/boot".options = [ "umask=0077" ];
+    "/home".options = [ "noatime" "compress=zstd" ];
+    "/nix".options = [ "noatime" "compress=zstd" ];
+    "/swap".options = [ "noatime" ];
+  };
+
+  swapDevices = [{
+    device = "/swap/swapfile";
+  }];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
