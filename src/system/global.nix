@@ -13,6 +13,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     kernelParams = [ "boot.shell_on_fail" ];
   };
   # /\ BOOT & KERNEL /\
