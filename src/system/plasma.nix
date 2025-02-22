@@ -67,8 +67,7 @@
 
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate
-      # Cannot disable until I find a fix for konsole being used to launch helix
-      # konsole
+      konsole
       okular
     ];
     # Make gtk apps use plasma file picker
