@@ -25,12 +25,6 @@
 
   environment = {
     systemPackages = (with pkgs; [
-      (runCommandLocal "breeze-cursors-fix" { } ''
-        dir=$out/share/icons
-        mkdir -p $dir
-        ln -s ${kdePackages.breeze}/share/icons/breeze_cursors $dir/default
-      '')
-
       digikam # photo management
       exiftool # digikam
       kitty # replaces konsole
@@ -57,12 +51,6 @@
       plasma-browser-integration
       plasma-disks
       # /\ extra kde utils /\
-      # \/ cloud integration \/
-      kaccounts-integration
-      kaccounts-providers
-      kio-gdrive
-      # /\ cloud integration /\
-      qtimageformats # webp compat
     ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
