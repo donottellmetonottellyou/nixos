@@ -4,7 +4,6 @@
     keepassxc
     # Chat & Video
     discord
-    revolt-desktop
     slack
     zoom-us
     # Wikis

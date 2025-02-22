@@ -8,6 +8,7 @@
     openDefaultPorts = true;
     overrideDevices = false;
     settings = {
+      # This does not seem to do anything???
       folders = {
         "Camera" = {
           path = "${config.services.syncthing.dataDir}/Camera";

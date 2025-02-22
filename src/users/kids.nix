@@ -1,5 +1,5 @@
 { config, ... }: {
-  # MAIN USER
+  # Separate play area for relatives
   users.users.kids = {
     isNormalUser = true;
     description = "Kids";

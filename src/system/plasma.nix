@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   services = {
+    # Default Plasma login
     displayManager.sddm = {
       enable = true;
       autoNumlock = false;
@@ -54,9 +55,9 @@
     ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
-      kate
-      konsole
-      okular
+      kate # replaced by helix
+      konsole # replaced by kitty
+      okular # use web browser
     ];
     # Make gtk apps use plasma file picker
     variables = {

@@ -4,7 +4,7 @@
     markdown-oxide # markdown
     nil            # nix
     nixpkgs-fmt    # nix
-    taplo
+    taplo          # toml
   ];
 
   programs.helix = {
