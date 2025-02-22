@@ -1,11 +1,16 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    # Language support
-    markdown-oxide # markdown
-    nil            # nix
-    nixpkgs-fmt    # nix
-    taplo          # toml
-  ];
+  home = {
+    packages = with pkgs; [
+      # Language support
+      markdown-oxide # markdown
+      nil            # nix
+      nixpkgs-fmt    # nix
+      taplo          # toml
+    ];
+    sessionVariables = {
+      EDITOR = "hx";
+    };
+  };
 
   programs.helix = {
     enable = true;
