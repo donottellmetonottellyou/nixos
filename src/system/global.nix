@@ -29,6 +29,10 @@
       dates = "daily";
       options = "--delete-older-than 30d";
     };
+    optimise = {
+      automatic = true;
+      dates = [ "daily" ];
+    };
     settings = {
       auto-optimise-store = true;
       # Only one build at a time, internet is slow (as of writing) so the build
