@@ -52,8 +52,6 @@
       plasma-browser-integration
       plasma-disks
       # /\ extra kde utils /\
-      # This ensures that webp images display correctly throughout plasma
-      qtimageformats
     ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
