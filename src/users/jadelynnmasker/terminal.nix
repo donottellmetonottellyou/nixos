@@ -13,7 +13,6 @@
       };
       shellIntegration.enableZshIntegration = true;
       settings = {
-        scrollback_lines = 10000;
         background = "#1a1d1f";
         foreground = "#ffffff";
         enabled_layouts = "grid";
