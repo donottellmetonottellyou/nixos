@@ -17,6 +17,8 @@
         background = "#1a1d1f";
         foreground = "#ffffff";
         enabled_layouts = "grid";
+        tab_bar_edge = "top";
+        tab_bar_style = "slant";
       };
     };
     zsh = {
