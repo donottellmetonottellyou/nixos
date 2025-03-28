@@ -6,7 +6,6 @@
     ./system/ai.nix
     ./system/browsers.nix
     ./system/devtools.nix
-    ./system/snapshots.nix
     ./system/steam.nix
   ];
 }
