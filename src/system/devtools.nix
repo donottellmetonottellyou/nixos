@@ -14,6 +14,14 @@
   users.defaultUserShell = pkgs.zsh;
 
   programs = {
+    # Better prompt
+    starship = {
+      enable = true;
+      presets = [
+        "nerd-font-symbols"
+      ];
+    };
+
     zsh = {
       enable = true;
       enableBashCompletion = true;
