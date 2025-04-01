@@ -27,6 +27,11 @@
       enableBashCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
+      interactiveShellInit = ''
+        # autocompletion using arrow keys (based on history)
+        bindkey '\eOA' history-search-backward
+        bindkey '\eOB' history-search-forward
+      '';
     };
 
     git = {
