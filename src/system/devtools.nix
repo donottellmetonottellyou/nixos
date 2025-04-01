@@ -20,6 +20,9 @@
       presets = [
         "nerd-font-symbols"
       ];
+      settings = {
+        directory.truncate_to_repo = false;
+      };
     };
 
     zsh = {
