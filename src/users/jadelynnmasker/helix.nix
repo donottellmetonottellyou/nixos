@@ -2,6 +2,7 @@
   home = {
     packages = with pkgs; [
       # Language support
+      lldb           # debugging in multiple languages
       markdown-oxide # markdown
       nil            # nix
       nixpkgs-fmt    # nix
