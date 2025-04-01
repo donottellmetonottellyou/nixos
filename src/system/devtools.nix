@@ -11,17 +11,14 @@
     };
   };
 
+  users.defaultUserShell = pkgs.zsh;
+
   programs = {
-    # Not default shell, but available to all users
     zsh = {
       enable = true;
       enableBashCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        theme = "robbyrussell";
-      };
     };
 
     git = {

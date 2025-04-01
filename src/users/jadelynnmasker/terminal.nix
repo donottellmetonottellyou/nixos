@@ -25,12 +25,5 @@
         tab_bar_style = "slant";
       };
     };
-    zsh = {
-      enable = true;
-      sessionVariables = {
-        ZELLIJ_AUTO_ATTACH = "true";
-        ZELLIJ_AUTO_EXIT = "true";
-      };
-    };
   };
 }
