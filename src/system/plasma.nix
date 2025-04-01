@@ -24,6 +24,13 @@
     wlr.enable = true;
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      fira-code-nerdfont
+    ];
+  };
+
   environment = {
     systemPackages = (with pkgs; [
       digikam # photo management

@@ -7,8 +7,8 @@
     kitty = {
       enable = true;
       font = {
-        package = pkgs.fira-code;
-        name = "Fira Code";
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
         size = 12;
       };
       keybindings = {
