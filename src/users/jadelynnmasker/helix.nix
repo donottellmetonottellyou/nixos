@@ -23,10 +23,6 @@
           normal = "NORMAL";
           select = "SELECT";
         };
-        lsp = {
-          display-messages = true;
-          display-inlay-hints = true;
-        };
         cursor-shape = {
           insert = "bar";
           normal = "underline";
@@ -34,22 +30,19 @@
         };
         auto-save = true;
         whitespace = {
-          render = {
-            space = "none";
-            tab = "all";
-            nbsp = "all";
-            nnbsp = "all";
-            newline = "none";
-          };
+          render = "all";
           characters = {
-            tab = "⎸";
-            tabpad = "―";
+            space = ".";
+            tab = "|";
+            tabpad = "-";
+            nbsp = "*";
+            nnbsp = "*";
+            newline = "\\";
           };
         };
         indent-guides = {
           render = true;
-          character = "⎸";
-          skip-levels = 1;
+          character = "|";
         };
         soft-wrap.enable = true;
         rulers = [80 100 120];
