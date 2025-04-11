@@ -18,7 +18,7 @@
     starship = {
       enable = true;
       presets = [
-        "nerd-font-symbols"
+        "plain-text-symbols"
       ];
       settings = {
         directory.truncate_to_repo = false;
