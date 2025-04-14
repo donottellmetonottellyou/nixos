@@ -21,7 +21,6 @@
         "plain-text-symbols"
       ];
       settings = {
-        format = "$all ";
         directory.truncate_to_repo = false;
       };
     };
