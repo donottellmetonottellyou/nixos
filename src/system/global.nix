@@ -34,6 +34,10 @@
     };
     settings = {
       auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       # Only one build at a time, internet is slow (as of writing) so the build
       # is usually not a bottleneck. I also don't want to freeze the system when
       # building.
