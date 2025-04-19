@@ -47,6 +47,11 @@
         soft-wrap.enable = true;
         rulers = [80 100 120];
       };
+      keys = {
+        normal.p = ":clipboard-paste-after";
+        normal.P = ":clipboard-paste-before";
+        normal.y = ":clipboard-yank";
+      };
     };
     languages = {
       language-server.rust-analyzer.config = {
