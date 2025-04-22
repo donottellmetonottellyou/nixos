@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
 
@@ -15,18 +15,6 @@
       core = {
         editor = "hx";
         pager = "less -F -X";
-      };
-
-      diff.tool = "hx";
-      difftool = {
-        prompt = false;
-        hx.cmd = "hx";
-      };
-
-      merge.tool = "hx";
-      mergetool = {
-        prompt = false;
-        hx.cmd = "hx";
       };
     };
   };
