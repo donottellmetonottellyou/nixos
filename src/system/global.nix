@@ -93,8 +93,8 @@
     hostName = "ananda";
     networkmanager.enable = true;
     firewall = {
-      allowedTCPPorts = [];
-      allowedUDPPorts = [];
+      allowedTCPPorts = [ ];
+      allowedUDPPorts = [ ];
     };
   };
   # Disable wifi shutoff when screen is locked etc
