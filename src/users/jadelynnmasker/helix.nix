@@ -4,6 +4,7 @@
       # ================
       # Language support
       # ================
+      clang-tools # C/C++
       lemminx # XML
       xq-xml # XML
       lldb # debugging in multiple languages
