@@ -4,11 +4,14 @@
       # ================
       # Language support
       # ================
+      lemminx # XML
+      xq-xml # XML
       lldb # debugging in multiple languages
       markdown-oxide # markdown
       nil # nix
       nixpkgs-fmt # nix
       taplo # toml
+      vscode-langservers-extracted # HTML/CSS/JSON/Javascript
     ];
     sessionVariables = {
       EDITOR = "hx";
@@ -65,7 +68,21 @@
           auto-format = true;
           formatter.command = "nixpkgs-fmt";
         }
+        {
+          name = "xml";
+          auto-format = true;
+          language-servers = [{
+            name = "lemminx";
+            except-features = [ "format" ];
+          }];
+          formatter.command = "xq";
+        }
       ];
+      language-server = {
+        lemminx = {
+          command = "lemminx";
+        };
+      };
     };
   };
 }
