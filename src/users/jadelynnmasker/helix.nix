@@ -1,12 +1,14 @@
 { pkgs, ... }: {
   home = {
     packages = with pkgs; [
+      # ================
       # Language support
-      lldb           # debugging in multiple languages
+      # ================
+      lldb # debugging in multiple languages
       markdown-oxide # markdown
-      nil            # nix
-      nixpkgs-fmt    # nix
-      taplo          # toml
+      nil # nix
+      nixpkgs-fmt # nix
+      taplo # toml
     ];
     sessionVariables = {
       EDITOR = "hx";
@@ -45,7 +47,7 @@
           character = "|";
         };
         soft-wrap.enable = true;
-        rulers = [80 100 120];
+        rulers = [ 80 100 120 ];
       };
       keys = {
         normal.p = ":clipboard-paste-after";
