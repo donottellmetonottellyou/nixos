@@ -13,6 +13,7 @@
           xq-xml # XML
           lldb # debugging in multiple languages
           markdown-oxide # markdown
+          marksman # markdown
           nil # nix
           nixpkgs-fmt # nix
           taplo # toml
