@@ -8,7 +8,7 @@
     ];
 
     variables = {
-      EDITOR = "micro";
+      EDITOR = "hx";
     };
   };
 
