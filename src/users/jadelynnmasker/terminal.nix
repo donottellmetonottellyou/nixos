@@ -23,6 +23,7 @@
         tab_bar_edge = "top";
         tab_bar_style = "slant";
       };
+      themeFile = "Constant_Perceptual_Luminosity_dark";
     };
   };
 }
