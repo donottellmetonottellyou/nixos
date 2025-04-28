@@ -18,7 +18,6 @@
     # use a USB boot device.
     kernelParams = [ "boot.shell_on_fail" ];
   };
-  console.font = pkgs.fira-code-nerdfont;
   # /\ BOOT & KERNEL /\
   # ============================================================================
   # \/ NIX CONFIG \/
