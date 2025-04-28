@@ -13,7 +13,8 @@
       markdown-oxide # markdown
       marksman # markdown
       nil # nix
-      nixpkgs-fmt # nix
+      nixd # nix
+      nixfmt-rfc-style # nix
       taplo # toml
       typescript-language-server # Javascript/Typescript
       vscode-langservers-extracted # HTML/CSS/JSON
@@ -64,7 +65,7 @@
         {
           name = "nix";
           auto-format = true;
-          formatter.command = "nixpkgs-fmt";
+          formatter.command = "nixfmt";
         }
         {
           name = "xml";
