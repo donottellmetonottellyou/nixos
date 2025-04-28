@@ -1,46 +1,22 @@
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   home.sessionVariables = {
     EDITOR = "hx";
   };
 
   programs.helix = {
     enable = true;
-    package = pkgs.stdenv.mkDerivation (
-      let
-        language-supports = with pkgs; [
-          clang-tools # C/C++
-          lemminx # XML
-          xq-xml # XML
-          lldb # debugging in multiple languages
-          markdown-oxide # markdown
-          marksman # markdown
-          nil # nix
-          nixpkgs-fmt # nix
-          taplo # toml
-          vscode-langservers-extracted # HTML/CSS/JSON/Javascript
-        ];
-      in
-      {
-        pname = "${pkgs.helix.pname}-with-language-features";
-        version = pkgs.helix.version;
-
-        nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
-
-        buildInputs = [ pkgs.helix ] ++ language-supports;
-
-        dontUnpack = true;
-        dontBuild = true;
-
-        installPhase = ''
-          mkdir -p "$out"
-          cp -r ${pkgs.helix}/* "$out"
-        '';
-
-        postInstall = ''
-          wrapProgram "$out/hx" --prefix PATH : "${lib.makeBinPath language-supports}"
-        '';
-      }
-    );
+    extraPackages = with pkgs; [
+      clang-tools # C/C++
+      lemminx # XML
+      xq-xml # XML
+      lldb # debugging in multiple languages
+      markdown-oxide # markdown
+      marksman # markdown
+      nil # nix
+      nixpkgs-fmt # nix
+      taplo # toml
+      vscode-langservers-extracted # HTML/CSS/JSON/Javascript
+    ];
     settings = {
       theme = "dark_plus";
       editor = {
