@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   # Separate play area for relatives
   users.users.kids = {
     isNormalUser = true;
@@ -6,11 +7,13 @@
     extraGroups = [ ];
   };
 
-  home-manager.users.kids = { pkgs, ... }: {
-    home.stateVersion = config.system.stateVersion;
+  home-manager.users.kids =
+    { pkgs, ... }:
+    {
+      home.stateVersion = config.system.stateVersion;
 
-    home.packages = with pkgs; [
-      prismlauncher
-    ];
-  };
+      home.packages = with pkgs; [
+        prismlauncher
+      ];
+    };
 }

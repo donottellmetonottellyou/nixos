@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.sessionVariables = {
     EDITOR = "hx";
   };
@@ -49,7 +50,11 @@
           character = "|";
         };
         soft-wrap.enable = true;
-        rulers = [ 80 100 120 ];
+        rulers = [
+          80
+          100
+          120
+        ];
       };
       keys = {
         normal.p = ":clipboard-paste-after";
@@ -70,10 +75,12 @@
         {
           name = "xml";
           auto-format = true;
-          language-servers = [{
-            name = "lemminx";
-            except-features = [ "format" ];
-          }];
+          language-servers = [
+            {
+              name = "lemminx";
+              except-features = [ "format" ];
+            }
+          ];
           formatter.command = "xq";
         }
       ];

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment = {
     systemPackages = with pkgs; [
       micro # System editor, with default keybinds

@@ -1,8 +1,12 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   users.users.jadelynnmasker = {
     isNormalUser = true;
     description = "Jade Lynn Masker";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -10,17 +14,19 @@
     ./jadelynnmasker/syncthing.nix
   ];
 
-  home-manager.users.jadelynnmasker = { pkgs, ... }: {
-    home.stateVersion = config.system.stateVersion;
+  home-manager.users.jadelynnmasker =
+    { ... }:
+    {
+      home.stateVersion = config.system.stateVersion;
 
-    imports = [
-      ./jadelynnmasker/desktop.nix
+      imports = [
+        ./jadelynnmasker/desktop.nix
 
-      # Programs
-      ./jadelynnmasker/email.nix
-      ./jadelynnmasker/git.nix
-      ./jadelynnmasker/helix.nix
-      ./jadelynnmasker/terminal.nix
-    ];
-  };
+        # Programs
+        ./jadelynnmasker/email.nix
+        ./jadelynnmasker/git.nix
+        ./jadelynnmasker/helix.nix
+        ./jadelynnmasker/terminal.nix
+      ];
+    };
 }

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services = {
     # Default Plasma login
     displayManager.sddm = {
@@ -32,35 +33,37 @@
   };
 
   environment = {
-    systemPackages = (with pkgs; [
-      digikam # photo management
-      exiftool # digikam
-      kitty # replaces konsole
-      krita # painter
-      libreoffice-qt6-fresh # documents
-      vlc # video
+    systemPackages =
+      (with pkgs; [
+        digikam # photo management
+        exiftool # digikam
+        kitty # replaces konsole
+        krita # painter
+        libreoffice-qt6-fresh # documents
+        vlc # video
 
-      # \/ needed for kinfocenter \/
-      aha
-      clinfo
-      glxinfo
-      pciutils
-      vulkan-tools
-      wayland-utils
-      # /\ needed for kinfocenter /\
-    ]) ++ (with pkgs.kdePackages;[
-      # \/ extra kde utils \/
-      filelight
-      isoimagewriter
-      kcalc
-      kcharselect
-      kclock
-      kdenlive
-      partitionmanager
-      plasma-browser-integration
-      plasma-disks
-      # /\ extra kde utils /\
-    ]);
+        # \/ needed for kinfocenter \/
+        aha
+        clinfo
+        glxinfo
+        pciutils
+        vulkan-tools
+        wayland-utils
+        # /\ needed for kinfocenter /\
+      ])
+      ++ (with pkgs.kdePackages; [
+        # \/ extra kde utils \/
+        filelight
+        isoimagewriter
+        kcalc
+        kcharselect
+        kclock
+        kdenlive
+        partitionmanager
+        plasma-browser-integration
+        plasma-disks
+        # /\ extra kde utils /\
+      ]);
 
     plasma6.excludePackages = with pkgs.kdePackages; [
       kate # replaced by helix

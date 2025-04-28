@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./system/global.nix
     ./system/plasma.nix
