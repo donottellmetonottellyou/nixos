@@ -15,7 +15,8 @@
       nil # nix
       nixpkgs-fmt # nix
       taplo # toml
-      vscode-langservers-extracted # HTML/CSS/JSON/Javascript
+      typescript-language-server # Javascript/Typescript
+      vscode-langservers-extracted # HTML/CSS/JSON
     ];
     settings = {
       theme = "dark_plus";
