@@ -5,7 +5,7 @@
     remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     extraCompatPackages = [
-      pkgs.proton-ge-bin
+      pkgs.unstable.proton-ge-bin
     ];
   };
 }
