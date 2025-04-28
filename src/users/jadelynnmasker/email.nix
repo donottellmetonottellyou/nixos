@@ -11,6 +11,7 @@
           display: none;
         }
       '';
+      withExternalGnupg = true;
     };
   };
 }
