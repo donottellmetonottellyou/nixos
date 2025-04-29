@@ -55,8 +55,6 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      # Simple, terminal-based prompt
-      pinentryPackage = pkgs.pinentry-tty;
     };
 
     # Per-directory cached dev environments
