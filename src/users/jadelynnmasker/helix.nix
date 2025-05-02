@@ -9,6 +9,8 @@
       lldb # debugging in multiple languages
       markdown-oxide # markdown
       marksman # markdown
+      netcoredbg # csharp
+      unstable.omnisharp-roslyn # csharp
       nil # nix
       nixd # nix
       nixfmt-rfc-style # nix
