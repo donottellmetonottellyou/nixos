@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    chromium
+  ];
+
   programs = {
     # Preferred browser
     firefox.enable = true;
@@ -8,12 +12,19 @@
     chromium = {
       enable = true;
       extraOpts = {
-        "BrowserSignin" = 0;
-        "SyncDisabled" = true;
-        "PasswordManagerEnabled" = false;
-        "BrowserGuestModeEnforced" = true;
-        "DefaultBrowserSettingEnabled" = false;
-        "BrowserLabsEnabled" = false;
+        # Disable Google Signin
+        BrowserSignin = 0;
+        SyncDisabled = true;
+        # Disable customization
+        DefaultBrowserSettingEnabled = false;
+        BrowserLabsEnabled = false;
+        BlockExternalExtensions = true;
+        ExtensionInstallBlocklist = [ "*" ];
+        # Disable autofill
+        PasswordManagerEnabled = false;
+        PasswordManagerPasskeysEnabled = false;
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
       };
     };
   };
