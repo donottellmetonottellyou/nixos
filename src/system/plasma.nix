@@ -59,6 +59,7 @@
         kcharselect
         kclock
         kdenlive
+        kjournald
         partitionmanager
         plasma-browser-integration
         plasma-disks
