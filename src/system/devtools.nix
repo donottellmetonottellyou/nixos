@@ -5,6 +5,7 @@
       micro # System editor, with default keybinds
       neovim # System vim editor, replaced by helix for myself
       nix-output-monitor # Useful metrics while installing nixos
+      python312Packages.pygments # Syntax highlighting for colorize
     ];
 
     variables = {
@@ -31,11 +32,18 @@
       enableBashCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
-      interactiveShellInit = ''
-        # autocompletion using arrow keys (based on history)
-        bindkey '\eOA' history-search-backward
-        bindkey '\eOB' history-search-forward
-      '';
+      ohMyZsh = {
+        enable = true;
+        theme = "";
+        plugins = [
+          "colored-man-pages"
+          "colorize"
+          "git"
+          "history-substring-search"
+          "rust"
+          "sudo"
+        ];
+      };
     };
 
     git = {
