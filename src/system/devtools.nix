@@ -27,9 +27,6 @@
       };
     };
 
-    # Make all terminals bash
-    bash.interactiveShellInit = "exec zsh";
-
     zsh = {
       enable = true;
       enableBashCompletion = true;
