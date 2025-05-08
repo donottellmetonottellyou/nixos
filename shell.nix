@@ -22,7 +22,7 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "commit-config" ''
-      git add -i || exit 1
+      git add -p || exit 1
       git commit
 
       cd /etc/nixos &&
@@ -43,7 +43,7 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "amend-config" ''
-      git add -i || exit 1
+      git add -p || exit 1
       git commit --amend
 
       cd /etc/nixos &&
