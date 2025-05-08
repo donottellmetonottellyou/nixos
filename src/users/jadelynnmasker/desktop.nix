@@ -6,7 +6,10 @@
     # Chat & Video
     discord
     slack
-    zoom-us
+    (zoom-us.overrideAttrs {
+      pulseaudioSupport = true;
+      xdgDesktopPortalSupport = true;
+    })
     # Wikis
     kiwix
     # Games & Learning
