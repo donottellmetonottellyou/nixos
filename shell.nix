@@ -10,14 +10,17 @@ pkgs.mkShell {
       sudo nixos-rebuild switch --fast --log-format internal-json |&
         sudo nom --json
     '')
+
     (writeShellScriptBin "fast-boot-config" ''
       sudo nixos-rebuild boot --fast --log-format internal-json |&
         sudo nom --json
     '')
+
     (writeShellScriptBin "update-boot-config" ''
       sudo nixos-rebuild boot --upgrade-all --log-format internal-json |&
         sudo nom --json
     '')
+
     (writeShellScriptBin "commit-config" ''
       git add -i || exit 1
       git commit
@@ -29,6 +32,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
+
     (writeShellScriptBin "push-config" ''
       cd /etc/nixos &&
         git push || {
@@ -37,6 +41,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
+
     (writeShellScriptBin "amend-config" ''
       git add -i || exit 1
       git commit --amend
@@ -49,6 +54,7 @@ pkgs.mkShell {
           exit 1
         }
     '')
+
     (writeShellScriptBin "list-pkgs" ''
       nix-store -q --requisites /run/current-system/sw |
         sed 's|/nix/store/[a-z0-9]*-||' |
