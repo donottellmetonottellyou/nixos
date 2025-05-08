@@ -1,6 +1,23 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 pkgs.mkShell {
   packages = with pkgs; [
+    git
+    nix-output-monitor
+
+    (writeShellScriptBin "fast-switch-config" ''
+      sudo nixos-rebuild switch --fast --log-format internal-json |&
+        sudo nom --json
+    '')
+    (writeShellScriptBin "fast-boot-config" ''
+      sudo nixos-rebuild boot --fast --log-format internal-json |&
+        sudo nom --json
+    '')
+    (writeShellScriptBin "update-boot-config" ''
+      sudo nixos-rebuild boot --upgrade-all --log-format internal-json |&
+        sudo nom --json
+    '')
     (writeShellScriptBin "commit-config" ''
       git add -i || exit 1
       git commit
