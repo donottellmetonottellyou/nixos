@@ -27,6 +27,9 @@
         ./jadelynnmasker/git.nix
         ./jadelynnmasker/helix.nix
         ./jadelynnmasker/terminal.nix
+
+        # Fork testing
+        ./jadelynnmasker/testing.nix
       ];
     };
 }
