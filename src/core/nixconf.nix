@@ -28,6 +28,10 @@
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
+      # Testing fork channel
+      donottellmetonottellyou = import <nixpkgs-donottellmetonottellyou> {
+        config = config.nixpkgs.config;
+      };
       # Allow unstable packages for niche usecases and quick fixes
       unstable = import <nixos-unstable> {
         config = config.nixpkgs.config;
