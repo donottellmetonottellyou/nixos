@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs.donottellmetonottellyou; [
-    legendsviewer-next
+    (legendsviewer-next.overrideAttrs {
+      patches = [ ./legendsviewer-fix404.patch ];
+    })
   ];
 }
