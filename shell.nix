@@ -7,17 +7,17 @@ pkgs.mkShell {
     nix-output-monitor
 
     (writeShellScriptBin "fast-switch-config" ''
-      sudo nixos-rebuild switch --fast --log-format internal-json |&
+      sudo nixos-rebuild switch --fast --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "fast-boot-config" ''
-      sudo nixos-rebuild boot --fast --log-format internal-json |&
+      sudo nixos-rebuild boot --fast --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "update-boot-config" ''
-      sudo nixos-rebuild boot --upgrade-all --log-format internal-json |&
+      sudo nixos-rebuild boot --upgrade-all --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
