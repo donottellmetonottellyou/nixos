@@ -49,12 +49,14 @@
     git = {
       enable = true;
       config = {
-        core.fsmonitor = true;
+        core = {
+          fsmonitor = true;
+          untrackedcache = true;
+        };
         init.defaultBranch = "main";
         # Make it so commit-config, amend-config, and push-config work
         safe.directory = [
           "/etc/nixos"
-          "/home/jadelynnmasker/Code/NixOS"
         ];
       };
     };
