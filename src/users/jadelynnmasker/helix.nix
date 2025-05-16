@@ -35,11 +35,11 @@
         whitespace = {
           render = "all";
           characters = {
-            space = ".";
+            space = "*";
             tab = "|";
             tabpad = "-";
-            nbsp = "*";
-            nnbsp = "*";
+            nbsp = "~";
+            nnbsp = "~";
             newline = "\\";
           };
         };
