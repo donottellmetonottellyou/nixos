@@ -1,22 +1,50 @@
 diff --git a/LegendsViewer.Backend/Controllers/FileSystemController.cs b/LegendsViewer.Backend/Controllers/FileSystemController.cs
-index 92ee350..3b98a32 100644
+index 92ee350..dc87c92 100644
 --- a/LegendsViewer.Backend/Controllers/FileSystemController.cs
 +++ b/LegendsViewer.Backend/Controllers/FileSystemController.cs
-@@ -19,6 +19,12 @@ public class FileSystemController : ControllerBase
+@@ -12,7 +12,7 @@ public class FileSystemController : ControllerBase
      [ProducesResponseType<FilesAndSubdirectoriesDto>(StatusCodes.Status200OK)]
+     public ActionResult<FilesAndSubdirectoriesDto> Get()
+     {
+-        return Ok(GetRootInformation());
++        return Ok(GetHomeInformation());
+     }
+ 
+     [HttpGet("{encodedPath}")]
+@@ -20,33 +20,43 @@ public class FileSystemController : ControllerBase
      public ActionResult<FilesAndSubdirectoriesDto> Get([FromRoute] string encodedPath)
      {
-+        if (encodedPath == "~")
-+        {
-+            return Ok(GetHomeInformation());
-+        }
-+        // I need to provide a way for windows to get the drives
-+
          var path = HttpUtility.UrlDecode(encodedPath);
-         if (!Path.Exists(path) && !Directory.Exists(path))
+-        if (!Path.Exists(path) && !Directory.Exists(path))
++
++        if (path == "mounts")
++        {
++            return Ok(GetMountsInformation());
++        }
++
++        if (!Path.Exists(path))
          {
-@@ -39,11 +45,12 @@ public class FileSystemController : ControllerBase
-             ParentDirectory = Directory.GetParent(directoryName)?.FullName,
+-            return Ok(GetRootInformation());
++            return Ok(GetHomeInformation());
+         }
+-        string directoryName = Directory.GetCurrentDirectory();
++
++        string directoryName;
+         if (Directory.Exists(path))
+         {
+             directoryName = path;
+         }
+-        else if (Path.Exists(path))
++        else
+         {
+             directoryName = Path.GetDirectoryName(path) ?? Directory.GetCurrentDirectory();
+         }
++
+         var response = new FilesAndSubdirectoriesDto
+         {
+             CurrentDirectory = directoryName,
+-            ParentDirectory = Directory.GetParent(directoryName)?.FullName,
++            ParentDirectory = Directory.GetParent(directoryName)?.FullName ?? "mounts",
              Subdirectories = Directory.GetDirectories(directoryName)
                  .Select(subDirectoryPath => Path.GetRelativePath(directoryName, subDirectoryPath))
 -                .Where(f => !f.StartsWith('.')) // remove hidden directories
@@ -29,22 +57,42 @@ index 92ee350..3b98a32 100644
                  .Order()
                  .ToArray()
          };
-@@ -89,14 +96,43 @@ public class FileSystemController : ControllerBase
-                 ParentDirectory = null,
-                 Subdirectories = rootDir.GetDirectories()
-                     .Select(d => d.FullName)
--                    .Where(d => !d.StartsWith('.')) // remove hidden directories
-+                    .Where(IsNotUnixHiddenPath)
-                     .Order() // sort alphabetically
-                     .ToArray(),
-                 Files = rootDir.GetFiles()
-                     .Select(f => f.FullName)
-+                    .Where(IsNotUnixHiddenPath)
-                     .Order()
-                     .ToArray()
-             };
-         }
++
+         return Ok(response);
      }
+ 
+@@ -65,38 +75,47 @@ public class FileSystemController : ControllerBase
+         return Get(fullPath);
+     }
+ 
+-    private static FilesAndSubdirectoriesDto GetRootInformation()
++    private static FilesAndSubdirectoriesDto GetMountsInformation()
+     {
+-        if (OperatingSystem.IsWindows())
++        // GetLogicalDrives will also get mount points on Unix/MacOS: see
++        // https://learn.microsoft.com/en-us/dotnet/api/system.io.directory.getlogicaldrives#remarks
++        var logicalDrives = Directory.GetLogicalDrives();
++        return new FilesAndSubdirectoriesDto
+         {
+-            // Windows: return logical drives (C:\, D:\, etc.)
+-            var logicalDrives = Directory.GetLogicalDrives();
+-            return new FilesAndSubdirectoriesDto
+-            {
+-                CurrentDirectory = Path.DirectorySeparatorChar.ToString(),
+-                ParentDirectory = null,
+-                Subdirectories = logicalDrives,
+-                Files = Array.Empty<string>()
+-            };
+-        }
+-        else
++            CurrentDirectory = Path.DirectorySeparatorChar.ToString(),
++            ParentDirectory = null,
++            Subdirectories = logicalDrives.Where(IsNotUnixHiddenPath)
++                .Order() // sort alphabetically
++                .ToArray(),
++            Files = Array.Empty<string>()
++        };
++    }
 +
 +    private static FilesAndSubdirectoriesDto GetHomeInformation()
 +    {
@@ -52,7 +100,24 @@ index 92ee350..3b98a32 100644
 +        var homeDir = new DirectoryInfo(homePath);
 +
 +        return new FilesAndSubdirectoriesDto
-+        {
+         {
+-            // Unix-like systems (Linux, macOS): start from root directory
+-            var rootDir = new DirectoryInfo("/");
+-            return new FilesAndSubdirectoriesDto
+-            {
+-                CurrentDirectory = "/",
+-                ParentDirectory = null,
+-                Subdirectories = rootDir.GetDirectories()
+-                    .Select(d => d.FullName)
+-                    .Where(d => !d.StartsWith('.')) // remove hidden directories
+-                    .Order() // sort alphabetically
+-                    .ToArray(),
+-                Files = rootDir.GetFiles()
+-                    .Select(f => f.FullName)
+-                    .Order()
+-                    .ToArray()
+-            };
+-        }
 +            CurrentDirectory = homePath,
 +            ParentDirectory = Directory.GetParent(homePath)?.FullName,
 +            Subdirectories = homeDir.GetDirectories()
@@ -72,19 +137,18 @@ index 92ee350..3b98a32 100644
 +    {
 +        // Hide all '.' paths, except steam path
 +        return !(path.StartsWith('.') && path != ".steam");
-+    }
+     }
  }
-diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/fileSystemStore.ts b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/fileSystemStore.ts
-index 19cc723..e93d1ff 100644
---- a/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/fileSystemStore.ts
-+++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/fileSystemStore.ts
-@@ -82,7 +82,7 @@ export const useFileSystemStore = defineStore('fileSystem', {
-         const { data, error } = await client.GET(`/api/FileSystem/{path}`, {
-           params: {
-             path : {
--              path: storedPath ? encodeURIComponent(storedPath) : ""
-+              path: storedPath ? encodeURIComponent(storedPath) : "~"
-             }
-           }
-         });
-
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/views/WorldOverview.vue b/LegendsViewer.Frontend/legends-viewer-frontend/src/views/WorldOverview.vue
+index 106977e..e5f98e7 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/src/views/WorldOverview.vue
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/views/WorldOverview.vue
+@@ -143,7 +143,7 @@ const closeSnackbar = () => {
+ 
+                   <v-list density="compact" height="220" scrollable>
+                     <v-list-subheader>Directories</v-list-subheader>
+-                    <v-list-item v-if="fileSystemStore.filesAndSubdirectories.currentDirectory != '/'"
++                    <v-list-item
+                       @click="fileSystemStore.loadDirectory(fileSystemStore.filesAndSubdirectories.parentDirectory ?? '/')"
+                       color="primary" variant="plain">
+                       <template v-slot:prepend>
