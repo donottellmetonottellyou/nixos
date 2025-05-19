@@ -3,14 +3,14 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
+      csharpier # csharp
+      netcoredbg # csharp
+      unstable.omnisharp-roslyn # csharp
       clang-tools # C/C++
       lemminx # XML
-      xq-xml # XML
       lldb # debugging in multiple languages
       markdown-oxide # markdown
       marksman # markdown
-      netcoredbg # csharp
-      unstable.omnisharp-roslyn # csharp
       nil # nix
       nixd # nix
       nixfmt-rfc-style # nix
@@ -67,6 +67,11 @@
       };
       language = [
         {
+          name = "c-sharp";
+          auto-format = true;
+          formatter.command = "dotnet-csharpier";
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter.command = "nixfmt";
@@ -80,7 +85,7 @@
               except-features = [ "format" ];
             }
           ];
-          formatter.command = "xq";
+          formatter.command = "dotnet-csharpier";
         }
       ];
       language-server = {
