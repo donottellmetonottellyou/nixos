@@ -53,6 +53,7 @@
           100
           120
         ];
+        insert-final-newline = true;
       };
       keys = {
         normal.p = ":clipboard-paste-after";
