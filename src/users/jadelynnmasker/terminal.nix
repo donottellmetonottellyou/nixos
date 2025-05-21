@@ -5,6 +5,12 @@
   ];
 
   programs = {
+    zsh = {
+      enable = true;
+      sessionVariables = {
+        KITTY_RC_PASSWORD = "$(dd status=none bs=256 count=1 if=/dev/random | sha256sum | fold -bw 64 | head -n 1)";
+      };
+    };
     kitty = {
       enable = true;
       font = {
@@ -23,6 +29,7 @@
         enabled_layouts = "grid";
         tab_bar_edge = "top";
         tab_bar_style = "slant";
+        allow_remote_control = "password";
       };
       themeFile = "Constant_Perceptual_Luminosity_dark";
     };
