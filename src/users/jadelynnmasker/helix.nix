@@ -35,7 +35,7 @@
         whitespace = {
           render = "all";
           characters = {
-            space = "*";
+            space = " ";
             tab = "|";
             tabpad = "-";
             nbsp = "~";
