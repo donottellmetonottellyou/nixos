@@ -30,6 +30,7 @@
         tab_bar_edge = "top";
         tab_bar_style = "slant";
         allow_remote_control = "password";
+        listen_on = "unix:@kitty{kitty_pid}";
       };
       themeFile = "Constant_Perceptual_Luminosity_dark";
     };
