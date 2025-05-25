@@ -5,7 +5,7 @@
     extraPackages = with pkgs; [
       csharpier # csharp
       netcoredbg # csharp
-      unstable.omnisharp-roslyn # csharp
+      omnisharp-roslyn # csharp
       clang-tools # C/C++
       lemminx # XML
       lldb # debugging in multiple languages
@@ -70,6 +70,12 @@
           name = "c-sharp";
           auto-format = true;
           formatter.command = "dotnet-csharpier";
+          language-servers = [
+            {
+              name = "omnisharp";
+              except-features = [ "format" ];
+            }
+          ];
         }
         {
           name = "nix";
@@ -89,6 +95,9 @@
         }
       ];
       language-server = {
+        omnisharp = {
+          command = "OmniSharp";
+        };
         lemminx = {
           command = "lemminx";
         };
