@@ -14,7 +14,6 @@
     kitty = {
       enable = true;
       font = {
-        package = pkgs.fira-code-nerdfont;
         name = "FiraCode Nerd Font";
         size = 12;
       };

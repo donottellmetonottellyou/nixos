@@ -27,7 +27,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      fira-code-nerdfont
+      nerd-fonts.fira-code
     ];
   };
 
