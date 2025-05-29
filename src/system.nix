@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./system/cosmic.nix
     ./system/plasma.nix
 
     ./system/ai.nix
