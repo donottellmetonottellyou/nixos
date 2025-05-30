@@ -22,6 +22,9 @@
 
       # Only one download at a time
       max-substitution-jobs = 1
+
+      # Always check for updates
+      tarball-ttl = 0
     '';
   };
 
