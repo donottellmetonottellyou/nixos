@@ -8,7 +8,6 @@
     slack
     webex
     (zoom-us.overrideAttrs {
-      pulseaudioSupport = true;
       xdgDesktopPortalSupport = true;
     })
     # Wikis
