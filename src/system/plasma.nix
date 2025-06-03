@@ -10,8 +10,6 @@
     desktopManager.plasma6 = {
       enable = true;
     };
-
-    fwupd.enable = true; # <- needed for kinfocenter
   };
 
   programs = {

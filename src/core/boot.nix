@@ -14,4 +14,7 @@
     # use a USB boot device.
     kernelParams = [ "boot.shell_on_fail" ];
   };
+
+  # Update support for firmware
+  services.fwupd.enable = true;
 }
