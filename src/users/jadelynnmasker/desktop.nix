@@ -16,4 +16,8 @@
     digital
     prismlauncher
   ];
+
+  xdg.autostart.entries = with pkgs; [
+    "${keepassxc}/share/applications/org.keepassxc.KeePassXC.desktop"
+  ];
 }

@@ -19,6 +19,14 @@
     {
       home.stateVersion = config.system.stateVersion;
 
+      xdg = {
+        enable = true;
+        autostart = {
+          enable = true;
+          readOnly = true;
+        };
+      };
+
       imports = [
         ./jadelynnmasker/desktop.nix
 
