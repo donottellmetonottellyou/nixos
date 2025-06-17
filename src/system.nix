@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./system/niri.nix
     ./system/plasma.nix
 
     ./system/ai.nix
