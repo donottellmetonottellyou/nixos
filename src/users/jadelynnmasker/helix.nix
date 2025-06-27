@@ -67,6 +67,14 @@
       };
       language = [
         {
+          name = "c";
+          auto-format = true;
+        }
+        {
+          name = "cpp";
+          auto-format = true;
+        }
+        {
           name = "c-sharp";
           auto-format = true;
           formatter.command = "dotnet-csharpier";
