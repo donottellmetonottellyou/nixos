@@ -5,7 +5,10 @@
     displayManager.sddm = {
       enable = true;
       autoNumlock = false;
-      wayland.enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
     };
     desktopManager.plasma6 = {
       enable = true;
@@ -49,6 +52,7 @@
         # /\ needed for kinfocenter /\
       ])
       ++ (with pkgs.kdePackages; [
+        karousel # scrollable tiler
         # \/ extra kde utils \/
         filelight
         isoimagewriter
