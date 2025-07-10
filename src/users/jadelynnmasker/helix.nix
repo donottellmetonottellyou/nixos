@@ -91,6 +91,13 @@
           formatter.command = "nixfmt";
         }
         {
+          name = "toml";
+          formatter = {
+            command = "taplo";
+            args = [ "format" ];
+          };
+        }
+        {
           name = "xml";
           auto-format = true;
           language-servers = [
