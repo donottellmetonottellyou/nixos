@@ -12,12 +12,12 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "fast-boot-config" ''
-      sudo nixos-rebuild boot --fast --fallback --log-format internal-json |&
+      sudo nixos-rebuild boot --fast --install-bootloader --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "update-boot-config" ''
-      sudo nixos-rebuild boot --upgrade-all --fallback --log-format internal-json |&
+      sudo nixos-rebuild boot --upgrade-all --install-bootloader --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
