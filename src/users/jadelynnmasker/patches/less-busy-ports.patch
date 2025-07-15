@@ -1,0 +1,75 @@
+diff --git a/LegendsViewer.Backend/LegendsViewer.Backend.http b/LegendsViewer.Backend/LegendsViewer.Backend.http
+index 7a34fd2..a9cf788 100644
+--- a/LegendsViewer.Backend/LegendsViewer.Backend.http
++++ b/LegendsViewer.Backend/LegendsViewer.Backend.http
+@@ -1,4 +1,4 @@
+-@LegendsViewer.Backend_HostAddress = http://localhost:5054
++@LegendsViewer.Backend_HostAddress = http://localhost:15421
+ 
+ POST {{LegendsViewer.Backend_HostAddress}}/api/Bookmark/loadByFullPath
+ Content-Type: application/json
+diff --git a/LegendsViewer.Backend/Program.cs b/LegendsViewer.Backend/Program.cs
+index ba8d439..9007683 100644
+--- a/LegendsViewer.Backend/Program.cs
++++ b/LegendsViewer.Backend/Program.cs
+@@ -16,7 +16,7 @@ namespace LegendsViewer.Backend;
+ public class Program
+ {
+     private const string AllowAllOriginsPolicy = "AllowAllOrigins";
+-    public const uint BackendPort = 5054;
++    public const uint BackendPort = 15421;
+     public static readonly string BackendUrl = $"http://localhost:{BackendPort}";
+ 
+     public static void Main(string[] args)
+diff --git a/LegendsViewer.Backend/Properties/launchSettings.json b/LegendsViewer.Backend/Properties/launchSettings.json
+index 8bc74f9..6316051 100644
+--- a/LegendsViewer.Backend/Properties/launchSettings.json
++++ b/LegendsViewer.Backend/Properties/launchSettings.json
+@@ -14,7 +14,7 @@
+       "dotnetRunMessages": true,
+       "launchBrowser": true,
+       "launchUrl": "swagger",
+-      "applicationUrl": "http://localhost:5054",
++      "applicationUrl": "http://localhost:15421",
+       "environmentVariables": {
+         "ASPNETCORE_ENVIRONMENT": "Development"
+       }
+diff --git a/LegendsViewer.Frontend/WebAppStaticServer.cs b/LegendsViewer.Frontend/WebAppStaticServer.cs
+index 69db784..4ab2395 100644
+--- a/LegendsViewer.Frontend/WebAppStaticServer.cs
++++ b/LegendsViewer.Frontend/WebAppStaticServer.cs
+@@ -5,7 +5,7 @@ namespace LegendsViewer.Frontend;
+ 
+ public static class WebAppStaticServer
+ {
+-    public const uint WebAppPort = 8081;
++    public const uint WebAppPort = 15422;
+     public static readonly string WebAppUrl = $"http://localhost:{WebAppPort}";
+ 
+     public static async Task RunAsync()
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/package.json b/LegendsViewer.Frontend/legends-viewer-frontend/package.json
+index 647138f..807f59d 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/package.json
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/package.json
+@@ -7,7 +7,7 @@
+     "dev": "vite",
+     "build": "vue-tsc -b && vite build",
+     "preview": "vite preview",
+-    "generate-api-schema": "npx openapi-typescript http://localhost:5054/swagger/v1/swagger.json -o ./src/generated/api-schema.d.ts"
++    "generate-api-schema": "npx openapi-typescript http://localhost:15421/swagger/v1/swagger.json -o ./src/generated/api-schema.d.ts"
+   },
+   "dependencies": {
+     "chart.js": "^4.4.8",
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/apiClient.ts b/LegendsViewer.Frontend/legends-viewer-frontend/src/apiClient.ts
+index bd3ef4b..a705812 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/src/apiClient.ts
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/apiClient.ts
+@@ -1,6 +1,6 @@
+ import createClient from "openapi-fetch";
+ import type { paths } from "./generated/api-schema";
+ 
+-const client = createClient<paths>({ baseUrl: "http://localhost:5054/" });
++const client = createClient<paths>({ baseUrl: "http://localhost:15421/" });
+ 
+ export default client;
+\ No newline at end of file
