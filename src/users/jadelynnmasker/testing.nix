@@ -3,9 +3,9 @@
   home.packages = with pkgs.donottellmetonottellyou; [
     (legendsviewer-next.override {
       patches = [
-        ./legendsviewer-always-open-browser.patch
-        ./legendsviewer-better-unix-directory-handling.patch
-        ./legendsviewer-fix404.patch
+        ./patches/legendsviewer-always-open-browser.patch
+        ./patches/legendsviewer-better-unix-directory-handling.patch
+        ./patches/legendsviewer-fix404.patch
       ];
     })
   ];
