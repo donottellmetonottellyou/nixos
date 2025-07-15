@@ -76,7 +76,6 @@
         }
         {
           name = "c-sharp";
-          auto-format = true;
           formatter.command = "dotnet-csharpier";
           language-servers = [
             {
