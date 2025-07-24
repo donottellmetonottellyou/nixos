@@ -62,9 +62,6 @@
       };
     };
     languages = {
-      language-server.rust-analyzer.config = {
-        check.overrideCommand = "clippy";
-      };
       language = [
         {
           name = "c";
@@ -114,6 +111,9 @@
         };
         lemminx = {
           command = "lemminx";
+        };
+        rust-analyzer = {
+          config.check.command = "clippy";
         };
       };
     };
