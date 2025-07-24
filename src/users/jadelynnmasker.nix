@@ -35,6 +35,7 @@
         ./jadelynnmasker/git.nix
         ./jadelynnmasker/helix.nix
         ./jadelynnmasker/terminal.nix
+        ./jadelynnmasker/vault-tasks.nix
 
         # Fork testing
         ./jadelynnmasker/testing.nix
