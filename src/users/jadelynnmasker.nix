@@ -11,6 +11,7 @@
   };
 
   imports = [
+    ./jadelynnmasker/pipewire.nix
     ./jadelynnmasker/syncthing.nix
   ];
 
