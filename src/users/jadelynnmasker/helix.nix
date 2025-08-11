@@ -54,6 +54,9 @@
           120
         ];
         insert-final-newline = true;
+        lsp = {
+          display-progress-messages = true;
+        };
       };
       keys = {
         normal.p = ":clipboard-paste-after";
@@ -113,7 +116,10 @@
           command = "lemminx";
         };
         rust-analyzer = {
-          config.check.command = "clippy";
+          config = {
+            cargo.noDeps = true;
+            check.command = "clippy";
+          };
         };
       };
     };
