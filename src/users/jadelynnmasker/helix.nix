@@ -119,11 +119,6 @@
           config = {
             cargo.noDeps = true;
             check.command = "clippy";
-            files.excludeDirs = [
-              ".direnv"
-              ".git"
-              "target"
-            ];
           };
         };
       };
