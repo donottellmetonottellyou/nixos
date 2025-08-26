@@ -55,6 +55,7 @@
         ];
         insert-final-newline = true;
         lsp = {
+          display-inlay-hints = true;
           display-progress-messages = true;
         };
       };
@@ -117,8 +118,11 @@
         };
         rust-analyzer = {
           config = {
-            cargo.noDeps = true;
             check.command = "clippy";
+            inlayHints = {
+              genericParameterHints.lifetime.enable = true;
+              lifetimeElisionHints.enable = true;
+            };
           };
         };
       };
