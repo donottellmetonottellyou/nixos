@@ -13,6 +13,7 @@
     # Wikis
     kiwix
     # Games & Learning
+    unstable.crawlTiles
     digital
     prismlauncher
   ];
