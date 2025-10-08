@@ -15,7 +15,11 @@
     # Games & Learning
     crawlTiles
     digital
-    prismlauncher
+    (prismlauncher.override {
+      jdks = [
+        unstable.jdk25
+      ];
+    })
   ];
 
   xdg.autostart.entries = with pkgs; [
