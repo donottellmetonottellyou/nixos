@@ -9,7 +9,6 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
     # Drive is encrypted, so this is not a security issue and is beneficial.
     # This allows me to rescue the OS in case of boot failure without having to
     # use a USB boot device.
