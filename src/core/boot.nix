@@ -6,6 +6,7 @@
         enable = true;
         configurationLimit = 16;
         editor = false;
+        memtest86.enable = true;
       };
       efi.canTouchEfiVariables = true;
     };
