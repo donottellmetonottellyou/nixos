@@ -27,6 +27,17 @@
 
   fonts = {
     enableDefaultPackages = true;
+    fontconfig = {
+      antialias = false;
+      defaultFonts = rec {
+        emoji = monospace;
+        monospace = [ "FiraCode Nerd Font" ];
+        sansSerif = monospace;
+        serif = monospace;
+      };
+      hinting.enable = false;
+      subpixel.lcdfilter = "none";
+    };
     packages = with pkgs; [
       nerd-fonts.fira-code
     ];
