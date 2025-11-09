@@ -1,7 +1,10 @@
 { ... }:
 {
   boot.kernelParams = [
-    "memmap=0x10000$0x14f1f0000"
-    "memmap=0x10000$0x2fa7f0000"
+    # I need new memory...
+    "memmap=0x100000$0x14f100000"
+    "memmap=0x100000$0x181d00000"
+    "memmap=0x100000$0x1e2700000"
+    "memmap=0x100000$0x2fa700000"
   ];
 }
