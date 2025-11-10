@@ -12,7 +12,7 @@
       # This does not seem to do anything???
       folders = {
         "Camera" = {
-          path = "${config.services.syncthing.dataDir}/Camera";
+          path = "${config.services.syncthing.dataDir}/Pictures/Camera";
           versioning = {
             type = "trashcan";
             params.cleanoutDays = 30;
@@ -20,6 +20,13 @@
         };
         "Documents" = {
           path = "${config.services.syncthing.dataDir}/Documents";
+          versioning = {
+            type = "trashcan";
+            params.cleanoutDays = 30;
+          };
+        };
+        "Screenshots" = {
+          path = "${config.services.syncthing.dataDir}/Pictures/Screenshots";
           versioning = {
             type = "trashcan";
             params.cleanoutDays = 30;
