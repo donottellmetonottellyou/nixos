@@ -10,8 +10,6 @@
     (zoom-us.overrideAttrs {
       xdgDesktopPortalSupport = true;
     })
-    # Wikis
-    kiwix
     # Games & Learning
     crawlTiles
     digital
