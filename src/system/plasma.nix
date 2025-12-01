@@ -56,7 +56,7 @@
         # \/ needed for kinfocenter \/
         aha
         clinfo
-        glxinfo
+        mesa-demos
         pciutils
         vulkan-tools
         wayland-utils

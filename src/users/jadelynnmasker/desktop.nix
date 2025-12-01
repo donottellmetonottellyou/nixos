@@ -16,7 +16,7 @@
     (prismlauncher.override {
       jdks = [
         jdk21
-        unstable.jdk25
+        jdk25
       ];
     })
   ];

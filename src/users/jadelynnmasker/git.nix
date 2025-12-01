@@ -3,15 +3,19 @@
   programs.git = {
     enable = true;
 
-    userName = "Jade Lynn Masker";
-    userEmail = "donottellmetonottellyou@gmail.com";
+    signing = {
+      format = "openpgp";
+      key = "5C8B71284AB3000D4AC662349B8135A24A75CB86";
+      signByDefault = true;
+    };
 
-    extraConfig = {
-      user.signingkey = "5C8B71284AB3000D4AC662349B8135A24A75CB86";
+    settings = {
+      user = {
+        name = "Jade Lynn Masker";
+        email = "donottellmetonottellyou@gmail.com";
+      };
 
-      commit.gpgSign = true;
       push.gpgSign = "if-asked";
-      tag.gpgSign = true;
 
       core = {
         editor = "hx";

@@ -13,7 +13,7 @@
       marksman # markdown
       nil # nix
       nixd # nix
-      nixfmt-rfc-style # nix
+      nixfmt # nix
       taplo # toml
       typescript-language-server # Javascript/Typescript
       vscode-langservers-extracted # HTML/CSS/JSON
