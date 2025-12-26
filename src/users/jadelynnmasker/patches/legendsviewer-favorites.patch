@@ -1,0 +1,173 @@
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/App.vue b/LegendsViewer.Frontend/legends-viewer-frontend/src/App.vue
+index f132a70..bfab2fa 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/src/App.vue
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/App.vue
+@@ -1,11 +1,13 @@
+ <script setup lang="ts">
+ import { useBookmarkStore } from './stores/bookmarkStore';
+ import { useVersionStore } from './stores/versionStore';
++import { useFavoriteStore } from './stores/favoriteStore';
+ 
+ const versionStore = useVersionStore()
+ versionStore.loadVersion()
+ const bookmarkStore = useBookmarkStore()
+ bookmarkStore.getAll()
++const favoriteStore = useFavoriteStore();
+ 
+ const societyItems = [
+   { title: 'Factions and Groups', to: '/entity' },
+@@ -80,6 +82,26 @@ const ritualItems = [
+         <v-list nav class="nav-list">
+           <v-list-item prepend-icon="mdi-file-tree-outline" title="Explore Worlds" to="/"
+             :active-class="'v-list-item--active'" />
++
++          <v-list-group value="Favorites" v-if="favoriteStore.favorites.length > 0">
++            <template v-slot:activator="{ props }">
++              <v-list-item v-bind="props" prepend-icon="mdi-star" title="Favorites"></v-list-item>
++            </template>
++            <template v-for="fav in favoriteStore.favorites" :key="fav.type + fav.id">
++              <v-list-item 
++                :title="fav.name"
++                :to="`/${fav.type}/${fav.id}`" 
++                :active-class="'v-list-item--active'"
++                style="padding-inline-start: 12px !important"
++              >
++                <template v-slot:prepend>
++                  <div v-if="fav.icon" v-html="fav.icon" style="display: flex; justify-content: center; align-items: center; margin-right: 8px;"></div>
++                  <v-icon v-else icon="mdi-circle-small" class="mr-2"></v-icon>
++                </template>
++              </v-list-item>
++            </template>
++          </v-list-group>
++
+           <v-list-item prepend-icon="mdi-earth-box" title="World" to="/world" :active-class="'v-list-item--active'"
+             :disabled="bookmarkStore?.isLoaded == false" />
+           <v-list-item prepend-icon="mdi-map-search-outline" title="Map" to="/map" :active-class="'v-list-item--active'"
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/components/WorldObjectPage.vue b/LegendsViewer.Frontend/legends-viewer-frontend/src/components/WorldObjectPage.vue
+index e1d203b..b6d95e4 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/src/components/WorldObjectPage.vue
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/components/WorldObjectPage.vue
+@@ -13,7 +13,23 @@
+                         <div v-html="store.object?.icon"></div>
+                     </v-col>
+                     <v-col>
+-                        <v-card-title>{{ store.object?.name ?? '' }}</v-card-title>
++                        <v-card-title class="d-flex align-center">
++                            {{ store.object?.name ?? '' }}
++                            <v-btn
++                                :icon="favoriteStore.isFavorite(store.object?.id ?? -1, objectType ?? '') ? 'mdi-star' : 'mdi-star-outline'"
++                                :color="favoriteStore.isFavorite(store.object?.id ?? -1, objectType ?? '') ? 'yellow-darken-2' : undefined"
++                                variant="text"
++                                density="compact"
++                                class="ml-2"
++                                :disabled="!store.object"
++                                @click="favoriteStore.toggleFavorite({
++                                    id: store.object?.id ?? -1,
++                                    type: objectType ?? '',
++                                    name: store.object?.name ?? 'Unknown',
++                                    icon: store.object?.icon
++                                })"
++                            ></v-btn>
++                        </v-card-title>
+                         <v-card-subtitle class="multiline-subtitle">
+                             {{ store.object?.type ?? '' }}
+                         </v-card-subtitle>
+@@ -100,6 +116,9 @@ import { LoadItemsOptions, LoadItemsSortOption, TableHeader } from '../types/leg
+ import LineChart from '../components/LineChart.vue';
+ import ExpandableCard from '../components/ExpandableCard.vue';
+ import BarChart from './BarChart.vue';
++import { useFavoriteStore } from '../stores/favoriteStore';
++
++const favoriteStore = useFavoriteStore();
+ 
+ const route = useRoute()
+ const routeId = computed(() => {
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/bookmarkStore.ts b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/bookmarkStore.ts
+index 5a5f646..df7c97b 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/bookmarkStore.ts
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/bookmarkStore.ts
+@@ -21,6 +21,9 @@ export const useBookmarkStore = defineStore('bookmark', {
+     isLoaded: (state) => {
+       return state.bookmarks.some(bookmark => bookmark.state === 'Loaded');
+     },
++    currentWorld: (state) => {
++      return state.bookmarks.find(bookmark => bookmark.state === 'Loaded');
++    },
+   },
+   actions: {
+     async loadByFullPath(filePath: string, latestTimestamp: string) {
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/favoriteStore.ts b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/favoriteStore.ts
+new file mode 100644
+index 0000000..34f68c6
+--- /dev/null
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/src/stores/favoriteStore.ts
+@@ -0,0 +1,59 @@
++import { defineStore } from 'pinia';
++import { ref, watch, computed } from 'vue';
++import { useBookmarkStore } from './bookmarkStore';
++
++export interface Favorite {
++    id: number;
++    type: string;
++    name: string;
++    icon?: string;
++    worldName: string;
++}
++
++export const useFavoriteStore = defineStore('favorite', () => {
++    const bookmarkStore = useBookmarkStore();
++    const allFavorites = ref<Favorite[]>([]);
++
++    const stored = localStorage.getItem('legends-favorites');
++    if (stored) {
++        try {
++            allFavorites.value = JSON.parse(stored);
++        } catch (e) {
++            console.error("Failed to parse favorites", e);
++        }
++    }
++
++    watch(allFavorites, (newVal) => {
++        localStorage.setItem('legends-favorites', JSON.stringify(newVal));
++    }, { deep: true });
++
++    const favorites = computed(() => {
++        if (!bookmarkStore.currentWorld?.worldName) return [];
++        return allFavorites.value.filter(f => f.worldName === bookmarkStore.currentWorld?.worldName);
++    });
++
++    function isFavorite(id: number, type: string): boolean {
++        if (!bookmarkStore.currentWorld?.worldName) return false;
++        return allFavorites.value.some(f => f.id === id && f.type === type && f.worldName === bookmarkStore.currentWorld?.worldName);
++    }
++
++    function toggleFavorite(item: Omit<Favorite, 'worldName'>) {
++        if (!bookmarkStore.currentWorld?.worldName) {
++            console.warn("Cannot toggle favorite: World name not loaded");
++            return;
++        }
++        const worldName = bookmarkStore.currentWorld.worldName;
++
++        if (isFavorite(item.id, item.type)) {
++            allFavorites.value = allFavorites.value.filter(f => !(f.id === item.id && f.type === item.type && f.worldName === worldName));
++        } else {
++            allFavorites.value.push({ ...item, worldName });
++        }
++    }
++
++    return {
++        favorites,
++        isFavorite,
++        toggleFavorite
++    };
++});
+\ No newline at end of file
+diff --git a/LegendsViewer.Frontend/legends-viewer-frontend/tsconfig.app.tsbuildinfo b/LegendsViewer.Frontend/legends-viewer-frontend/tsconfig.app.tsbuildinfo
+index fac5188..9001400 100644
+--- a/LegendsViewer.Frontend/legends-viewer-frontend/tsconfig.app.tsbuildinfo
++++ b/LegendsViewer.Frontend/legends-viewer-frontend/tsconfig.app.tsbuildinfo
+@@ -1 +1 @@
+-{"root":["./src/apiclient.ts","./src/main.ts","./src/vite-env.d.ts","./src/vue-shim.d.ts","./src/generated/api-schema.d.ts","./src/router/index.ts","./src/stores/bookmarkstore.ts","./src/stores/filesystemstore.ts","./src/stores/mapstore.ts","./src/stores/versionstore.ts","./src/stores/worldobjectstores.ts","./src/stores/worldstore.ts","./src/types/cytoscape-cola.d.ts","./src/types/legends.d.ts","./src/app.vue","./src/components/civilizationscardlist.vue","./src/components/descriptioncard.vue","./src/components/doughnutchart.vue","./src/components/expandablecard.vue","./src/components/familytree.vue","./src/components/legendscardlist.vue","./src/components/linechart.vue","./src/components/warfaregraph.vue","./src/components/worldobjectpage.vue","./src/components/worldobjectspage.vue","./src/views/abduction.vue","./src/views/abductions.vue","./src/views/artifact.vue","./src/views/artifacts.vue","./src/views/battle.vue","./src/views/battles.vue","./src/views/beastattack.vue","./src/views/beastattacks.vue","./src/views/ceremonies.vue","./src/views/ceremony.vue","./src/views/competition.vue","./src/views/competitions.vue","./src/views/construction.vue","./src/views/constructions.vue","./src/views/coup.vue","./src/views/coups.vue","./src/views/danceform.vue","./src/views/danceforms.vue","./src/views/duel.vue","./src/views/duels.vue","./src/views/entities.vue","./src/views/entity.vue","./src/views/era.vue","./src/views/eras.vue","./src/views/historicalfigure.vue","./src/views/historicalfigures.vue","./src/views/insurrection.vue","./src/views/insurrections.vue","./src/views/journey.vue","./src/views/journeys.vue","./src/views/landmass.vue","./src/views/landmasses.vue","./src/views/map.vue","./src/views/mountainpeak.vue","./src/views/mountainpeaks.vue","./src/views/musicalform.vue","./src/views/musicalforms.vue","./src/views/occasion.vue","./src/views/occasions.vue","./src/views/performance.vue","./src/views/performances.vue","./src/views/persecution.vue","./src/views/persecutions.vue","./src/views/poeticform.vue","./src/views/poeticforms.vue","./src/views/procession.vue","./src/views/processions.vue","./src/views/purge.vue","./src/views/purges.vue","./src/views/raid.vue","./src/views/raids.vue","./src/views/region.vue","./src/views/regions.vue","./src/views/river.vue","./src/views/rivers.vue","./src/views/site.vue","./src/views/siteconquering.vue","./src/views/siteconquerings.vue","./src/views/sites.vue","./src/views/structure.vue","./src/views/structures.vue","./src/views/theft.vue","./src/views/thefts.vue","./src/views/undergroundregion.vue","./src/views/undergroundregions.vue","./src/views/war.vue","./src/views/wars.vue","./src/views/world.vue","./src/views/worldoverview.vue","./src/views/writtencontent.vue","./src/views/writtencontents.vue"],"version":"5.7.3"}
+\ No newline at end of file
++{"root":["./src/apiclient.ts","./src/main.ts","./src/vite-env.d.ts","./src/vue-shim.d.ts","./src/generated/api-schema.d.ts","./src/router/index.ts","./src/stores/bookmarkstore.ts","./src/stores/favoritestore.ts","./src/stores/filesystemstore.ts","./src/stores/mapstore.ts","./src/stores/versionstore.ts","./src/stores/worldobjectstores.ts","./src/stores/worldstore.ts","./src/types/cytoscape-cola.d.ts","./src/types/legends.d.ts","./src/app.vue","./src/components/barchart.vue","./src/components/civilizationscardlist.vue","./src/components/descriptioncard.vue","./src/components/doughnutchart.vue","./src/components/expandablecard.vue","./src/components/familytree.vue","./src/components/legendscardlist.vue","./src/components/linechart.vue","./src/components/warfaregraph.vue","./src/components/worldobjectpage.vue","./src/components/worldobjectspage.vue","./src/views/abduction.vue","./src/views/abductions.vue","./src/views/artifact.vue","./src/views/artifacts.vue","./src/views/battle.vue","./src/views/battles.vue","./src/views/beastattack.vue","./src/views/beastattacks.vue","./src/views/ceremonies.vue","./src/views/ceremony.vue","./src/views/competition.vue","./src/views/competitions.vue","./src/views/construction.vue","./src/views/constructions.vue","./src/views/coup.vue","./src/views/coups.vue","./src/views/danceform.vue","./src/views/danceforms.vue","./src/views/duel.vue","./src/views/duels.vue","./src/views/entities.vue","./src/views/entity.vue","./src/views/era.vue","./src/views/eras.vue","./src/views/historicalfigure.vue","./src/views/historicalfigures.vue","./src/views/insurrection.vue","./src/views/insurrections.vue","./src/views/journey.vue","./src/views/journeys.vue","./src/views/landmass.vue","./src/views/landmasses.vue","./src/views/map.vue","./src/views/mountainpeak.vue","./src/views/mountainpeaks.vue","./src/views/musicalform.vue","./src/views/musicalforms.vue","./src/views/occasion.vue","./src/views/occasions.vue","./src/views/performance.vue","./src/views/performances.vue","./src/views/persecution.vue","./src/views/persecutions.vue","./src/views/poeticform.vue","./src/views/poeticforms.vue","./src/views/procession.vue","./src/views/processions.vue","./src/views/purge.vue","./src/views/purges.vue","./src/views/raid.vue","./src/views/raids.vue","./src/views/region.vue","./src/views/regions.vue","./src/views/river.vue","./src/views/rivers.vue","./src/views/site.vue","./src/views/siteconquering.vue","./src/views/siteconquerings.vue","./src/views/sites.vue","./src/views/structure.vue","./src/views/structures.vue","./src/views/theft.vue","./src/views/thefts.vue","./src/views/undergroundregion.vue","./src/views/undergroundregions.vue","./src/views/war.vue","./src/views/wars.vue","./src/views/world.vue","./src/views/worldoverview.vue","./src/views/writtencontent.vue","./src/views/writtencontents.vue"],"version":"5.7.3"}
+\ No newline at end of file
