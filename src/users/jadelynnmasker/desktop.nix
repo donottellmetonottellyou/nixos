@@ -11,6 +11,7 @@
       xdgDesktopPortalSupport = true;
     })
     # Games & Learning
+    ckan
     crawlTiles
     digital
     (prismlauncher.override {
