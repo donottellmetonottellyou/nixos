@@ -23,6 +23,7 @@
   ];
 
   xdg.autostart.entries = with pkgs; [
-    "${keepassxc}/share/applications/org.keepassxc.KeePassXC.desktop"
+    # "${keepassxc}/share/applications/org.keepassxc.KeePassXC.desktop"
+    # "${birdtray}/share/applications/com.ulduzsoft.Birdtray.desktop"
   ];
 }

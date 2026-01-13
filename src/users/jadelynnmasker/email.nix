@@ -19,8 +19,4 @@
       withExternalGnupg = true;
     };
   };
-
-  xdg.autostart.entries = with pkgs; [
-    "${birdtray}/share/applications/com.ulduzsoft.Birdtray.desktop"
-  ];
 }
