@@ -6,6 +6,7 @@
       neovim # System vim editor, replaced by helix for myself
       nix-output-monitor # Useful metrics while installing nixos
       python312Packages.pygments # Syntax highlighting for colorize
+      btop # pretty system monitor
     ];
 
     variables = {
