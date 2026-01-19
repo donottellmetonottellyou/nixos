@@ -1,15 +1,7 @@
 { pkgs, ... }:
 {
   services = {
-    # Default Plasma login
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = false;
-      wayland = {
-        enable = true;
-        compositor = "kwin";
-      };
-    };
+    displayManager.ly.enable = true;
     desktopManager.plasma6 = {
       enable = true;
     };
