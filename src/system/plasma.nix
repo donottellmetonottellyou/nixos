@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   services = {
-    displayManager.ly.enable = true;
     desktopManager.plasma6 = {
       enable = true;
     };
