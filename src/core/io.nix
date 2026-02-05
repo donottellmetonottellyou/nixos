@@ -2,7 +2,9 @@
 {
   # ============================================================================
   # \/ TIME & REGION \/
-  time.timeZone = "America/Detroit";
+  time = {
+    # timeZone = "America/Detroit";
+  };
   i18n = {
     defaultLocale = "en_US.UTF-8";
     # 24H ISO-ish time
