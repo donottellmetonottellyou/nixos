@@ -14,6 +14,7 @@
     ckan
     crawlTiles
     digital
+    endless-sky
     (prismlauncher.override {
       jdks = [
         jdk21
