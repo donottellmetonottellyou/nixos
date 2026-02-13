@@ -21,6 +21,7 @@
         jdk25
       ];
     })
+    uqm
   ];
 
   xdg.autostart.entries = with pkgs; [
