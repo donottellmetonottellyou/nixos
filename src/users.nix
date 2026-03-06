@@ -5,6 +5,7 @@
 
     ./users/jadelynnmasker.nix
     ./users/kids.nix
+    ./users/lfs.nix
   ];
 
   home-manager = {
