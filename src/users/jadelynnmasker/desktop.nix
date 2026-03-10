@@ -17,6 +17,7 @@
     endless-sky
     (prismlauncher.override {
       jdks = [
+        jdk8
         jdk21
         jdk25
       ];
