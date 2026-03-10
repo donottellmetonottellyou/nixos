@@ -25,7 +25,7 @@
       settings = {
         background = "#1a1d1f";
         foreground = "#ffffff";
-        enabled_layouts = "grid";
+        enabled_layouts = "vertical";
         tab_bar_edge = "top";
         tab_bar_style = "slant";
         allow_remote_control = "password";
