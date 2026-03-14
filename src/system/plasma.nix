@@ -48,14 +48,14 @@
   fonts = {
     enableDefaultPackages = true;
     fontconfig = {
-      antialias = false;
+      antialias = true;
       defaultFonts = rec {
         emoji = monospace;
         monospace = [ "FiraCode Nerd Font" ];
         sansSerif = monospace;
         serif = monospace;
       };
-      hinting.enable = false;
+      hinting.enable = true;
       subpixel.lcdfilter = "none";
     };
     packages = with pkgs; [
