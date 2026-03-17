@@ -11,6 +11,7 @@
       xdgDesktopPortalSupport = true;
     })
     # Games & Learning
+    bottles
     ckan
     crawlTiles
     digital
@@ -23,6 +24,7 @@
       ];
     })
     uqm
+    wineWow64Packages.waylandFull
   ];
 
   xdg.autostart.entries = with pkgs; [
