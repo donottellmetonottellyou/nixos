@@ -16,6 +16,7 @@
     crawlTiles
     digital
     endless-sky
+    itch
     (prismlauncher.override {
       jdks = [
         jdk8
