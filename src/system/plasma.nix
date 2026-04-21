@@ -59,7 +59,12 @@
       subpixel.lcdfilter = "none";
     };
     packages = with pkgs; [
+      # Compatibility with Word for libreoffice
+      corefonts
+      # Prefered main (default font)
       nerd-fonts.fira-code
+      # Google free fonts
+      noto-fonts
     ];
   };
 
