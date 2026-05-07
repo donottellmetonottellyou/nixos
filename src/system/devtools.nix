@@ -25,6 +25,8 @@
       ];
       settings = {
         directory.truncate_to_repo = false;
+        scan_timeout = 500;
+        command_timeout = 5000;
       };
     };
 
