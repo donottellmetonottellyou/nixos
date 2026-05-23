@@ -8,6 +8,7 @@
     zsh = {
       enable = true;
       sessionVariables = {
+        # to connect in Godot, use command bash with flags -c "kitten @ launch --type tab hx {file} +{line}"
         KITTY_RC_PASSWORD = "$(dd status=none bs=256 count=1 if=/dev/random | sha256sum | fold -bw 64 | head -n 1)";
       };
     };
