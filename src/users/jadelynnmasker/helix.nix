@@ -17,6 +17,7 @@
       taplo # toml
       typescript-language-server # Javascript/Typescript
       vscode-langservers-extracted # HTML/CSS/JSON
+      netcat # godot language server
     ];
     settings = {
       theme = "dark_plus";
@@ -86,6 +87,10 @@
           ];
         }
         {
+          name = "gdscript";
+          language-servers = [ { name = "godot"; } ];
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter.command = "nixfmt";
@@ -110,6 +115,13 @@
         }
       ];
       language-server = {
+        godot = {
+          command = "nc";
+          args = [
+            "127.0.0.1"
+            "6005"
+          ];
+        };
         omnisharp = {
           command = "OmniSharp";
         };
