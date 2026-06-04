@@ -4,8 +4,7 @@
     # AI Backend
     ollama = {
       enable = true;
-      package = pkgs.unstable.ollama;
-      acceleration = false;
+      package = pkgs.ollama-cpu;
     };
     # AI Frontend
     open-webui = {

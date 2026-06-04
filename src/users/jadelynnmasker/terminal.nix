@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.packages = with pkgs; [
     wl-clipboard # needed for clipboard
@@ -7,6 +7,8 @@
   programs = {
     zsh = {
       enable = true;
+      # 25.11 -> 26.05
+      dotDir = "${config.xdg.configHome}/zsh";
       sessionVariables = {
         # to connect in Godot, use command bash with flags -c "kitten @ launch --type tab hx {file} +{line}"
         KITTY_RC_PASSWORD = "$(dd status=none bs=256 count=1 if=/dev/random | sha256sum | fold -bw 64 | head -n 1)";
