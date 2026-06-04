@@ -8,34 +8,16 @@
 
   programs = {
     dconf.enable = true; # fixes gtk themes in wayland
-
-    # Sets tty1 to be dedicated KDE display manager
-    zsh.loginShellInit = ''
-      if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-        echo Starting plasma...
-        sleep 1
-        exec startplasma-wayland
-      fi
-    '';
   };
 
-  environment.etc."issue-tty1".text = ''
-    KDE Plasma Console (tty1)
-    This terminal automatically starts Plasma on login
+  services.greetd = {
+    enable = true;
 
-    \n \r \d \t
-
-    Please log in
-
-  '';
-
-  systemd.services."getty@tty1" = {
-    overrideStrategy = "asDropin";
-    serviceConfig = {
-      ExecStart = lib.mkForce [
-        ""
-        "-${pkgs.util-linux}/sbin/agetty --issue-file /etc/issue-tty1 %I $TERM"
-      ];
+    settings = {
+      default_session = {
+        user = "greeter";
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --cmd startplasma-wayland";
+      };
     };
   };
 
