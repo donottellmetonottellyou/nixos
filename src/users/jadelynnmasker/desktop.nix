@@ -10,6 +10,8 @@
     (zoom-us.overrideAttrs {
       xdgDesktopPortalSupport = true;
     })
+    # Remote desktop
+    rustdesk
     # Games & Learning
     bottles
     ckan
