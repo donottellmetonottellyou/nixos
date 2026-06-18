@@ -91,6 +91,11 @@
           language-servers = [ { name = "godot"; } ];
         }
         {
+          name = "markdown";
+          indent.tab-width = 4;
+          indent.unit = "    ";
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter.command = "nixfmt";
