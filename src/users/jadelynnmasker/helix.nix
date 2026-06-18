@@ -78,7 +78,10 @@
         }
         {
           name = "c-sharp";
-          formatter.command = "dotnet-csharpier";
+          formatter = {
+            command = "csharpier";
+            args = [ "format" ];
+          };
           language-servers = [
             {
               name = "omnisharp";
@@ -116,7 +119,7 @@
               except-features = [ "format" ];
             }
           ];
-          formatter.command = "dotnet-csharpier";
+          formatter.command = "csharpier";
         }
       ];
       language-server = {
@@ -127,11 +130,12 @@
             "6005"
           ];
         };
-        omnisharp = {
-          command = "OmniSharp";
-        };
         lemminx = {
           command = "lemminx";
+        };
+        omnisharp = {
+          command = "OmniSharp";
+          args = [ "--languageserver" ];
         };
         rust-analyzer = {
           config = {
