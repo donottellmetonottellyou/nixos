@@ -13,11 +13,7 @@
       home.stateVersion = config.system.stateVersion;
 
       home.packages = with pkgs; [
-        (prismlauncher.override {
-          jdks = [
-            jdk21
-          ];
-        })
+        prismlauncher
       ];
     };
 }

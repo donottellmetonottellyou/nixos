@@ -19,13 +19,7 @@
     digital
     endless-sky
     itch
-    (prismlauncher.override {
-      jdks = [
-        jdk8
-        jdk21
-        jdk25
-      ];
-    })
+    prismlauncher
     uqm
     wineWow64Packages.waylandFull
   ];
