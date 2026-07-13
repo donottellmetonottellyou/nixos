@@ -37,8 +37,15 @@
         sansSerif = monospace;
         serif = monospace;
       };
-      hinting.enable = true;
-      subpixel.lcdfilter = "none";
+      hinting = {
+        enable = false;
+        autohint = false;
+        style = "none";
+      };
+      subpixel = {
+        lcdfilter = "none";
+        rgba = "none";
+      };
     };
     packages = with pkgs; [
       # Compatibility with Word for libreoffice
