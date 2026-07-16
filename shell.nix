@@ -56,6 +56,11 @@ pkgs.mkShell {
       git add -p || exit 1
       git commit --amend
 
+      test -z "$(sudo git -C /etc/nixos status --porcelain)" || {
+          echo "/etc/nixos is not clean"
+          exit 1
+      }
+
       sudo git reset -C /etc/nixos --hard HEAD~1 &&
       sudo git merge -C /etc/nixos --ff-only worktree || {
         echo "Failed to reapply commit to /etc/nixos!"
