@@ -33,23 +33,21 @@ pkgs.mkShell {
       git add -p || exit 1
       git commit
 
-      cd /etc/nixos &&
-        sudo git merge --ff-only worktree || {
-          echo "Failed to apply changes cleanly to /etc/nixos!"
-          echo "Was /etc/nixos dirtied?"
-          exit 1
-        }
+      sudo git merge -C /etc/nixos --ff-only worktree || {
+        echo "Failed to apply changes cleanly to /etc/nixos!"
+        echo "Was /etc/nixos dirtied?"
+        exit 1
+      }
     '')
 
     (writeShellScriptBin "push-config" ''
       set -o pipefail
 
-      cd /etc/nixos &&
-        git push || {
-          echo "Failed to push changes to remote!"
-          echo "Do changes in the remote need to be integrated?"
-          exit 1
-        }
+      git push -C /etc/nixos || {
+        echo "Failed to push changes to remote!"
+        echo "Do changes in the remote need to be integrated?"
+        exit 1
+      }
     '')
 
     (writeShellScriptBin "amend-config" ''
@@ -58,13 +56,12 @@ pkgs.mkShell {
       git add -p || exit 1
       git commit --amend
 
-      cd /etc/nixos &&
-        sudo git reset --hard HEAD~1 &&
-        sudo git merge --ff-only worktree || {
-          echo "Failed to reapply commit to /etc/nixos!"
-          echo "Be careful to investigate completely!"
-          exit 1
-        }
+      sudo git reset -C /etc/nixos --hard HEAD~1 &&
+      sudo git merge -C /etc/nixos --ff-only worktree || {
+        echo "Failed to reapply commit to /etc/nixos!"
+        echo "Be careful to investigate completely!"
+        exit 1
+      }
     '')
 
     (writeShellScriptBin "list-pkgs" ''
