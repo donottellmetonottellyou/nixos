@@ -7,21 +7,29 @@ pkgs.mkShell {
     nix-output-monitor
 
     (writeShellScriptBin "fast-switch-config" ''
+      set -o pipefail
+
       sudo nixos-rebuild switch --no-reexec --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "fast-boot-config" ''
+      set -o pipefail
+
       sudo nixos-rebuild boot --no-reexec --install-bootloader --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "update-boot-config" ''
+      set -o pipefail
+
       sudo nixos-rebuild boot --upgrade-all --install-bootloader --fallback --log-format internal-json |&
         sudo nom --json
     '')
 
     (writeShellScriptBin "commit-config" ''
+      set -o pipefail
+
       git add -p || exit 1
       git commit
 
@@ -34,6 +42,8 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "push-config" ''
+      set -o pipefail
+
       cd /etc/nixos &&
         git push || {
           echo "Failed to push changes to remote!"
@@ -43,6 +53,8 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "amend-config" ''
+      set -o pipefail
+
       git add -p || exit 1
       git commit --amend
 
@@ -56,6 +68,8 @@ pkgs.mkShell {
     '')
 
     (writeShellScriptBin "list-pkgs" ''
+      set -o pipefail
+
       nix-store -q --requisites /run/current-system/sw |
         sed 's|/nix/store/[a-z0-9]*-||' |
         sort |
