@@ -2,6 +2,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
+      gdb # debugger
       micro # System editor, with default keybinds
       neovim # System vim editor, replaced by helix for myself
       nix-output-monitor # Useful metrics while installing nixos
