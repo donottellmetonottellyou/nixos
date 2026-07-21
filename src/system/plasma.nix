@@ -89,6 +89,7 @@
         partitionmanager
         plasma-browser-integration
         plasma-disks
+        skanpage # scanner utility
         # /\ extra kde utils /\
       ]);
 
