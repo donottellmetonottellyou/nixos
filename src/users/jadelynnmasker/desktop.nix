@@ -19,6 +19,7 @@
     digital
     endless-sky
     itch
+    unstable.legendsviewer-next
     prismlauncher
     uqm
     wineWow64Packages.waylandFull
