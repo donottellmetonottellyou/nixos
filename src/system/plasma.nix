@@ -4,21 +4,13 @@
     desktopManager.plasma6 = {
       enable = true;
     };
+    displayManager.plasma-login-manager = {
+      enable = true;
+    };
   };
 
   programs = {
     dconf.enable = true; # fixes gtk themes in wayland
-  };
-
-  services.greetd = {
-    enable = true;
-
-    settings = {
-      default_session = {
-        user = "greeter";
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --cmd startplasma-wayland";
-      };
-    };
   };
 
   # Fixes issue with xdg-open, which opens default applications
