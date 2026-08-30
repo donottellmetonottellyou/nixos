@@ -8,6 +8,10 @@
       nix-output-monitor # Useful metrics while installing nixos
       python312Packages.pygments # Syntax highlighting for colorize
       btop # pretty system monitor
+
+      # LSPs and similar
+      nixd
+      nixpkgs-fmt
     ];
 
     variables = {
