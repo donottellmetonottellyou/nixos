@@ -37,6 +37,7 @@
         ./jadelynnmasker/helix.nix
         ./jadelynnmasker/taskwarrior.nix
         ./jadelynnmasker/terminal.nix
+        ./jadelynnmasker/vscode.nix
 
         # Fork testing
         ./jadelynnmasker/testing.nix
