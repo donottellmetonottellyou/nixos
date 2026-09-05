@@ -20,6 +20,7 @@
     unstable.legendsviewer-next
     prismlauncher
     uqm
+    unstable.vintagestory
     wineWow64Packages.waylandFull
   ];
 
