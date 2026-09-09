@@ -29,6 +29,8 @@
         background = "#1a1d1f";
         foreground = "#ffffff";
         enabled_layouts = "vertical";
+        scrollback_lines = 10000;
+        scrollback_pager_history_size = 100;
         tab_bar_edge = "top";
         tab_bar_style = "slant";
         allow_remote_control = "password";
