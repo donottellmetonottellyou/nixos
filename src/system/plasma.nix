@@ -3,6 +3,7 @@
   services = {
     desktopManager.plasma6 = {
       enable = true;
+      enableQt5Integration = false;
     };
     displayManager.plasma-login-manager = {
       enable = true;
