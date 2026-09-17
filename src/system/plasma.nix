@@ -20,36 +20,6 @@
     xdgOpenUsePortal = true;
   };
 
-  fonts = {
-    enableDefaultPackages = true;
-    fontconfig = {
-      antialias = true;
-      defaultFonts = rec {
-        emoji = monospace;
-        monospace = [ "FiraCode Nerd Font" ];
-        sansSerif = monospace;
-        serif = monospace;
-      };
-      hinting = {
-        enable = false;
-        autohint = false;
-        style = "none";
-      };
-      subpixel = {
-        lcdfilter = "none";
-        rgba = "none";
-      };
-    };
-    packages = with pkgs; [
-      # Compatibility with Word for libreoffice
-      corefonts
-      # Prefered main (default font)
-      nerd-fonts.fira-code
-      # Google free fonts
-      noto-fonts
-    ];
-  };
-
   environment = {
     systemPackages =
       (with pkgs; [
