@@ -6,7 +6,19 @@
   };
 
   programs = {
-    dconf.enable = true; # fixes gtk themes in wayland
+    dconf = {
+      enable = true;
+      profiles.user.databases = [
+        {
+          settings = {
+            "org/gnome/desktop/interface" = {
+              color-scheme = "prefer-dark";
+              gtk-theme = "Adwaita-dark";
+            };
+          };
+        }
+      ];
+    };
   };
 
   # Fixes issue with xdg-open, which opens default applications
