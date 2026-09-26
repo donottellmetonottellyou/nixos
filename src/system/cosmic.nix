@@ -29,7 +29,7 @@
 
   environment.systemPackages = with pkgs; [
     libreoffice-fresh # documents
-
+    kdePackages.kdenlive # video editing
     # \/ Extra Cosmic Utils
     cosmic-ext-calculator
     cosmic-ext-tweaks
