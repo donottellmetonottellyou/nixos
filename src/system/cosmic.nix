@@ -30,6 +30,8 @@
   environment.systemPackages = with pkgs; [
     libreoffice-fresh # documents
     kdePackages.kdenlive # video editing
+    kdePackages.gwenview # photo viewer
+    vlc # alternative video viewer
     # \/ Extra Cosmic Utils
     cosmic-ext-calculator
     cosmic-ext-tweaks
