@@ -35,7 +35,9 @@
     # \/ Extra Cosmic Utils
     cosmic-ext-calculator
     cosmic-ext-tweaks
+    cutecosmic # kde theme
     # /\ Extra Cosmic Utils
   ];
 
+  environment.sessionVariables.QT_QPA_PLATFORMTHEME = "cosmic";
 }
