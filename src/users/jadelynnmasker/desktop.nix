@@ -7,9 +7,6 @@
     discord
     slack
     webex
-    (zoom-us.overrideAttrs {
-      xdgDesktopPortalSupport = true;
-    })
     # Games & Learning
     bottles
     ckan
